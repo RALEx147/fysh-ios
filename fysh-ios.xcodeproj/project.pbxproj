@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F43D78F2509240300B747AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43D78E2509240300B747AA /* AppDelegate.swift */; };
+		1F43D7912509240300B747AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43D7902509240300B747AA /* SceneDelegate.swift */; };
+		1F43D7932509240300B747AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43D7922509240300B747AA /* ContentView.swift */; };
+		1F43D7952509240300B747AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F43D7942509240300B747AA /* Assets.xcassets */; };
+		1F43D7982509240300B747AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F43D7972509240300B747AA /* Preview Assets.xcassets */; };
+		1F43D79B2509240300B747AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F43D7992509240300B747AA /* LaunchScreen.storyboard */; };
+		1F43D7A62509240300B747AA /* fysh_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43D7A52509240300B747AA /* fysh_iosTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F43D7A22509240300B747AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F43D7832509240300B747AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F43D78A2509240300B747AA;
+			remoteInfo = "fysh-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1F43D78B2509240300B747AA /* fysh-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fysh-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F43D78E2509240300B747AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F43D7902509240300B747AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1F43D7922509240300B747AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1F43D7942509240300B747AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F43D7972509240300B747AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1F43D79A2509240300B747AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F43D79C2509240300B747AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F43D7A12509240300B747AA /* fysh-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fysh-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F43D7A52509240300B747AA /* fysh_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fysh_iosTests.swift; sourceTree = "<group>"; };
+		1F43D7A72509240300B747AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F43D7882509240300B747AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F43D79E2509240300B747AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F43D7822509240300B747AA = {
+			isa = PBXGroup;
+			children = (
+				1F43D78D2509240300B747AA /* fysh-ios */,
+				1F43D7A42509240300B747AA /* fysh-iosTests */,
+				1F43D78C2509240300B747AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F43D78C2509240300B747AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F43D78B2509240300B747AA /* fysh-ios.app */,
+				1F43D7A12509240300B747AA /* fysh-iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F43D78D2509240300B747AA /* fysh-ios */ = {
+			isa = PBXGroup;
+			children = (
+				1F43D78E2509240300B747AA /* AppDelegate.swift */,
+				1F43D7902509240300B747AA /* SceneDelegate.swift */,
+				1F43D7922509240300B747AA /* ContentView.swift */,
+				1F43D7942509240300B747AA /* Assets.xcassets */,
+				1F43D7992509240300B747AA /* LaunchScreen.storyboard */,
+				1F43D79C2509240300B747AA /* Info.plist */,
+				1F43D7962509240300B747AA /* Preview Content */,
+			);
+			path = "fysh-ios";
+			sourceTree = "<group>";
+		};
+		1F43D7962509240300B747AA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1F43D7972509240300B747AA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1F43D7A42509240300B747AA /* fysh-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F43D7A52509240300B747AA /* fysh_iosTests.swift */,
+				1F43D7A72509240300B747AA /* Info.plist */,
+			);
+			path = "fysh-iosTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F43D78A2509240300B747AA /* fysh-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F43D7AA2509240300B747AA /* Build configuration list for PBXNativeTarget "fysh-ios" */;
+			buildPhases = (
+				1F43D7872509240300B747AA /* Sources */,
+				1F43D7882509240300B747AA /* Frameworks */,
+				1F43D7892509240300B747AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "fysh-ios";
+			productName = "fysh-ios";
+			productReference = 1F43D78B2509240300B747AA /* fysh-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1F43D7A02509240300B747AA /* fysh-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F43D7AD2509240300B747AA /* Build configuration list for PBXNativeTarget "fysh-iosTests" */;
+			buildPhases = (
+				1F43D79D2509240300B747AA /* Sources */,
+				1F43D79E2509240300B747AA /* Frameworks */,
+				1F43D79F2509240300B747AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F43D7A32509240300B747AA /* PBXTargetDependency */,
+			);
+			name = "fysh-iosTests";
+			productName = "fysh-iosTests";
+			productReference = 1F43D7A12509240300B747AA /* fysh-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F43D7832509240300B747AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = "bucknell-csci479";
+				TargetAttributes = {
+					1F43D78A2509240300B747AA = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					1F43D7A02509240300B747AA = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 1F43D78A2509240300B747AA;
+					};
+				};
+			};
+			buildConfigurationList = 1F43D7862509240300B747AA /* Build configuration list for PBXProject "fysh-ios" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F43D7822509240300B747AA;
+			productRefGroup = 1F43D78C2509240300B747AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F43D78A2509240300B747AA /* fysh-ios */,
+				1F43D7A02509240300B747AA /* fysh-iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F43D7892509240300B747AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F43D79B2509240300B747AA /* LaunchScreen.storyboard in Resources */,
+				1F43D7982509240300B747AA /* Preview Assets.xcassets in Resources */,
+				1F43D7952509240300B747AA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F43D79F2509240300B747AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F43D7872509240300B747AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F43D78F2509240300B747AA /* AppDelegate.swift in Sources */,
+				1F43D7912509240300B747AA /* SceneDelegate.swift in Sources */,
+				1F43D7932509240300B747AA /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F43D79D2509240300B747AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F43D7A62509240300B747AA /* fysh_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F43D7A32509240300B747AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F43D78A2509240300B747AA /* fysh-ios */;
+			targetProxy = 1F43D7A22509240300B747AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F43D7992509240300B747AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F43D79A2509240300B747AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F43D7A82509240300B747AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1F43D7A92509240300B747AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F43D7AB2509240300B747AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"fysh-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = 3F483VPL7Y;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "fysh-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bucknell-csci479.fysh-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1F43D7AC2509240300B747AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"fysh-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = 3F483VPL7Y;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "fysh-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bucknell-csci479.fysh-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1F43D7AE2509240300B747AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3F483VPL7Y;
+				INFOPLIST_FILE = "fysh-iosTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bucknell-csci479.fysh-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fysh-ios.app/fysh-ios";
+			};
+			name = Debug;
+		};
+		1F43D7AF2509240300B747AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3F483VPL7Y;
+				INFOPLIST_FILE = "fysh-iosTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bucknell-csci479.fysh-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fysh-ios.app/fysh-ios";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F43D7862509240300B747AA /* Build configuration list for PBXProject "fysh-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F43D7A82509240300B747AA /* Debug */,
+				1F43D7A92509240300B747AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F43D7AA2509240300B747AA /* Build configuration list for PBXNativeTarget "fysh-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F43D7AB2509240300B747AA /* Debug */,
+				1F43D7AC2509240300B747AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F43D7AD2509240300B747AA /* Build configuration list for PBXNativeTarget "fysh-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F43D7AE2509240300B747AA /* Debug */,
+				1F43D7AF2509240300B747AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F43D7832509240300B747AA /* Project object */;
+}
