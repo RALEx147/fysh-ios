@@ -14,6 +14,8 @@
 		1F43D7982509240300B747AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F43D7972509240300B747AA /* Preview Assets.xcassets */; };
 		1F43D79B2509240300B747AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F43D7992509240300B747AA /* LaunchScreen.storyboard */; };
 		1F43D7A62509240300B747AA /* fysh_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F43D7A52509240300B747AA /* fysh_iosTests.swift */; };
+		27E4B07DA59413910E5BFF60 /* Pods_fysh_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4532F4FAE1740B10C1EB66 /* Pods_fysh_iosTests.framework */; };
+		2F176160D571D6C585342449 /* Pods_fysh_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF992BD23819C458103EA25 /* Pods_fysh_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,12 @@
 		1F43D7A12509240300B747AA /* fysh-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fysh-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F43D7A52509240300B747AA /* fysh_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fysh_iosTests.swift; sourceTree = "<group>"; };
 		1F43D7A72509240300B747AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F9CE7E2C55DB84D164AB86E /* Pods-fysh-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-ios.release.xcconfig"; path = "Target Support Files/Pods-fysh-ios/Pods-fysh-ios.release.xcconfig"; sourceTree = "<group>"; };
+		4D18B1518A42FA0E01983362 /* Pods-fysh-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-iosTests.release.xcconfig"; path = "Target Support Files/Pods-fysh-iosTests/Pods-fysh-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		BC4532F4FAE1740B10C1EB66 /* Pods_fysh_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fysh_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5AC3859EEE02566A0DC99FA /* Pods-fysh-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-ios.debug.xcconfig"; path = "Target Support Files/Pods-fysh-ios/Pods-fysh-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		F8B1A040DACF3F85ADB67C5F /* Pods-fysh-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-fysh-iosTests/Pods-fysh-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFF992BD23819C458103EA25 /* Pods_fysh_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fysh_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F176160D571D6C585342449 /* Pods_fysh_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27E4B07DA59413910E5BFF60 /* Pods_fysh_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +74,8 @@
 				1F43D78D2509240300B747AA /* fysh-ios */,
 				1F43D7A42509240300B747AA /* fysh-iosTests */,
 				1F43D78C2509240300B747AA /* Products */,
+				240874D2988A346A16A05E4A /* Pods */,
+				FE3394843C95D7C9112DB482 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +119,27 @@
 			path = "fysh-iosTests";
 			sourceTree = "<group>";
 		};
+		240874D2988A346A16A05E4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5AC3859EEE02566A0DC99FA /* Pods-fysh-ios.debug.xcconfig */,
+				1F9CE7E2C55DB84D164AB86E /* Pods-fysh-ios.release.xcconfig */,
+				F8B1A040DACF3F85ADB67C5F /* Pods-fysh-iosTests.debug.xcconfig */,
+				4D18B1518A42FA0E01983362 /* Pods-fysh-iosTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE3394843C95D7C9112DB482 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFF992BD23819C458103EA25 /* Pods_fysh_ios.framework */,
+				BC4532F4FAE1740B10C1EB66 /* Pods_fysh_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F43D7AA2509240300B747AA /* Build configuration list for PBXNativeTarget "fysh-ios" */;
 			buildPhases = (
+				49CC8689FAFE2DA5A09197D6 /* [CP] Check Pods Manifest.lock */,
 				1F43D7872509240300B747AA /* Sources */,
 				1F43D7882509240300B747AA /* Frameworks */,
 				1F43D7892509240300B747AA /* Resources */,
+				47BBD76C1A8DE407B090270F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +166,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F43D7AD2509240300B747AA /* Build configuration list for PBXNativeTarget "fysh-iosTests" */;
 			buildPhases = (
+				CC780693C5B59D752FC60021 /* [CP] Check Pods Manifest.lock */,
 				1F43D79D2509240300B747AA /* Sources */,
 				1F43D79E2509240300B747AA /* Frameworks */,
 				1F43D79F2509240300B747AA /* Resources */,
@@ -202,6 +238,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47BBD76C1A8DE407B090270F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fysh-ios/Pods-fysh-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fysh-ios/Pods-fysh-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fysh-ios/Pods-fysh-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49CC8689FAFE2DA5A09197D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fysh-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC780693C5B59D752FC60021 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fysh-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F43D7872509240300B747AA /* Sources */ = {
@@ -360,6 +460,7 @@
 		};
 		1F43D7AB2509240300B747AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5AC3859EEE02566A0DC99FA /* Pods-fysh-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -380,6 +481,7 @@
 		};
 		1F43D7AC2509240300B747AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F9CE7E2C55DB84D164AB86E /* Pods-fysh-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -400,6 +502,7 @@
 		};
 		1F43D7AE2509240300B747AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8B1A040DACF3F85ADB67C5F /* Pods-fysh-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -422,6 +525,7 @@
 		};
 		1F43D7AF2509240300B747AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D18B1518A42FA0E01983362 /* Pods-fysh-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
