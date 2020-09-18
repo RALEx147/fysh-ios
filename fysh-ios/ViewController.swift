@@ -17,7 +17,9 @@ class ViewController: UIViewController {
         let url = URL(string: "mapbox://styles/mapbox/streets-v11")
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06), zoomLevel: 9, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 40.957531, longitude: -76.886787), zoomLevel: 13, animated: false)
+		mapView.logoView.isHidden = true
+		mapView.attributionButton.isHidden = true
         view.addSubview(mapView)
 	}
 
