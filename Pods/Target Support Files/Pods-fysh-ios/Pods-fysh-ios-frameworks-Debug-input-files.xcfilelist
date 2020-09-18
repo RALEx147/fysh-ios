@@ -8,6 +8,11 @@ ${BUILT_PRODUCTS_DIR}/AWSPluginsCore/AWSPluginsCore.framework
 ${BUILT_PRODUCTS_DIR}/Amplify/Amplify.framework
 ${BUILT_PRODUCTS_DIR}/AmplifyPlugins/AmplifyPlugins.framework
 ${BUILT_PRODUCTS_DIR}/AppSyncRealTimeClient/AppSyncRealTimeClient.framework
+${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework
+${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM
+${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/013BB2AF-5C29-3EC8-9510-8B78BB76D0B0.bcsymbolmap
+${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/CC443EEC-DF0E-3CA1-A893-191C118B9623.bcsymbolmap
+${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework
 ${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
 ${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework
 ${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework

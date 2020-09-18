@@ -10,6 +10,8 @@ target 'fysh-ios' do
   pod 'Amplify/Tools'
   pod 'AmplifyPlugins/AWSAPIPlugin'
   pod 'AmplifyPlugins/AWSDataStorePlugin'
+	pod 'Mapbox-iOS-SDK', '~> 6.1.0'
+
   target 'fysh-iosTests' do
     inherit! :search_paths
     # Pods for testing

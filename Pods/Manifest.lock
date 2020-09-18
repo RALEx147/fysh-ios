@@ -30,6 +30,9 @@ PODS:
     - Amplify (= 1.2.0)
     - AWSCore (~> 2.15.0)
     - AWSMobileClient (~> 2.15.0)
+  - Mapbox-iOS-SDK (6.1.0):
+    - MapboxMobileEvents (= 0.10.2)
+  - MapboxMobileEvents (0.10.2)
   - ReachabilitySwift (5.0.0)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
@@ -41,6 +44,7 @@ DEPENDENCIES:
   - Amplify/Tools
   - AmplifyPlugins/AWSAPIPlugin
   - AmplifyPlugins/AWSDataStorePlugin
+  - Mapbox-iOS-SDK (~> 6.1.0)
 
 SPEC REPOS:
   trunk:
@@ -53,6 +57,8 @@ SPEC REPOS:
     - AWSCore
     - AWSMobileClient
     - AWSPluginsCore
+    - Mapbox-iOS-SDK
+    - MapboxMobileEvents
     - ReachabilitySwift
     - SQLite.swift
     - Starscream
@@ -67,10 +73,12 @@ SPEC CHECKSUMS:
   AWSCore: 5a8f9d7461dbe5ea6a5473c41cf113b687e19136
   AWSMobileClient: 5c29678413764ee3bcd528421331deb0a35b72fb
   AWSPluginsCore: c413c27dece5dbf0e9530ae6c01a804998205eb7
+  Mapbox-iOS-SDK: c2ad9880240884d3aff90660da64a5321cef91db
+  MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: af2be9c4fd4b66d7e7a6666cb9260a9c20e941a1
+PODFILE CHECKSUM: c6dffef3e654a7e43e3ca4b13978cde4c29a8f60
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
