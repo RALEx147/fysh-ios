@@ -67,6 +67,16 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Mapbox-iOS-SDK.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>MapboxMobileEvents.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 		<key>Pods-fysh-ios.xcscheme</key>
 		<dict>
 			<key>isShown</key>
