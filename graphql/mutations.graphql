@@ -1,0 +1,43 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateRecord(
+  $input: CreateRecordInput!
+  $condition: ModelRecordConditionInput
+) {
+  createRecord(input: $input, condition: $condition) {
+    id
+    temp
+    latitude
+    longitude
+    time
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateRecord(
+  $input: UpdateRecordInput!
+  $condition: ModelRecordConditionInput
+) {
+  updateRecord(input: $input, condition: $condition) {
+    id
+    temp
+    latitude
+    longitude
+    time
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteRecord(
+  $input: DeleteRecordInput!
+  $condition: ModelRecordConditionInput
+) {
+  deleteRecord(input: $input, condition: $condition) {
+    id
+    temp
+    latitude
+    longitude
+    time
+    createdAt
+    updatedAt
+  }
+}

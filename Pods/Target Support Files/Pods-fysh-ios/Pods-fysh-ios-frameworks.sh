@@ -197,6 +197,7 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSAppSync/AWSAppSync.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework"
@@ -216,6 +217,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSAppSync/AWSAppSync.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework"

@@ -4,5 +4,6 @@ type Record @model {
   latitude: String
   longitude: String
   time: String
+
 }
 
