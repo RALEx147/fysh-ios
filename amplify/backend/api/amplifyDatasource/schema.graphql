@@ -1,10 +1,9 @@
-type Task @model {
+type Record @model {
   id: ID!
-  title: String!
-  description: String
-  status: String
+  temp: String!
+  latitude: String
+  longitude: String
+  time: String
+
 }
-type Note @model {
-  id: ID!
-  content: String!
-}
+

@@ -11,6 +11,7 @@ target 'fysh-ios' do
   pod 'AmplifyPlugins/AWSAPIPlugin'
   pod 'AmplifyPlugins/AWSDataStorePlugin'
   pod 'Mapbox-iOS-SDK', '~> 6.1.0'
+  pod 'AWSAppSync'
 
   target 'fysh-iosTests' do
     inherit! :search_paths

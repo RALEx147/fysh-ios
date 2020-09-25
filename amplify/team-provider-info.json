@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fysh-ios-dev-165428-authRole",
+      "UnauthRoleArn": "arn:aws:iam::030645333113:role/amplify-fysh-ios-dev-165428-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::030645333113:role/amplify-fysh-ios-dev-165428-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-fysh-ios-dev-165428-deployment",
+      "UnauthRoleName": "amplify-fysh-ios-dev-165428-unauthRole",
+      "StackName": "amplify-fysh-ios-dev-165428",
+      "StackId": "arn:aws:cloudformation:us-east-1:030645333113:stack/amplify-fysh-ios-dev-165428/d13feeb0-fd15-11ea-9e7b-0eac0ccc6c9d",
+      "AmplifyAppId": "d1ql9f10hxu540"
+    }
+  }
+}

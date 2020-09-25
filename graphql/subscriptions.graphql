@@ -1,0 +1,34 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateRecord {
+  onCreateRecord {
+    id
+    temp
+    latitude
+    longitude
+    time
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateRecord {
+  onUpdateRecord {
+    id
+    temp
+    latitude
+    longitude
+    time
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteRecord {
+  onDeleteRecord {
+    id
+    temp
+    latitude
+    longitude
+    time
+    createdAt
+    updatedAt
+  }
+}
