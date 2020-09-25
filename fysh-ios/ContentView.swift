@@ -61,7 +61,7 @@ struct ContentView: View {
         
         appSyncClient = appDelegate.appSyncClient
         
-        let mutationInput = CreateRecordInput( temp: "test_push", latitude: "56.4", longitude: "123", time: "8:00")
+        let mutationInput = CreateRecordInput( temp: "bada bing", latitude: "56.4", longitude: "123", time: "8:00")
 
         appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput)) { (result, error) in
           if let error = error as? AWSAppSyncClientError {
