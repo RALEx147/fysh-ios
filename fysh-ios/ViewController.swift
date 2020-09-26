@@ -21,13 +21,11 @@ class ViewController: UIViewController {
 		addUIMenu()
 		addUISearch()
 		addUIInput()
-
-		testbackend()
 	}
 	
 	
 	func testbackend() {
-        let item = Record( id: "877", temp: "60", latitude: "50.2", longitude: "172", time: "5:00 AM")
+        let item = Record( temp: "656", latitude: "50.2", longitude: "172", time: "5:00 AM")
         
         Amplify.DataStore.save(item) { (result) in
            switch(result) {
@@ -44,7 +42,7 @@ class ViewController: UIViewController {
         
         appSyncClient = appDelegate.appSyncClient
         
-        let mutationInput = CreateRecordInput( temp: "test_push", latitude: "56.4", longitude: "123", time: "8:00")
+        let mutationInput = CreateRecordInput( temp: "656", latitude: "56.4", longitude: "123", time: "8:00")
 
         appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput)) { (result, error) in
           if let error = error as? AWSAppSyncClientError {
@@ -60,6 +58,7 @@ class ViewController: UIViewController {
 
 	@objc func pressedMenu(){
 		print("Menu button tapped")
+        testbackend()
 	}
 	
 	@objc func pressedSearch(){

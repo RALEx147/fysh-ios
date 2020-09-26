@@ -182,7 +182,7 @@
 			buildConfigurationList = 1F0553AB25155CEA009A6A6F /* Build configuration list for PBXNativeTarget "fysh-ios" */;
 			buildPhases = (
 				27EE748E1F21186BD1A2A68E /* [CP] Check Pods Manifest.lock */,
-				1F4D949125155D5600722752 /* ShellScript */,
+				1F4D949125155D5600722752 /* Run Amplify Tools */,
 				1F05538825155CEA009A6A6F /* Sources */,
 				1F05538925155CEA009A6A6F /* Frameworks */,
 				1F05538A25155CEA009A6A6F /* Resources */,
@@ -277,7 +277,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1F4D949125155D5600722752 /* ShellScript */ = {
+		1F4D949125155D5600722752 /* Run Amplify Tools */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,6 +286,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Amplify Tools";
 			outputFileListPaths = (
 			);
 			outputPaths = (
