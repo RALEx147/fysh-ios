@@ -1,7 +1,0 @@
-{
-    "AppSyncApiName": "fyshios",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false,
-    "S3DeploymentBucket": "amplify-fyshios-dev-110347-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/893f9d2a7dd5c6c92e15516f4decc0af7eab5027"
-}

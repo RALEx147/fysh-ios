@@ -1,7 +1,0 @@
-type Record @model {
-  id: ID!
-  temp: String!
-  latitude: String
-  longitude: String
-  time: String
-}
