@@ -13,6 +13,9 @@ import AmplifyPlugins
 import AWSAppSync
 
 class ViewController: UIViewController {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,18 +28,7 @@ class ViewController: UIViewController {
 	
 	
 	func testbackend() {
-        let item = Record( temp: "656", latitude: "50.2", longitude: "172", time: "5:00 AM")
-        
-        Amplify.DataStore.save(item) { (result) in
-           switch(result) {
-           case .success(let savedItem):
-               print("Saved item: \(savedItem.temp)")
-           case .failure(let error):
-               print("Could not save item to datastore: \(error)")
-           }
-        }
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                
         
         var appSyncClient: AWSAppSyncClient?
         
@@ -53,6 +45,8 @@ class ViewController: UIViewController {
             return
           }
         }
+        
+        print("success")
 
 	}
 

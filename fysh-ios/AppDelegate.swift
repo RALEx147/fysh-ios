@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dataStorePlugin = AWSDataStorePlugin(modelRegistration: AmplifyModels())
         do {
            try Amplify.add(plugin:dataStorePlugin)
+           try Amplify.add(plugin: AWSAPIPlugin(modelRegistration: AmplifyModels()))
            try Amplify.configure()
            print("Initialized Amplify");
         } catch {
