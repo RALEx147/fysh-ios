@@ -17,6 +17,7 @@
 		1F0553A725155CEA009A6A6F /* fysh_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0553A625155CEA009A6A6F /* fysh_iosTests.swift */; };
 		1F239D362518337100D5B048 /* ViewControllerUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */; };
 		1F59F56E251E9EEB00400A94 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F59F56D251E9EEB00400A94 /* API.swift */; };
+		1FA23B582524F1B70071ADF9 /* InpuUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA23B572524F1B70071ADF9 /* InpuUIExtension.swift */; };
 		220452F64AE97FB69C857752 /* Pods_fysh_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C264549EE6BE80B2DAFF0 /* Pods_fysh_iosTests.framework */; };
 		3E11754BA26D4FAF8597EA19 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D7A046D41D4BD2A9112CEB /* amplifyconfiguration.json */; };
 		68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF14F0EF6F400BB30DE2B3 /* AmplifyModels.swift */; };
@@ -53,6 +54,7 @@
 		1F0553A825155CEA009A6A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUIExtension.swift; sourceTree = "<group>"; };
 		1F59F56D251E9EEB00400A94 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1FA23B572524F1B70071ADF9 /* InpuUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpuUIExtension.swift; sourceTree = "<group>"; };
 		7A1EA2F4245CF1DD14946299 /* Pods_fysh_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fysh_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F094499725E79738F4C16A7 /* Pods-fysh-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-ios.release.xcconfig"; path = "Target Support Files/Pods-fysh-ios/Pods-fysh-ios.release.xcconfig"; sourceTree = "<group>"; };
 		928CBC185E937DB82CF9A322 /* Pods-fysh-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-iosTests.release.xcconfig"; path = "Target Support Files/Pods-fysh-iosTests/Pods-fysh-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				1F05539325155CEA009A6A6F /* ViewController.swift */,
 				1F59F56D251E9EEB00400A94 /* API.swift */,
 				1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */,
+				1FA23B572524F1B70071ADF9 /* InpuUIExtension.swift */,
 				1F05539525155CEA009A6A6F /* Main.storyboard */,
 				1F05539825155CEA009A6A6F /* Assets.xcassets */,
 				1F05539A25155CEA009A6A6F /* LaunchScreen.storyboard */,
@@ -367,6 +370,7 @@
 				1F05539425155CEA009A6A6F /* ViewController.swift in Sources */,
 				1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */,
 				1F05539225155CEA009A6A6F /* SceneDelegate.swift in Sources */,
+				1FA23B582524F1B70071ADF9 /* InpuUIExtension.swift in Sources */,
 				68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */,
 				068BFC7D6A8E4773B9090CE1 /* Record.swift in Sources */,
 				1F59F56E251E9EEB00400A94 /* API.swift in Sources */,
