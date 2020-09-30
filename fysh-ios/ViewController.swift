@@ -61,6 +61,8 @@ class ViewController: UIViewController {
 	
 	@objc func pressedInput(){
 		print("Input button tapped")
+        let inputTemp = InputTemp()
+        self.present(inputTemp, animated: true, completion: nil)
 	}
 	
 }

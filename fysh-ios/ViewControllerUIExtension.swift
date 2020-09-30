@@ -17,6 +17,7 @@ extension ViewController {
 		mapView.setCenter(CLLocationCoordinate2D(latitude: 40.957531, longitude: -76.886787), zoomLevel: 13, animated: false)
 		mapView.logoView.isHidden = true
 		mapView.attributionButton.isHidden = true
+        mapView.showsUserLocation = true
 		view.addSubview(mapView)
 	}
 	
@@ -63,6 +64,13 @@ extension ViewController {
 			button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
 			button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 1)
 		])
-	}
-	
+        
+        }
+    
+
+    
+    
+        
 }
+	
+
