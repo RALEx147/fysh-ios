@@ -11,9 +11,9 @@ import UIKit
 
 extension InputTemp{
     
-    func addTextInput(){
+    func addTextInput()  -> UITextField{
         
-        let temperatureInput =  UITextField(frame: CGRect(x: 20, y: 10, width: 300, height: 40))
+        let temperatureInput =  UITextField(frame: CGRect(x: 20, y: view.frame.height/2, width: 300, height: 40))
         temperatureInput.placeholder = "Enter temp here"
         temperatureInput.font = UIFont.systemFont(ofSize: 15)
         temperatureInput.borderStyle = UITextField.BorderStyle.roundedRect
@@ -23,13 +23,15 @@ extension InputTemp{
         temperatureInput.clearButtonMode = UITextField.ViewMode.whileEditing
         temperatureInput.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         temperatureInput.delegate = self
+        temperatureInput.keyboardType = UIKeyboardType.decimalPad
         self.view.addSubview(temperatureInput)
+        return temperatureInput
     }
     
     func addNextButton(){
         let nextButton = UIButton()
         let image = UIImage(named: "buttonPlaceholder")
-        nextButton.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        nextButton.frame = CGRect(x: 0, y: view.frame.height/2, width: image!.size.width, height: image!.size.height)
         nextButton.setImage(image, for: .normal)
         nextButton.addTarget(self, action: #selector(pressedNext), for: .touchUpInside)
         view.addSubview(nextButton)
@@ -37,7 +39,7 @@ extension InputTemp{
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 1)
+            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 16)
         ])
     }
     

@@ -7,19 +7,33 @@
 //
 
 import UIKit
-
+import Mapbox
 class InputTemp: UIViewController, UITextFieldDelegate {
-
+    
+    var location = CLLocationCoordinate2D()
+    var tempInput = UITextField()
+    var temp = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        addTextInput()
-        addNextButton()
-        // Do any additional setup after loading the view.
         
-    }
-    
+       tempInput = addTextInput()
+        addNextButton()
+        
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 
+            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+            //tap.cancelsTouchesInView = false
+
+            view.addGestureRecognizer(tap)
+        }
+
+        //Calls this function when the tap is recognized.
+        @objc func dismissKeyboard() {
+            //Causes the view (or one of its embedded text fields) to resign the first responder status.
+            self.temp = Int(self.tempInput.text!)!
+            view.endEditing(true)
+        }
     /*
     // MARK: - Navigation
 
@@ -29,7 +43,12 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -37,10 +56,13 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     }
     
     @objc func pressedNext(){
+    
         let inputTime = InputTime()
+        inputTime.location = self.location
+        inputTime.temp = self.temp
         self.present(inputTime, animated: true, completion: nil)
         
-    }
+        }
     
     
     

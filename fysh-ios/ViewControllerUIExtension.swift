@@ -18,6 +18,10 @@ extension ViewController {
 		mapView.logoView.isHidden = true
 		mapView.attributionButton.isHidden = true
 		mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
+        print((mapView.userLocation?.coordinate.latitude)!)
+        print( (mapView.userLocation?.coordinate.longitude)!)
+        
 		view.addSubview(mapView)
 		
 		return mapView

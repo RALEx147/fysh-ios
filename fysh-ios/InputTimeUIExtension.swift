@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 extension InputTime{
     
-    func addTimePicker(){
+    func addTimePicker() -> UIDatePicker{
         
         let tp = UIDatePicker()
         tp.datePickerMode = .time
@@ -24,6 +24,8 @@ extension InputTime{
             tp.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             tp.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 1)
         ])
+        
+        return tp
         
     }
     

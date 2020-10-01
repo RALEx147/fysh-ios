@@ -7,13 +7,18 @@
 //
 
 import UIKit
-
+import Mapbox
 class InputTime: UIViewController {
+    var location = CLLocationCoordinate2D()
+    var temp = 0
+    var timePicker = UIDatePicker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        addTimePicker()
+        timePicker = addTimePicker()
+        
+        
     }
     
 

@@ -56,6 +56,8 @@ class ViewController: UIViewController {
 	
 	@objc func pressedSearch(){
 		print("Search button tapped")
+        print("Longitude")
+        print( mapview.userLocation?.coordinate )
 	}
 	
 	@objc func pressedInput(){
@@ -67,8 +69,9 @@ class ViewController: UIViewController {
 	
 	@objc func pressedConfirm(){
 		print("Confirm button tapped")
-		let inputTemp = InputTemp()
-		self.present(inputTemp, animated: true, completion: nil)
+        let inputTemp = InputTemp()
+        inputTemp.location = self.mapview.userLocation?.coordinate as! CLLocationCoordinate2D
+        self.present(inputTemp, animated: true, completion: nil)
 	}
 	
 	@objc func pressedCancel(){
