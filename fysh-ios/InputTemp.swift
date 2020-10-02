@@ -31,7 +31,12 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         //Calls this function when the tap is recognized.
         @objc func dismissKeyboard() {
             //Causes the view (or one of its embedded text fields) to resign the first responder status.
-            self.temp = Int(self.tempInput.text!)!
+			
+			if let t = self.tempInput.text {
+				if t != "" {
+					self.temp = Int(t)!
+				}
+			}
             view.endEditing(true)
         }
     /*
