@@ -28,19 +28,24 @@ extension InputTemp{
         return temperatureInput
     }
     
-    func addNextButton(){
-        let nextButton = UIButton()
-        let image = UIImage(named: "buttonPlaceholder")
-        nextButton.frame = CGRect(x: 0, y: view.frame.height/2, width: image!.size.width, height: image!.size.height)
-        nextButton.setImage(image, for: .normal)
-        nextButton.addTarget(self, action: #selector(pressedNext), for: .touchUpInside)
-        view.addSubview(nextButton)
-        
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 16)
-        ])
-    }
+    func addNextButton() -> UIButton {
+		let button = UIButton()
+		button.backgroundColor = UIColor(red: 0.25, green: 0.65, blue: 1.00, alpha: 1.00)
+		button.setTitle("Next", for: .normal)
+		button.setTitleColor(.white, for: .normal)
+		button.layer.cornerRadius = 5
+		button.addTarget(self, action: #selector(pressedNext), for: .touchUpInside)
+		view.addSubview(button)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+			button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+			button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+			button.heightAnchor.constraint(equalToConstant: 50)
+		])
+		
+		return button
+	}
     
 }
