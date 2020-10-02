@@ -16,13 +16,13 @@ class ViewController: UIViewController {
 	
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
-	var mapview:MGLMapView!
-	var menubutton:UIButton!
-	var searchbutton:UIButton!
-	var inputbutton:UIButton!
+	var mapview = MGLMapView()
+	var menubutton = UIButton()
+	var searchbutton = UIButton()
+	var inputbutton = UIButton()
 	
-	var confirmationbutton:UIButton!
-	var cancelbutton:UIButton!
+	var confirmationbutton = UIButton()
+	var cancelbutton = UIButton()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
