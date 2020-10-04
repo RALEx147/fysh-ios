@@ -15,26 +15,33 @@ class DataModel {
     //MARK: Properties
     var Records: [Record]
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    
     init() {
         self.Records = [Record]()
     }
     
     
-    func getRecords(){
+    func getRecords(completion: @escaping () -> Void){
         var appSyncClient: AWSAppSyncClient?
         appSyncClient = appDelegate.appSyncClient
-        let mutationInput = CreateRecordInput( temp: "656", latitude: "56.4", longitude: "123", time: "8:00")
-        appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput)) { (result, error) in
-            if let error = error as? AWSAppSyncClientError {
-                print("Error occurred: \(error.localizedDescription )")
-            }
-            if let resultError = result?.errors {
-                print("Error saving the item on server: \(resultError)")
+        
+        let selectQuery = ListRecordsQuery()
+        
+        
+        appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData){(result,error) in
+            if error != nil{
+                print(error?.localizedDescription ?? "")
                 return
             }
+            
+            result?.data?.listRecords?.items?.forEach{record in
+                self.Records.append(Record(id: record?.id ?? "No ID", temp: record?.temp ?? "No Temp", latitude: record?.latitude ?? "No Lat", longitude: record?.longitude ?? "No Long", time: record?.time ?? "No Time"))
+                
+            }
+            
         }
-        print("success")
+        
+        completion()
         
     }
 }

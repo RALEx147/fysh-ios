@@ -41,6 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // AppSync configuration & client initialization
             let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: AWSAppSyncServiceConfig(), cacheConfiguration: cacheConfiguration)
             appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
+            let group = DispatchGroup()
+            group.enter()
+            Data_Model.getRecords {
+                group.leave()
+            }
         } catch {
             print("Error initializing appsync client. \(error)")
         }
