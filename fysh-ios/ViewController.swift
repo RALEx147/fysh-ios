@@ -15,7 +15,7 @@ import AWSAppSync
 class ViewController: UIViewController {
 	
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
-	
+    
 	var mapview = MGLMapView()
 	var menubutton = UIButton()
 	var searchbutton = UIButton()
@@ -26,7 +26,6 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		mapview = addUIMapbox()
 		menubutton = addUIMenu()
 		searchbutton = addUISearch()

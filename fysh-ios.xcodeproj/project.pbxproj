@@ -17,6 +17,7 @@
 		0665AB24252504350092A988 /* InputTimeUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB23252504350092A988 /* InputTimeUIExtension.swift */; };
 		0665AB25252504350092A988 /* InputTimeUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB23252504350092A988 /* InputTimeUIExtension.swift */; };
 		068BFC7D6A8E4773B9090CE1 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588482FE36D46B78ABFB2FB /* Record.swift */; };
+		06FB148E252A33A90002F5CF /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB148D252A33A90002F5CF /* DataModel.swift */; };
 		1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05538F25155CEA009A6A6F /* AppDelegate.swift */; };
 		1F05539225155CEA009A6A6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05539125155CEA009A6A6F /* SceneDelegate.swift */; };
 		1F05539425155CEA009A6A6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05539325155CEA009A6A6F /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		0665AB1E252501240092A988 /* InputTempUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTempUIExtension.swift; sourceTree = "<group>"; };
 		0665AB202525041C0092A988 /* InputTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTime.swift; sourceTree = "<group>"; };
 		0665AB23252504350092A988 /* InputTimeUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTimeUIExtension.swift; sourceTree = "<group>"; };
+		06FB148D252A33A90002F5CF /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0D5D53EC22094767A8B6EE7B /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = awsconfiguration.json; sourceTree = "<group>"; };
 		12691975F2E1F5787EFFDD84 /* Pods-fysh-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-ios.debug.xcconfig"; path = "Target Support Files/Pods-fysh-ios/Pods-fysh-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		19AF14F0EF6F400BB30DE2B3 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				0665AB202525041C0092A988 /* InputTime.swift */,
 				0665AB23252504350092A988 /* InputTimeUIExtension.swift */,
 				1F59F56D251E9EEB00400A94 /* API.swift */,
+				06FB148D252A33A90002F5CF /* DataModel.swift */,
 				1F05539525155CEA009A6A6F /* Main.storyboard */,
 				1F05539825155CEA009A6A6F /* Assets.xcassets */,
 				1F05539A25155CEA009A6A6F /* LaunchScreen.storyboard */,
@@ -390,6 +393,7 @@
 				0665AB1C2524D7160092A988 /* InputTemp.swift in Sources */,
 				0665AB24252504350092A988 /* InputTimeUIExtension.swift in Sources */,
 				1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */,
+				06FB148E252A33A90002F5CF /* DataModel.swift in Sources */,
 				0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */,
 				1F05539225155CEA009A6A6F /* SceneDelegate.swift in Sources */,
 				1F33DB5825252E4600FFF841 /* InpuUIExtension.swift in Sources */,

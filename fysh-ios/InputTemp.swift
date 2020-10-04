@@ -17,35 +17,39 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-       tempInput = addTextInput()
+        tempInput = addTextInput()
         addNextButton()
         
-            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
-            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-            //tap.cancelsTouchesInView = false
-
-            view.addGestureRecognizer(tap)
-        }
-
-        //Calls this function when the tap is recognized.
-        @objc func dismissKeyboard() {
-            //Causes the view (or one of its embedded text fields) to resign the first responder status.
-            self.temp = Int(self.tempInput.text!)!
-            view.endEditing(true)
-        }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
     }
-    */
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        do {
+            try self.temp = Int(jsonValue: self.tempInput.text ?? -1)
+        } catch is Error {
+            print("Can't cast integer")
+        }
+        view.endEditing(true)
+    }
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
     }
@@ -56,15 +60,15 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     }
     
     @objc func pressedNext(){
-    
+        
         let inputTime = InputTime()
         inputTime.location = self.location
         inputTime.temp = self.temp
         self.present(inputTime, animated: true, completion: nil)
         
-        }
+    }
     
     
     
-
+    
 }
