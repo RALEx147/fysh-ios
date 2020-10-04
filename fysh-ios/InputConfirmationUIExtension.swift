@@ -8,33 +8,16 @@
 
 import Foundation
 import UIKit
-extension InputTime{
-    
-    func addTimePicker() -> UIDatePicker{
-        
-        let tp = UIDatePicker()
-        tp.datePickerMode = .time
-        
-        
-        self.view.addSubview(tp)
-        
-        tp.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tp.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            tp.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
-        ])
-        
-        return tp
-        
-    }
+
+extension InputConfirmation{
 	
-	func addNextButton() -> UIButton {
+	func addDoneButton() -> UIButton {
 		let button = UIButton()
 		button.backgroundColor = UIColor(red: 0.25, green: 0.65, blue: 1.00, alpha: 1.00)
-		button.setTitle("Next", for: .normal)
+		button.setTitle("Done", for: .normal)
 		button.setTitleColor(.white, for: .normal)
 		button.layer.cornerRadius = 5
-		button.addTarget(self, action: #selector(pressedNext), for: .touchUpInside)
+		button.addTarget(self, action: #selector(pressedDone), for: .touchUpInside)
 		view.addSubview(button)
 		
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -47,5 +30,6 @@ extension InputTime{
 		
 		return button
 	}
+	
     
 }

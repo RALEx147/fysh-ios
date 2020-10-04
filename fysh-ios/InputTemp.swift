@@ -12,13 +12,19 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     
     var location = CLLocationCoordinate2D()
     var tempInput = UITextField()
+	var nextButton = UIButton()
     var temp = 0
+	
+	var presentingController: UIViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+		presentingController = presentingViewController
+
         view.backgroundColor = .white
         
        tempInput = addTextInput()
-        addNextButton()
+        nextButton = addNextButton()
         
             let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 
@@ -59,6 +65,11 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		let parent = presentingController as! ViewController
+		parent.showUIElements()
+	}
     
     @objc func pressedNext(){
     
@@ -66,7 +77,6 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         inputTime.location = self.location
         inputTime.temp = self.temp
         self.present(inputTime, animated: true, completion: nil)
-        
         }
     
     

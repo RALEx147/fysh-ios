@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0665AB192524D1FE0092A988 /* InputLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB182524D1FE0092A988 /* InputLocation.swift */; };
-		0665AB1A2524D1FE0092A988 /* InputLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB182524D1FE0092A988 /* InputLocation.swift */; };
 		0665AB1C2524D7160092A988 /* InputTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB1B2524D7160092A988 /* InputTemp.swift */; };
 		0665AB1D2524D7160092A988 /* InputTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB1B2524D7160092A988 /* InputTemp.swift */; };
 		0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB1E252501240092A988 /* InputTempUIExtension.swift */; };
@@ -25,8 +23,10 @@
 		1F05539C25155CEA009A6A6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F05539A25155CEA009A6A6F /* LaunchScreen.storyboard */; };
 		1F0553A725155CEA009A6A6F /* fysh_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0553A625155CEA009A6A6F /* fysh_iosTests.swift */; };
 		1F239D362518337100D5B048 /* ViewControllerUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */; };
-		1F33DB5825252E4600FFF841 /* InpuUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33DB5725252E4600FFF841 /* InpuUIExtension.swift */; };
+		1F33DB5825252E4600FFF841 /* InputLocationUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33DB5725252E4600FFF841 /* InputLocationUIExtension.swift */; };
 		1F59F56E251E9EEB00400A94 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F59F56D251E9EEB00400A94 /* API.swift */; };
+		1FF392D2252A626100AA306B /* InputConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF392D1252A626100AA306B /* InputConfirmation.swift */; };
+		1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */; };
 		220452F64AE97FB69C857752 /* Pods_fysh_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C264549EE6BE80B2DAFF0 /* Pods_fysh_iosTests.framework */; };
 		3E11754BA26D4FAF8597EA19 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D7A046D41D4BD2A9112CEB /* amplifyconfiguration.json */; };
 		68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF14F0EF6F400BB30DE2B3 /* AmplifyModels.swift */; };
@@ -47,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		0588482FE36D46B78ABFB2FB /* Record.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = Record.swift; path = amplify/generated/models/Record.swift; sourceTree = "<group>"; };
-		0665AB182524D1FE0092A988 /* InputLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLocation.swift; sourceTree = "<group>"; };
 		0665AB1B2524D7160092A988 /* InputTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTemp.swift; sourceTree = "<group>"; };
 		0665AB1E252501240092A988 /* InputTempUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTempUIExtension.swift; sourceTree = "<group>"; };
 		0665AB202525041C0092A988 /* InputTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTime.swift; sourceTree = "<group>"; };
@@ -67,8 +66,10 @@
 		1F0553A625155CEA009A6A6F /* fysh_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fysh_iosTests.swift; sourceTree = "<group>"; };
 		1F0553A825155CEA009A6A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUIExtension.swift; sourceTree = "<group>"; };
-		1F33DB5725252E4600FFF841 /* InpuUIExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InpuUIExtension.swift; sourceTree = "<group>"; };
+		1F33DB5725252E4600FFF841 /* InputLocationUIExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputLocationUIExtension.swift; sourceTree = "<group>"; };
 		1F59F56D251E9EEB00400A94 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1FF392D1252A626100AA306B /* InputConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmation.swift; sourceTree = "<group>"; };
+		1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationUIExtension.swift; sourceTree = "<group>"; };
 		7A1EA2F4245CF1DD14946299 /* Pods_fysh_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fysh_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F094499725E79738F4C16A7 /* Pods-fysh-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-ios.release.xcconfig"; path = "Target Support Files/Pods-fysh-ios/Pods-fysh-ios.release.xcconfig"; sourceTree = "<group>"; };
 		928CBC185E937DB82CF9A322 /* Pods-fysh-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-iosTests.release.xcconfig"; path = "Target Support Files/Pods-fysh-iosTests/Pods-fysh-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,15 +139,16 @@
 			isa = PBXGroup;
 			children = (
 				1F05538F25155CEA009A6A6F /* AppDelegate.swift */,
-				1F33DB5725252E4600FFF841 /* InpuUIExtension.swift */,
 				1F05539125155CEA009A6A6F /* SceneDelegate.swift */,
 				1F05539325155CEA009A6A6F /* ViewController.swift */,
 				1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */,
-				0665AB182524D1FE0092A988 /* InputLocation.swift */,
 				0665AB1B2524D7160092A988 /* InputTemp.swift */,
-				0665AB1E252501240092A988 /* InputTempUIExtension.swift */,
 				0665AB202525041C0092A988 /* InputTime.swift */,
+				1FF392D1252A626100AA306B /* InputConfirmation.swift */,
+				1F33DB5725252E4600FFF841 /* InputLocationUIExtension.swift */,
+				0665AB1E252501240092A988 /* InputTempUIExtension.swift */,
 				0665AB23252504350092A988 /* InputTimeUIExtension.swift */,
+				1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */,
 				1F59F56D251E9EEB00400A94 /* API.swift */,
 				1F05539525155CEA009A6A6F /* Main.storyboard */,
 				1F05539825155CEA009A6A6F /* Assets.xcassets */,
@@ -390,11 +392,12 @@
 				0665AB1C2524D7160092A988 /* InputTemp.swift in Sources */,
 				0665AB24252504350092A988 /* InputTimeUIExtension.swift in Sources */,
 				1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */,
+				1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */,
 				0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */,
+				1FF392D2252A626100AA306B /* InputConfirmation.swift in Sources */,
 				1F05539225155CEA009A6A6F /* SceneDelegate.swift in Sources */,
-				1F33DB5825252E4600FFF841 /* InpuUIExtension.swift in Sources */,
+				1F33DB5825252E4600FFF841 /* InputLocationUIExtension.swift in Sources */,
 				68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */,
-				0665AB192524D1FE0092A988 /* InputLocation.swift in Sources */,
 				068BFC7D6A8E4773B9090CE1 /* Record.swift in Sources */,
 				0665AB212525041C0092A988 /* InputTime.swift in Sources */,
 				1F59F56E251E9EEB00400A94 /* API.swift in Sources */,
@@ -408,7 +411,6 @@
 			files = (
 				1F0553A725155CEA009A6A6F /* fysh_iosTests.swift in Sources */,
 				0665AB222525041C0092A988 /* InputTime.swift in Sources */,
-				0665AB1A2524D1FE0092A988 /* InputLocation.swift in Sources */,
 				0665AB25252504350092A988 /* InputTimeUIExtension.swift in Sources */,
 				0665AB1D2524D7160092A988 /* InputTemp.swift in Sources */,
 			);

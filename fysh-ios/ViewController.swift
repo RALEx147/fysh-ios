@@ -8,9 +8,6 @@
 
 import UIKit
 import Mapbox
-import Amplify
-import AmplifyPlugins
-import AWSAppSync
 
 class ViewController: UIViewController {
 	
@@ -34,25 +31,9 @@ class ViewController: UIViewController {
 		inputbutton = addUIInput()
 	}
 	
-	func testbackend() {
-		var appSyncClient: AWSAppSyncClient?
-		appSyncClient = appDelegate.appSyncClient
-		let mutationInput = CreateRecordInput( temp: "656", latitude: "56.4", longitude: "123", time: "8:00")
-		appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput)) { (result, error) in
-			if let error = error as? AWSAppSyncClientError {
-				print("Error occurred: \(error.localizedDescription )")
-			}
-			if let resultError = result?.errors {
-				print("Error saving the item on server: \(resultError)")
-				return
-			}
-		}
-		print("success")
-	}
 	
 	@objc func pressedMenu(){
 		print("Menu button tapped")
-		testbackend()
 	}
 	
 	@objc func pressedSearch(){
@@ -75,7 +56,9 @@ class ViewController: UIViewController {
 		
         let inputTemp = InputTemp()
         inputTemp.location = self.mapview.userLocation?.coordinate as! CLLocationCoordinate2D
-        self.present(inputTemp, animated: true, completion: nil)
+        self.present(inputTemp, animated: true, completion: {
+			self.confirmationbutton.removeFromSuperview()
+		})
 	}
 	
 	@objc func pressedCancel(){
