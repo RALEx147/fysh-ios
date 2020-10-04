@@ -21,6 +21,7 @@ class ViewController: UIViewController {
 	var searchbutton = UIButton()
 	var inputbutton = UIButton()
 	
+	var locationDropper = UIImageView()
 	var confirmationbutton = UIButton()
 	var cancelbutton = UIButton()
 	
@@ -64,11 +65,14 @@ class ViewController: UIViewController {
 		print("Input button tapped")
 		confirmationbutton = addUIConfirmButton()
 		cancelbutton = addUICancelButton()
+		locationDropper = addUILocationDropper()
 		hideUIElements()
 	}
 	
 	@objc func pressedConfirm(){
 		print("Confirm button tapped")
+		locationDropper.removeFromSuperview()
+		
         let inputTemp = InputTemp()
         inputTemp.location = self.mapview.userLocation?.coordinate as! CLLocationCoordinate2D
         self.present(inputTemp, animated: true, completion: nil)
@@ -78,6 +82,7 @@ class ViewController: UIViewController {
 		print("Cancel button tapped")
 		confirmationbutton.removeFromSuperview()
 		cancelbutton.removeFromSuperview()
+		locationDropper.removeFromSuperview()
 		showUIElements()
 	}
 	

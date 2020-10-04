@@ -77,6 +77,21 @@ extension ViewController {
 		return button
 	}
 	
+	func addUILocationDropper() -> UIImageView{
+		let image = UIImage(systemName: "mappin", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
+		let imageview = UIImageView(image: image)
+		imageview.frame = CGRect(x: 300, y: 300, width: 25, height: 30)
+		view.addSubview(imageview)
+		
+		imageview.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			imageview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.size.width/2 - image!.size.width/2),
+			imageview.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.size.height/2 - image!.size.height/1.4)
+		])
+		
+		return imageview
+	}
+	
 }
 
 
