@@ -32,17 +32,16 @@ class ViewController: UIViewController {
 	}
 	
 	
-	@objc func pressedMenu(){
+	@objc func pressedMenu() {
 		print("Menu button tapped")
 	}
 	
-	@objc func pressedSearch(){
+	@objc func pressedSearch() {
 		print("Search button tapped")
         print("Longitude")
-        print( mapview.userLocation?.coordinate )
 	}
 	
-	@objc func pressedInput(){
+	@objc func pressedInput() {
 		print("Input button tapped")
 		confirmationbutton = addUIConfirmButton()
 		cancelbutton = addUICancelButton()
@@ -50,7 +49,7 @@ class ViewController: UIViewController {
 		hideUIElements()
 	}
 	
-	@objc func pressedConfirm(){
+	@objc func pressedConfirm() {
 		print("Confirm button tapped")
 		locationDropper.removeFromSuperview()
 		
@@ -61,7 +60,7 @@ class ViewController: UIViewController {
 		})
 	}
 	
-	@objc func pressedCancel(){
+	@objc func pressedCancel() {
 		print("Cancel button tapped")
 		confirmationbutton.removeFromSuperview()
 		cancelbutton.removeFromSuperview()

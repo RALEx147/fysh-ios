@@ -16,26 +16,26 @@ class InputConfirmation: UIViewController {
 	
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-	private var presentingController: UIViewController?
-	
-    var location = CLLocationCoordinate2D()
-    var temp = 0
-    var time = Date()
+	var location = CLLocationCoordinate2D()
+	var temp = 0
+	var time = Date()
 	var doneButton = UIButton()
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	var presentingController: UIViewController?
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		presentingController = presentingViewController
 		
-        self.view.backgroundColor = .white
-        doneButton = addDoneButton()
-    }
+		self.view.backgroundColor = .white
+		doneButton = addDoneButton()
+	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		self.presentingController?.dismiss(animated: true, completion: nil)
 	}
 	
-	@objc func pressedDone(){
+	@objc func pressedDone() {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm"
 		let date24 = dateFormatter.string(from: time)
@@ -44,9 +44,9 @@ class InputConfirmation: UIViewController {
 		self.dismiss(animated: true) {
 			print("done")
 		}
-        
-	}
 
+	}
+	
 	
 	func uploadData(temp: String, lat: String, long: String, time: String ) {
 		var appSyncClient: AWSAppSyncClient?
@@ -63,5 +63,5 @@ class InputConfirmation: UIViewController {
 		}
 		print("success")
 	}
-
+	
 }

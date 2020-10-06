@@ -1,5 +1,5 @@
 //
-//  InputTimeUIExtension.swift
+//  InputTempUIExtension.swift
 //  fysh-ios
 //
 //  Created by Jack on 9/30/20.
@@ -8,25 +8,25 @@
 
 import Foundation
 import UIKit
-extension InputTime{
-    
-    func addTimePicker() -> UIDatePicker{
-        
-        let tp = UIDatePicker()
-        tp.datePickerMode = .time
-        
-        
-        self.view.addSubview(tp)
-        
-        tp.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tp.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            tp.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
-        ])
-        
-        return tp
-        
-    }
+
+extension InputTemp{
+	
+	func addTextInput()  -> UITextField {
+		let temperatureInput =  UITextField(frame: CGRect(x: 20, y: view.frame.height/2, width: 300, height: 40))
+		temperatureInput.placeholder = "Enter temp here"
+		temperatureInput.font = UIFont.systemFont(ofSize: 15)
+		temperatureInput.borderStyle = UITextField.BorderStyle.roundedRect
+		temperatureInput.autocorrectionType = UITextAutocorrectionType.no
+		temperatureInput.keyboardType = UIKeyboardType.default
+		temperatureInput.returnKeyType = UIReturnKeyType.done
+		temperatureInput.clearButtonMode = UITextField.ViewMode.whileEditing
+		temperatureInput.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+		temperatureInput.delegate = self
+		temperatureInput.keyboardType = UIKeyboardType.decimalPad
+		self.view.addSubview(temperatureInput)
+		
+		return temperatureInput
+	}
 	
 	func addNextButton() -> UIButton {
 		let button = UIButton()
@@ -47,5 +47,5 @@ extension InputTime{
 		
 		return button
 	}
-    
+	
 }
