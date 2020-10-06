@@ -34,6 +34,7 @@ class ViewController: UIViewController {
 	
 	@objc func pressedMenu() {
 		print("Menu button tapped")
+		print(Data_Model)
 	}
 	
 	@objc func pressedSearch() {

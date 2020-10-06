@@ -10,11 +10,14 @@ import Foundation
 import Amplify
 import AmplifyPlugins
 import AWSAppSync
-class DataModel {
+
+class DataModel: CustomStringConvertible {
 	
 	//MARK: Properties
 	var Records: [Record]
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
+	
+	public var description: String { return String(self.Records.description) }
 	
 	init() {
 		self.Records = [Record]()
