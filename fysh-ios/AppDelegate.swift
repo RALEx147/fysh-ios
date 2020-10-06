@@ -11,16 +11,20 @@ import Amplify
 import AmplifyPlugins
 import AWSAppSync
 
+
+var Data_Model = DataModel()
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var appSyncClient: AWSAppSyncClient?
+
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		
         let dataStorePlugin = AWSDataStorePlugin(modelRegistration: AmplifyModels())
         do {
+            
            try Amplify.add(plugin:dataStorePlugin)
            try Amplify.add(plugin: AWSAPIPlugin(modelRegistration: AmplifyModels()))
            try Amplify.configure()
@@ -37,6 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // AppSync configuration & client initialization
             let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: AWSAppSyncServiceConfig(), cacheConfiguration: cacheConfiguration)
             appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
+            let group = DispatchGroup()
+            group.enter()
+            Data_Model.getRecords {
+                group.leave()
+            }
         } catch {
             print("Error initializing appsync client. \(error)")
         }
