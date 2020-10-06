@@ -145,6 +145,7 @@
 				1FF392D1252A626100AA306B /* InputConfirmation.swift */,
 				1FDBF032252C1D920063CA1B /* UI Extensions */,
 				1FDBF033252C1E0A0063CA1B /* Others */,
+				1F05539D25155CEA009A6A6F /* Info.plist */,
 				1F59F56D251E9EEB00400A94 /* API.swift */,
 				06FB148D252A33A90002F5CF /* DataModel.swift */,
 			);
@@ -178,7 +179,6 @@
 				1F05539525155CEA009A6A6F /* Main.storyboard */,
 				1F05539825155CEA009A6A6F /* Assets.xcassets */,
 				1F05539A25155CEA009A6A6F /* LaunchScreen.storyboard */,
-				1F05539D25155CEA009A6A6F /* Info.plist */,
 			);
 			path = Others;
 			sourceTree = "<group>";
