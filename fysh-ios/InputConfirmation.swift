@@ -15,7 +15,7 @@ import AWSAppSync
 class InputConfirmation: UIViewController {
 	
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+	
 	var location = CLLocationCoordinate2D()
 	var temp = 0
 	var time = Date()
@@ -44,7 +44,6 @@ class InputConfirmation: UIViewController {
 		self.dismiss(animated: true) {
 			print("done")
 		}
-
 	}
 	
 	

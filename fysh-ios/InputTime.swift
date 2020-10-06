@@ -39,7 +39,6 @@ class InputTime: UIViewController {
 		inputConfirmation.temp = self.temp
 		inputConfirmation.time = self.timePicker.date
 		self.present(inputConfirmation, animated: true, completion: nil)
-		
 	}
 	
 	/*

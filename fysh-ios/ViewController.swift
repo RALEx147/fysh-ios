@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 	
 	@objc func pressedSearch() {
 		print("Search button tapped")
-        print("Longitude")
+		print("Longitude")
 	}
 	
 	@objc func pressedInput() {
