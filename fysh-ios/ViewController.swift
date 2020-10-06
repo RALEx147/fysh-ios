@@ -53,11 +53,13 @@ class ViewController: UIViewController {
 		print("Confirm button tapped")
 		locationDropper.removeFromSuperview()
 		
-        let inputTemp = InputTemp()
-        inputTemp.location = self.mapview.userLocation?.coordinate as! CLLocationCoordinate2D
-        self.present(inputTemp, animated: true, completion: {
-			self.confirmationbutton.removeFromSuperview()
-		})
+		if let location = self.mapview.userLocation?.coordinate{
+			let inputTemp = InputTemp()
+			inputTemp.location = location
+			self.present(inputTemp, animated: true, completion: {
+				self.confirmationbutton.removeFromSuperview()
+			})
+		}
 	}
 	
 	@objc func pressedCancel() {
