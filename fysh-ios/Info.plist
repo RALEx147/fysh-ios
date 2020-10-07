@@ -64,7 +64,15 @@
 	<string>pk.eyJ1IjoiYnVja25lbGwtZnlzaCIsImEiOiJja2Y3MWVqOTIwNjMxMnFxa2I1dGV1am8zIn0.v8fxiFSyIPMLY0OD5tXqBA</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow location access</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow location access</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow location access</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Allow location access</string>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
 	<true/>
+	<key></key>
+	<string></string>
 </dict>
 </plist>
