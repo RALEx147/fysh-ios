@@ -17,7 +17,7 @@ class InputConfirmation: UIViewController {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	var location = CLLocationCoordinate2D()
-	var temp = 0
+	var temp = Float()
 	var time = Date()
 	var doneButton = UIButton()
 	
@@ -26,7 +26,7 @@ class InputConfirmation: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-		
+        
 		self.view.backgroundColor = .white
 		doneButton = addDoneButton()
 	}
@@ -41,9 +41,15 @@ class InputConfirmation: UIViewController {
 		let date24 = dateFormatter.string(from: time)
 		
 		uploadData(temp: String(temp), lat: String(location.latitude), long: String(location.longitude), time: date24 )
-		self.dismiss(animated: true) {
-			print("done")
-		}
+		let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromRight
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+        
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
 	}
 	
 	

@@ -12,7 +12,7 @@ import Mapbox
 class InputTime: UIViewController {
 	
 	var location = CLLocationCoordinate2D()
-	var temp = 0
+	var temp = Float()
 	var timePicker = UIDatePicker()
 	var nextButton = UIButton()
 	
@@ -28,7 +28,7 @@ class InputTime: UIViewController {
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		self.presentingController?.dismiss(animated: true, completion: nil)
+		self.presentingController?.dismiss(animated: false, completion: nil)
 	}
 	
 	@objc func pressedNext() {
