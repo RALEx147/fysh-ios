@@ -9,7 +9,7 @@
 import UIKit
 import Mapbox
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
@@ -21,20 +21,34 @@ class ViewController: UIViewController {
 	var locationDropper = UIImageView()
 	var confirmationbutton = UIButton()
 	var cancelbutton = UIButton()
-	
+	let locationManager = CLLocationManager()
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        // Ask for Authorisation from the User.
+        
+        self.locationManager.requestAlwaysAuthorization()
+
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
 		
 		mapview = addUIMapbox()
 		menubutton = addUIMenu()
 		searchbutton = addUISearch()
 		inputbutton = addUIInput()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
 	}
 	
 	
 	@objc func pressedMenu() {
 		print("Menu button tapped")
-		print(Data_Model)
+        print(Data_Model.Records.count)
 	}
 	
 	@objc func pressedSearch() {
@@ -48,6 +62,7 @@ class ViewController: UIViewController {
 		cancelbutton = addUICancelButton()
 		locationDropper = addUILocationDropper()
 		hideUIElements()
+        
 	}
 	
 	@objc func pressedConfirm() {
@@ -82,5 +97,10 @@ class ViewController: UIViewController {
 		menubutton.isHidden = false
 		inputbutton.isHidden = false
 	}
+    
+
+
+    
+
 	
 }
