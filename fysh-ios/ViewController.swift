@@ -81,6 +81,7 @@ class ViewController: UIViewController {
 		searchbutton.isHidden = false
 		menubutton.isHidden = false
 		inputbutton.isHidden = false
+		cancelbutton.removeFromSuperview()
 	}
 	
 }
