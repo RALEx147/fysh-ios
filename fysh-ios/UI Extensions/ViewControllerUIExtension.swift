@@ -16,6 +16,7 @@ extension ViewController {
 		mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		mapView.setCenter(CLLocationCoordinate2D(latitude: 40.957531, longitude: -76.886787), zoomLevel: 13, animated: false)
 		mapView.logoView.isHidden = true
+        mapView.styleURL = MGLStyle.outdoorsStyleURL
 		mapView.attributionButton.isHidden = true
 		mapView.showsUserLocation = true
 		mapView.userTrackingMode = .follow
