@@ -13,7 +13,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 	var location = CLLocationCoordinate2D()
 	var tempInput = UITextField()
 	var nextButton = UIButton()
-	var temp = 0
+    var temp = 0
 	
 	var presentingController: UIViewController?
 	

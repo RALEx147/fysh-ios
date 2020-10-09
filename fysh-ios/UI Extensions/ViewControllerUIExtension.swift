@@ -8,7 +8,7 @@
 
 import Mapbox
 
-extension ViewController {
+extension ViewController: MGLMapViewDelegate {
 	
 	func addUIMapbox() -> MGLMapView {
 		let url = URL(string: "mapbox://styles/mapbox/streets-v11")
@@ -87,6 +87,7 @@ extension ViewController {
 			imageview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.size.width/2 - image!.size.width/2),
 			imageview.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.size.height/2 - image!.size.height/1.4)
 		])
+        
 		
 		return imageview
 	}
@@ -127,6 +128,30 @@ extension ViewController {
 		
 		return button
 	}
+    
+    /*
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        let point = MGLPointAnnotation()
+        point.coordinate = mapview.centerCoordinate
+        // Create a data source to hold the point data
+        let shapeSource = MGLShapeSource(identifier: "marker-source", shape: point, options: nil)
+         
+        // Create a style layer for the symbol
+        let shapeLayer = MGLSymbolStyleLayer(identifier: "marker-style", source: shapeSource)
+         
+        // Add the image to the style's sprite
+        if let image = UIImage(named: "house-icon") {
+            mapview.style!.setImage(image, forName: "home-symbol")
+        }
+         
+        // Tell the layer to use the image in the sprite
+        shapeLayer.iconImageName = NSExpression(forConstantValue: "home-symbol")
+         
+        // Add the source and style layer to the map
+        mapview.style!.addSource(shapeSource)
+        mapview.style!.addLayer(shapeLayer)
+    }
+    */
 	
 }
 

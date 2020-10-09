@@ -45,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			group.enter()
 			Data_Model.getRecords {
 				group.leave()
+                print("Record Count")
+                print(Data_Model.Records.count)
 			}
 		} catch {
 			print("Error initializing appsync client. \(error)")
