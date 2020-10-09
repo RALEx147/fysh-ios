@@ -12,7 +12,7 @@ import Mapbox
 struct ReachPolygons {
     struct PennsCreek {
         struct Selin {
-			var geodata: [CLLocationCoordinate2D] =
+			static let geodata: [CLLocationCoordinate2D] =
 			[CLLocationCoordinate2D(latitude: 40.75154, longitude:  -76.85581),
 			CLLocationCoordinate2D(latitude: 40.76387, longitude:  -76.86281),
 			CLLocationCoordinate2D(latitude: 40.77468, longitude:  -76.86191),
@@ -24,8 +24,9 @@ struct ReachPolygons {
 			CLLocationCoordinate2D(latitude: 40.79107, longitude:  -76.86802),
 			CLLocationCoordinate2D(latitude: 40.77566, longitude:  -76.86982),
 			CLLocationCoordinate2D(latitude: 40.76877, longitude:  -76.86665),
-			CLLocationCoordinate2D(latitude: 40.76067, longitude:  -76.86700)
-			CLLocationCoordinate2D(latitude: 40.75154, longitude:  -76.85581),]
+			CLLocationCoordinate2D(latitude: 40.76067, longitude:  -76.86700),
+			CLLocationCoordinate2D(latitude: 40.74898, longitude:  -76.85940),
+			CLLocationCoordinate2D(latitude: 40.75154, longitude:  -76.85581)]
         }
         struct AnotherItem {
 //            code
