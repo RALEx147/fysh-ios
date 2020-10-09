@@ -10,7 +10,7 @@ import UIKit
 import Mapbox
 
 class ViewController: UIViewController {
-    
+
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var mapview = MGLMapView()
@@ -50,24 +50,18 @@ class ViewController: UIViewController {
         hideUIElements()
     }
     
-    @objc func pressedConfirm() {
-        print("Confirm button tapped")
-        locationDropper.removeFromSuperview()
-        
-
-        
-        print(self.mapview.userLocation?.coordinate.latitude)
-
-        
-        let location = self.mapview.centerCoordinate
-        let inputTemp = InputTemp()
-        inputTemp.location = location
-        self.present(inputTemp, animated: true, completion: {
-            self.confirmationbutton.removeFromSuperview()
-        })
-        
-        
-    }
+ 	@objc func pressedConfirm() {
+		print("Confirm button tapped")
+		locationDropper.removeFromSuperview()
+		
+		if let location = self.mapview.userLocation?.coordinate{
+			let inputTemp = InputTemp()
+			inputTemp.location = location
+			self.present(inputTemp, animated: true, completion: {
+				self.confirmationbutton.removeFromSuperview()
+			})
+		}
+	}
     
     @objc func pressedCancel() {
         print("Cancel button tapped")
@@ -87,6 +81,7 @@ class ViewController: UIViewController {
         searchbutton.isHidden = false
         menubutton.isHidden = false
         inputbutton.isHidden = false
+		cancelbutton.removeFromSuperview()
     }
     
 }
