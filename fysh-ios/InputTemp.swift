@@ -13,7 +13,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 	var location = CLLocationCoordinate2D()
 	var tempInput = UITextField()
 	var nextButton = UIButton()
-    var temp = 0
+	var temp = Float()
 	
 	var presentingController: UIViewController?
 	
@@ -38,7 +38,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 	@objc func dismissKeyboard() {
 		if let t = self.tempInput.text {
 			if t != "" {
-				self.temp = Int(t)!
+				self.temp = Float(t)!
 			}
 		}
 		view.endEditing(true)
