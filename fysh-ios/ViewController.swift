@@ -23,18 +23,54 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var cancelbutton = UIButton()
     
 	let locationManager = CLLocationManager()
-
+	var Data_Model = DataModel()
+	var annotations = [(id: String, annotation: MGLPointAnnotation)]()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		retrieveAnnotations()
 		
 		locationPermission()
-        
         mapview = addUIMapbox()
         menubutton = addUIMenu()
         searchbutton = addUISearch()
         inputbutton = addUIInput()
     }
-    
+	
+	func retrieveAnnotations() {
+		DispatchQueue.global(qos: .utility).async {
+			self.Data_Model.getRecords {
+				print("finished retrieving")
+				let databaseAnnotations = self.loadAnnotations()
+				print(databaseAnnotations.count)
+				self.annotations.append(contentsOf: databaseAnnotations)
+			}
+
+			DispatchQueue.main.async {
+				let databaseAnnotations: [MGLPointAnnotation] = self.annotations.map { $0.annotation }
+				self.mapview.addAnnotations(databaseAnnotations)
+			}
+		}
+	}
+	
+	func loadAnnotations() -> [(String, MGLPointAnnotation)] {
+		var output = [(String, MGLPointAnnotation)]()
+		let ids = self.annotations.map { $0.id }
+		
+		for i in self.Data_Model.Records {
+			if !ids.contains(i.id) {
+				let m = MGLPointAnnotation()
+				if let lat = Double(i.latitude!), let long = Double(i.longitude!) {
+					let coord = CLLocationCoordinate2D(latitude: lat, longitude: long)
+					if coord.latitude != -180.0 && coord.longitude != -180.0 {
+						m.coordinate = coord
+						output.append((i.id, m))
+					}
+				}
+			}
+		}
+		return output
+	}
     
     @objc func pressedMenu() {
         print("Menu button tapped")

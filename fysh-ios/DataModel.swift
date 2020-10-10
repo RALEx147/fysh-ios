@@ -29,6 +29,8 @@ class DataModel: CustomStringConvertible {
 		
 		let selectQuery = ListRecordsQuery()
 		
+		let semaphore = DispatchSemaphore(value: 0)
+		
 		appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData){(result,error) in
 			if error != nil{
 				print(error?.localizedDescription ?? "")
@@ -37,7 +39,9 @@ class DataModel: CustomStringConvertible {
 			result?.data?.listRecords?.items?.forEach{record in
 				self.Records.append(Record(id: record?.id ?? "No ID", temp: record?.temp ?? "No Temp", latitude: record?.latitude ?? "No Lat", longitude: record?.longitude ?? "No Long", time: record?.time ?? "No Time"))
 			}
+			semaphore.signal()
 		}
+		_ = semaphore.wait(wallTimeout: .distantFuture)
 		completion()
 	}
 }

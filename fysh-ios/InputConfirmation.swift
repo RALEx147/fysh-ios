@@ -39,17 +39,20 @@ class InputConfirmation: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let date24 = dateFormatter.string(from: time)
-        
-        uploadData(temp: String(temp), lat: String(location.latitude), long: String(location.longitude), time: date24 )
-        let transition: CATransition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.reveal
-        transition.subtype = CATransitionSubtype.fromRight
-        
-        self.view.window!.layer.add(transition, forKey: nil)
-        
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+		
+        DispatchQueue.global(qos: .utility).async {
+			self.uploadData(temp: String(self.temp), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24 )
+			
+			DispatchQueue.main.async {
+				let transition: CATransition = CATransition()
+				transition.duration = 0.5
+				transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+				transition.type = CATransitionType.reveal
+				transition.subtype = CATransitionSubtype.fromRight
+				self.view.window!.layer.add(transition, forKey: nil)
+				self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+			}
+		}
     }
     
     
@@ -57,6 +60,8 @@ class InputConfirmation: UIViewController {
         var appSyncClient: AWSAppSyncClient?
         appSyncClient = appDelegate.appSyncClient
         let mutationInput = CreateRecordInput( temp: temp, latitude: lat, longitude: long, time: time)
+
+		let semaphore = DispatchSemaphore(value: 0)
         appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput)) { (result, error) in
             if let error = error as? AWSAppSyncClientError {
                 print("Error occurred: \(error.localizedDescription )")
@@ -65,7 +70,9 @@ class InputConfirmation: UIViewController {
                 print("Error saving the item on server: \(resultError)")
                 return
             }
+			semaphore.signal()
         }
+		_ = semaphore.wait(wallTimeout: .distantFuture)
         print("success")
     }
     

@@ -10,6 +10,11 @@
       "StackName": "amplify-fyshios-dev-183052",
       "StackId": "arn:aws:cloudformation:us-east-1:298036551118:stack/amplify-fyshios-dev-183052/1b3c98c0-0111-11eb-9b1e-12f4ed1177e6",
       "AmplifyAppId": "d2zu1hm5zru8te"
+    },
+    "categories": {
+      "auth": {
+        "fyshiosfeb20b10": {}
+      }
     }
   }
 }
