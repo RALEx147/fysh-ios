@@ -40,14 +40,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	func retrieveAnnotations() {
 		DispatchQueue.global(qos: .utility).async {
 			self.Data_Model.getRecords {
-				print("finished retrieving")
+				print("finished retrieving (total): \(self.Data_Model.Records.count)")
 				let databaseAnnotations = self.loadAnnotations()
-				print(databaseAnnotations.count)
+				print("finished filtering (total): \(databaseAnnotations)")
 				self.annotations.append(contentsOf: databaseAnnotations)
 			}
 
 			DispatchQueue.main.async {
-				let databaseAnnotations: [MGLPointAnnotation] = self.annotations.map { $0.annotation }
+				var databaseAnnotations: [MGLPointAnnotation] = self.annotations.map { $0.annotation }
+				let currentAnnotations: [MGLAnnotation] = self.mapview.annotations ?? [MGLAnnotation]()
+				
+				for i in currentAnnotations {
+					databaseAnnotations = databaseAnnotations.filter({ (point) -> Bool in
+						return point.coordinate.latitude != i.coordinate.latitude && point.coordinate.longitude != i.coordinate.longitude
+					})
+				}
+				
 				self.mapview.addAnnotations(databaseAnnotations)
 			}
 		}
@@ -105,13 +113,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		print("Confirm button tapped")
 		locationDropper.removeFromSuperview()
 		
-		if let location = self.mapview.userLocation?.coordinate{
-			let inputTemp = InputTemp()
-			inputTemp.location = location
-			self.present(inputTemp, animated: true, completion: {
-				self.confirmationbutton.removeFromSuperview()
-			})
-		}
+		let inputTemp = InputTemp()
+		inputTemp.location = self.mapview.centerCoordinate
+		self.present(inputTemp, animated: true, completion: {
+			self.confirmationbutton.removeFromSuperview()
+		})
 	}
     
     @objc func pressedCancel() {
