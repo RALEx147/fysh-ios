@@ -17,7 +17,7 @@ class InputConfirmation: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var location = CLLocationCoordinate2D()
-    var temp = Float()
+    var temp = Double()
     var time = Date()
     var doneButton = UIButton()
     

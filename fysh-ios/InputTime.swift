@@ -12,7 +12,7 @@ import Mapbox
 class InputTime: UIViewController {
 	
 	var location = CLLocationCoordinate2D()
-	var temp = Float()
+	var temp = Double()
 	var timePicker = UIDatePicker()
 	var nextButton = UIButton()
 	

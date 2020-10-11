@@ -13,7 +13,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 	var location = CLLocationCoordinate2D()
 	var tempInput = UITextField()
 	var nextButton = UIButton()
-	var temp = Float()
+	var temp = Double()
 	
 	var presentingController: UIViewController?
 	
@@ -27,7 +27,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 		nextButton = addNextButton()
 		
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-		
+		tempInput.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
 		//Uncomment the line below if you want the tap not not interfere and cancel other interactions.
 		//tap.cancelsTouchesInView = false
 		
@@ -36,16 +36,21 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 	
 	//Calls this function when the tap is recognized.
 	@objc func dismissKeyboard() {
-		if let t = self.tempInput.text {
-			if t != "" {
-				self.temp = Float(t)!
-			}
-		}
 		view.endEditing(true)
 	}
 	
-	func textFieldDidBeginEditing(_ textField: UITextField) {
-		
+	@objc func textFieldDidChange(textField: UITextField){
+		if tempInput.text != "" {
+			if let t = Double(tempInput.text!) {
+				self.temp = t
+				nextButton.isEnabled = true
+			} else {
+				tempInput.text = ""
+				nextButton.isEnabled = false
+			}
+		} else {
+			nextButton.isEnabled = false
+		}
 	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
