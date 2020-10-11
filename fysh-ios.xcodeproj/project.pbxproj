@@ -25,6 +25,7 @@
 		1F05539925155CEA009A6A6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F05539825155CEA009A6A6F /* Assets.xcassets */; };
 		1F05539C25155CEA009A6A6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F05539A25155CEA009A6A6F /* LaunchScreen.storyboard */; };
 		1F0553A725155CEA009A6A6F /* fysh_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0553A625155CEA009A6A6F /* fysh_iosTests.swift */; };
+		1F1EC95E25339BB700112563 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1EC95D25339BB700112563 /* UIButtonExtension.swift */; };
 		1F239D362518337100D5B048 /* ViewControllerUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */; };
 		1F59F56E251E9EEB00400A94 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F59F56D251E9EEB00400A94 /* API.swift */; };
 		1FAC2393252FDE4C00E1D6B3 /* ReachPolygons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC2392252FDE4C00E1D6B3 /* ReachPolygons.swift */; };
@@ -70,6 +71,7 @@
 		1F0553A225155CEA009A6A6F /* fysh-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fysh-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0553A625155CEA009A6A6F /* fysh_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fysh_iosTests.swift; sourceTree = "<group>"; };
 		1F0553A825155CEA009A6A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F1EC95D25339BB700112563 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUIExtension.swift; sourceTree = "<group>"; };
 		1F59F56D251E9EEB00400A94 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		1FAC2392252FDE4C00E1D6B3 /* ReachPolygons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachPolygons.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				0665AB1E252501240092A988 /* InputTempUIExtension.swift */,
 				0665AB23252504350092A988 /* InputTimeUIExtension.swift */,
 				1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */,
+				1F1EC95D25339BB700112563 /* UIButtonExtension.swift */,
 			);
 			path = "UI Extensions";
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				0665AB1C2524D7160092A988 /* InputTemp.swift in Sources */,
 				0665AB24252504350092A988 /* InputTimeUIExtension.swift in Sources */,
 				1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */,
+				1F1EC95E25339BB700112563 /* UIButtonExtension.swift in Sources */,
 				1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */,
 				06FB148E252A33A90002F5CF /* DataModel.swift in Sources */,
 				0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */,
