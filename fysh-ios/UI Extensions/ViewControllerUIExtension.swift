@@ -8,7 +8,7 @@
 
 import Mapbox
 
-extension ViewController: MGLMapViewDelegate {
+extension ViewController {
 	
 	func addUIMapbox() -> MGLMapView {
 		let url = URL(string: "mapbox://styles/mapbox/streets-v11")
@@ -25,17 +25,6 @@ extension ViewController: MGLMapViewDelegate {
 		mapView.delegate = self
 		
 		return mapView
-	}
-	
-	func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-		let shape = MGLPolygon(coordinates: ReachPolygons.PennsCreek.Selin.geodata, count: UInt(ReachPolygons.PennsCreek.Selin.geodata.count))
-		let source = MGLShapeSource(identifier: "PennsCreek.Selin", shape: shape, options: nil)
-		style.addSource(source)
-		
-		let layer = MGLFillStyleLayer(identifier: "Reaches", source: source)
-		layer.fillColor = NSExpression(forConstantValue: UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00))
-		layer.fillOpacity = NSExpression(forConstantValue: 0.3)
-		style.addLayer(layer)
 	}
 	
 	func addUIMenu() -> UIButton {
@@ -142,30 +131,6 @@ extension ViewController: MGLMapViewDelegate {
 		
 		return button
 	}
-    
-    /*
-    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        let point = MGLPointAnnotation()
-        point.coordinate = mapview.centerCoordinate
-        // Create a data source to hold the point data
-        let shapeSource = MGLShapeSource(identifier: "marker-source", shape: point, options: nil)
-         
-        // Create a style layer for the symbol
-        let shapeLayer = MGLSymbolStyleLayer(identifier: "marker-style", source: shapeSource)
-         
-        // Add the image to the style's sprite
-        if let image = UIImage(named: "house-icon") {
-            mapview.style!.setImage(image, forName: "home-symbol")
-        }
-         
-        // Tell the layer to use the image in the sprite
-        shapeLayer.iconImageName = NSExpression(forConstantValue: "home-symbol")
-         
-        // Add the source and style layer to the map
-        mapview.style!.addSource(shapeSource)
-        mapview.style!.addLayer(shapeLayer)
-    }
-    */
 	
 }
 

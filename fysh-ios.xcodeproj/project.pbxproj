@@ -27,6 +27,7 @@
 		1F0553A725155CEA009A6A6F /* fysh_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0553A625155CEA009A6A6F /* fysh_iosTests.swift */; };
 		1F239D362518337100D5B048 /* ViewControllerUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */; };
 		1F59F56E251E9EEB00400A94 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F59F56D251E9EEB00400A94 /* API.swift */; };
+		1F6334062533A106007AF003 /* MapboxUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6334052533A106007AF003 /* MapboxUIExtension.swift */; };
 		1FAC2393252FDE4C00E1D6B3 /* ReachPolygons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC2392252FDE4C00E1D6B3 /* ReachPolygons.swift */; };
 		1FF392D2252A626100AA306B /* InputConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF392D1252A626100AA306B /* InputConfirmation.swift */; };
 		1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */; };
@@ -72,6 +73,7 @@
 		1F0553A825155CEA009A6A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUIExtension.swift; sourceTree = "<group>"; };
 		1F59F56D251E9EEB00400A94 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1F6334052533A106007AF003 /* MapboxUIExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapboxUIExtension.swift; sourceTree = "<group>"; };
 		1FAC2392252FDE4C00E1D6B3 /* ReachPolygons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachPolygons.swift; sourceTree = "<group>"; };
 		1FF392D1252A626100AA306B /* InputConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmation.swift; sourceTree = "<group>"; };
 		1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationUIExtension.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		1FDBF032252C1D920063CA1B /* UI Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1F6334052533A106007AF003 /* MapboxUIExtension.swift */,
 				1F239D352518337100D5B048 /* ViewControllerUIExtension.swift */,
 				0665AB1E252501240092A988 /* InputTempUIExtension.swift */,
 				0665AB23252504350092A988 /* InputTimeUIExtension.swift */,
@@ -422,6 +425,7 @@
 				1F05539225155CEA009A6A6F /* SceneDelegate.swift in Sources */,
 				06751AAF252F3CD3006748AC /* Menu.swift in Sources */,
 				68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */,
+				1F6334062533A106007AF003 /* MapboxUIExtension.swift in Sources */,
 				068BFC7D6A8E4773B9090CE1 /* Record.swift in Sources */,
 				1FAC2393252FDE4C00E1D6B3 /* ReachPolygons.swift in Sources */,
 				0665AB212525041C0092A988 /* InputTime.swift in Sources */,
