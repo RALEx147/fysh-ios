@@ -36,9 +36,11 @@ class DataModel: CustomStringConvertible {
 				print(error?.localizedDescription ?? "")
 				return
 			}
+			var temp = [Record]()
 			result?.data?.listRecords?.items?.forEach{record in
-				self.Records.append(Record(id: record?.id ?? "No ID", temp: record?.temp ?? "No Temp", latitude: record?.latitude ?? "No Lat", longitude: record?.longitude ?? "No Long", time: record?.time ?? "No Time"))
+				temp.append(Record(id: record?.id ?? "No ID", temp: record?.temp ?? "No Temp", latitude: record?.latitude ?? "No Lat", longitude: record?.longitude ?? "No Long", time: record?.time ?? "No Time"))
 			}
+			self.Records = temp
 			semaphore.signal()
 		}
 		_ = semaphore.wait(wallTimeout: .distantFuture)
