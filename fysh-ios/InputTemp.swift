@@ -25,7 +25,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 		
 		tempInput = addTextInput()
 		nextButton = addNextButton()
-		
+        		
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 		tempInput.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
 		//Uncomment the line below if you want the tap not not interfere and cancel other interactions.

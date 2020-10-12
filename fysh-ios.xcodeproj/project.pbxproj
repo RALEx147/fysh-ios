@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0608F4072533DCE30066FD0F /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608F4062533DCE30066FD0F /* SlideInPresentationManager.swift */; };
+		0608F4092533DDAB0066FD0F /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608F4082533DDAB0066FD0F /* SlideInPresentationController.swift */; };
+		0608F40B2533E1610066FD0F /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608F40A2533E1610066FD0F /* SlideInPresentationAnimator.swift */; };
 		0665AB1C2524D7160092A988 /* InputTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB1B2524D7160092A988 /* InputTemp.swift */; };
 		0665AB1D2524D7160092A988 /* InputTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB1B2524D7160092A988 /* InputTemp.swift */; };
 		0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0665AB1E252501240092A988 /* InputTempUIExtension.swift */; };
@@ -51,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		0588482FE36D46B78ABFB2FB /* Record.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = Record.swift; path = amplify/generated/models/Record.swift; sourceTree = "<group>"; };
+		0608F4062533DCE30066FD0F /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
+		0608F4082533DDAB0066FD0F /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
+		0608F40A2533E1610066FD0F /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
 		0665AB1B2524D7160092A988 /* InputTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTemp.swift; sourceTree = "<group>"; };
 		0665AB1E252501240092A988 /* InputTempUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTempUIExtension.swift; sourceTree = "<group>"; };
 		0665AB202525041C0092A988 /* InputTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTime.swift; sourceTree = "<group>"; };
@@ -120,6 +126,16 @@
 			path = .;
 			sourceTree = "<group>";
 		};
+		0608F4052533DCC20066FD0F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				0608F4062533DCE30066FD0F /* SlideInPresentationManager.swift */,
+				0608F4082533DDAB0066FD0F /* SlideInPresentationController.swift */,
+				0608F40A2533E1610066FD0F /* SlideInPresentationAnimator.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		1F05538325155CEA009A6A6F = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +161,7 @@
 		1F05538E25155CEA009A6A6F /* fysh-ios */ = {
 			isa = PBXGroup;
 			children = (
+				0608F4052533DCC20066FD0F /* New Group */,
 				1F05538F25155CEA009A6A6F /* AppDelegate.swift */,
 				1F05539325155CEA009A6A6F /* ViewController.swift */,
 				0665AB1B2524D7160092A988 /* InputTemp.swift */,
@@ -420,6 +437,8 @@
 				1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */,
 				1F1EC95E25339BB700112563 /* UIButtonExtension.swift in Sources */,
 				1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */,
+				0608F40B2533E1610066FD0F /* SlideInPresentationAnimator.swift in Sources */,
+				0608F4072533DCE30066FD0F /* SlideInPresentationManager.swift in Sources */,
 				06FB148E252A33A90002F5CF /* DataModel.swift in Sources */,
 				0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */,
 				1FF392D2252A626100AA306B /* InputConfirmation.swift in Sources */,
@@ -430,6 +449,7 @@
 				1FAC2393252FDE4C00E1D6B3 /* ReachPolygons.swift in Sources */,
 				0665AB212525041C0092A988 /* InputTime.swift in Sources */,
 				1F59F56E251E9EEB00400A94 /* API.swift in Sources */,
+				0608F4092533DDAB0066FD0F /* SlideInPresentationController.swift in Sources */,
 				C0D1B2433BDF43668E3E74D1 /* Record+Schema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
