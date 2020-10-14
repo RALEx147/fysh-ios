@@ -26,8 +26,8 @@ class InputConfirmation: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presentingController = presentingViewController
-		self.isModalInPresentation = true
-
+        self.isModalInPresentation = true
+        
         self.view.backgroundColor = .white
         doneButton = addDoneButton()
     }
@@ -57,8 +57,27 @@ class InputConfirmation: UIViewController {
     func uploadData(temp: String, lat: String, long: String, time: String ) {
         var appSyncClient: AWSAppSyncClient?
         appSyncClient = appDelegate.appSyncClient
+        
+        let query = ListRecordsQuery()
+        let UUID = NSUUID().uuidString
         let mutationInput = CreateRecordInput( temp: temp, latitude: lat, longitude: long, time: time)
-        appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput)) { (result, error) in
+        appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput), optimisticUpdate: { record in
+            
+            /*
+             Add to the local cache to be pushed later somehow
+             */
+            do{
+                try record?.update(query: query){ (data: inout ListRecordsQuery.Data) in
+                    data.listRecords?.items?.append(ListRecordsQuery.Data.ListRecord.Item.init(id: UUID, temp: temp, latitude: lat, longitude: long, time: time, createdAt: "now", updatedAt: "now"))
+                }
+                
+            }catch{
+                print("Error updating cache with optimistic response for")
+            }
+            
+            
+            
+        }, resultHandler: { (result, error) in
             if let error = error as? AWSAppSyncClientError {
                 print("Error occurred: \(error.localizedDescription )")
             }
@@ -66,8 +85,24 @@ class InputConfirmation: UIViewController {
                 print("Error saving the item on server: \(resultError)")
                 return
             }
-        }
-        print("success")
+            if let result = result{
+                
+                let _ = appSyncClient?.store?.withinReadWriteTransaction { record in
+                    try record.update(query: ListRecordsQuery())
+                    { (data: inout ListRecordsQuery.Data) in
+                        var pos = -1, counter = 0
+                        for item in (data.listRecords?.items!)! {
+                            if item?.id == UUID {
+                                pos = counter
+                                continue
+                            }; counter += 1
+                        }
+                        if pos != -1 { data.listRecords?.items?.remove(at: pos) }
+                        
+                    }
+                }
+                
+            }
+        })
     }
-    
 }

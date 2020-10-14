@@ -14,17 +14,33 @@ class Menu: UIViewController {
         super.viewDidLoad()
         
         
-        let slide: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMenu))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMenu))
         view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(slide)
+        view.addGestureRecognizer(tap)
+        view.backgroundColor = .white
         
+        let menu = UIStackView()
         
-        let menu = UIView()
         menu.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height)
+        menu.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        menu.isLayoutMarginsRelativeArrangement = true
         menu.backgroundColor = .white
+
         view.addSubview(menu)
         
-        view.backgroundColor = .white
+        
+        
+        let aboutUs = UIButton()
+        aboutUs.setTitle("About Us", for: .normal)
+        aboutUs.setTitleColor(.black, for: .normal)
+        menu.addArrangedSubview(aboutUs)
+        
+        
+        let howTo = UIButton()
+        howTo.setTitle("How to Use", for: .normal)
+        aboutUs.setTitleColor(.black, for: .normal)
+        menu.addArrangedSubview(howTo)
+        
     }
     
     @objc func dismissMenu(){
