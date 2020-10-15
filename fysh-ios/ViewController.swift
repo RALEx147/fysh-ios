@@ -8,6 +8,7 @@
 
 import UIKit
 import Mapbox
+import Turf
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -54,7 +55,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc func pressedSearch() {
         print("Search button tapped")
-        print("Longitude")
+		let coord = self.mapview.centerCoordinate
+		let data = try! self.geojsonData(from: "map")!
+		let geojson = try! GeoJSON.parse(FeatureCollection.self, from: data)
+//		var polygon = turf.polygon(json.data.features[0].geometry.coordinates, { name: 'poly1', population: 400});
+		
+		for i in geojson.features {
+			let p = i.geometry.value as! Polygon
+			print(p.contains(coord))
+		}
+    }
+	
+	func geojsonData(from name: String) throws -> Data? {
+		guard let path = Bundle.main.path(forResource: name, ofType: "geojson") else {
+            return nil
+        }
+        let filePath = URL(fileURLWithPath: path)
+        return try Data(contentsOf: filePath)
     }
     
     @objc func pressedInput() {
