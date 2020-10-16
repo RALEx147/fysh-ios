@@ -17,7 +17,7 @@ class Menu: UIViewController {
         super.viewDidLoad()
         
         
-
+        
         
         
         let menuLayer = UIView()
@@ -49,10 +49,10 @@ class Menu: UIViewController {
         menu!.axis = .vertical
         menu!.distribution = .equalSpacing
         menu!.alignment = .center
-      //  menu!.spacing = 10
+        //  menu!.spacing = 10
         
-
-
+        
+        
         
         
         let aboutUs = UIButton()
@@ -60,7 +60,7 @@ class Menu: UIViewController {
         aboutUs.setTitleColor(.black, for: .normal)
         
         aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
-
+        
         
         menu?.addArrangedSubview(aboutUs)
         
@@ -68,8 +68,8 @@ class Menu: UIViewController {
         howTo.setTitle("How to Use", for: .normal)
         aboutUs.setTitleColor(.black, for: .normal)
         menu!.addArrangedSubview(howTo)
-
-    
+        
+        
         view.addSubview(menu!)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMenu))
@@ -78,12 +78,12 @@ class Menu: UIViewController {
         view.addGestureRecognizer(tap)
         view.backgroundColor = .white
         
-                
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         
     }
     
@@ -100,13 +100,13 @@ class Menu: UIViewController {
         
         let aboutUsPage = AboutUsPage()
         
-         let transition: CATransition = CATransition()
-         transition.duration = 0.5
-         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-         transition.type = CATransitionType.reveal
-         transition.subtype = CATransitionSubtype.fromRight
-         
-         self.view.window!.layer.add(transition, forKey: nil)
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromRight
+        
+        self.view.window!.layer.add(transition, forKey: nil)
         
         
         self.present(aboutUsPage, animated: false)
