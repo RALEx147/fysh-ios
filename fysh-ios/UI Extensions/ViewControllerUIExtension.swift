@@ -22,6 +22,8 @@ extension ViewController {
 		mapView.userTrackingMode = .follow
 		view.addSubview(mapView)
 		
+		mapView.delegate = self
+		
 		return mapView
 	}
 	
