@@ -43,6 +43,7 @@ PODS:
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
   - Starscream (3.1.1)
+  - Turf (0.5.0)
 
 DEPENDENCIES:
   - Amplify
@@ -51,6 +52,7 @@ DEPENDENCIES:
   - AmplifyPlugins/AWSDataStorePlugin
   - AWSAppSync
   - Mapbox-iOS-SDK (~> 6.1.0)
+  - Turf (~> 0.5)
 
 SPEC REPOS:
   trunk:
@@ -69,6 +71,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - SQLite.swift
     - Starscream
+    - Turf
 
 SPEC CHECKSUMS:
   Amplify: 529b55db189f4c56b64c3c912443a4658c4bdaee
@@ -86,7 +89,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+  Turf: bdcfefe60df3ca8dc5f742681c178e47f8c5a567
 
-PODFILE CHECKSUM: d7d54bd761e351e1fa05dee8e27e983a65cd804a
+PODFILE CHECKSUM: 38b48512b30a346e334020dce05c1ca33cce6a69
 
 COCOAPODS: 1.9.3
