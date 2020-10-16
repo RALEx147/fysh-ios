@@ -26,10 +26,12 @@ extension InputTime{
 	
 	func addNextButton() -> UIButton {
 		let button = UIButton()
-		button.backgroundColor = UIColor(red: 0.25, green: 0.65, blue: 1.00, alpha: 1.00)
+		button.setBackground(UIColor(red: 0.25, green: 0.65, blue: 1.00, alpha: 1.00), for: .normal)
+		button.setBackground(UIColor(red: 0.25, green: 0.45, blue: 1.00, alpha: 1.00), for: .highlighted)
 		button.setTitle("Next", for: .normal)
 		button.setTitleColor(.white, for: .normal)
 		button.layer.cornerRadius = 5
+		button.clipsToBounds = true
 		button.addTarget(self, action: #selector(pressedNext), for: .touchUpInside)
 		view.addSubview(button)
 		

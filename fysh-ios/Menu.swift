@@ -10,26 +10,108 @@ import UIKit
 
 class Menu: UIViewController {
     
+    var menuGrad : CAGradientLayer?
+    var menu : UIStackView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        let slide: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMenu))
+        
+        
+        
+        let menuLayer = UIView()
+        menuLayer.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height)
+        menuLayer.isUserInteractionEnabled = false
+        
+        
+        let colorLeft = UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:1.0).cgColor
+        let colorRight = UIColor(red:198.0/255.0, green:198.0/255.0, blue:197.0/255.0, alpha:1.0).cgColor
+        menuGrad = CAGradientLayer()
+        menuGrad!.colors = [colorRight, colorLeft]
+        menuGrad!.locations = [0,1]
+        menuGrad!.startPoint = CGPoint(x: 0, y: 0.5)
+        menuGrad!.endPoint = CGPoint(x: 1, y: 0.5)
+        menuGrad!.frame = menuLayer.layer.frame
+        menuLayer.layer.addSublayer(menuGrad!)
+        
+        view.addSubview(menuLayer)
+        
+        
+        
+        
+        menu = UIStackView()
+        
+        menu!.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height)
+        menu!.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        menu!.isLayoutMarginsRelativeArrangement = true
+        menu!.backgroundColor = .white
+        menu!.axis = .vertical
+        menu!.distribution = .equalSpacing
+        menu!.alignment = .center
+        //  menu!.spacing = 10
+        
+        
+        
+        
+        
+        let aboutUs = UIButton()
+        aboutUs.setTitle("About Us", for: .normal)
+        aboutUs.setTitleColor(.black, for: .normal)
+        
+        aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
+        
+        
+        menu?.addArrangedSubview(aboutUs)
+        
+        let howTo = UIButton()
+        howTo.setTitle("How to Use", for: .normal)
+        aboutUs.setTitleColor(.black, for: .normal)
+        menu!.addArrangedSubview(howTo)
+        
+        
+        view.addSubview(menu!)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMenu))
+        
         view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(slide)
-        
-        
-        let menu = UIView()
-        menu.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height)
-        menu.backgroundColor = .white
-        view.addSubview(menu)
-        
+        view.addGestureRecognizer(tap)
         view.backgroundColor = .white
+        
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        menuGrad!.frame = menu!.frame
     }
     
     @objc func dismissMenu(){
-        print("called")
+        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func goToAboutUs(){
+        
+        let aboutUsPage = AboutUsPage()
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromRight
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+        
+        
+        self.present(aboutUsPage, animated: false)
+        
+        
     }
     
     /*

@@ -26,6 +26,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	let locationManager = CLLocationManager()
 	var Data_Model = DataModel()
 	var annotations = [(id: String, annotation: MGLPointAnnotation)]()
+    
+    lazy var slideInTransitioningDelegate = SlideInPresentationManager()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,19 +86,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
     
     @objc func pressedMenu() {
-        print("Menu button tapped")
-        print(Data_Model)
         let menu = Menu()
+        slideInTransitioningDelegate.direction = .left
+        menu.transitioningDelegate = slideInTransitioningDelegate
+        menu.modalPresentationStyle = .custom
         
-        menu.modalPresentationStyle = .overCurrentContext
-        let transition: CATransition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.moveIn
-        transition.subtype = CATransitionSubtype.fromLeft
-        
-        self.view.window!.layer.add(transition, forKey: nil)
-        self.present(menu, animated: false)
+        self.present(menu, animated: true)
     }
     
     @objc func pressedSearch() {
@@ -132,11 +127,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		print("Confirm button tapped")
 		locationDropper.removeFromSuperview()
 		
-		let inputTemp = InputTemp()
-		inputTemp.location = self.mapview.centerCoordinate
-		self.present(inputTemp, animated: true, completion: {
-			self.confirmationbutton.removeFromSuperview()
-		})
+		if let location = self.mapview.userLocation?.coordinate{
+			let inputTemp = InputTemp()
+			inputTemp.location = location
+            inputTemp.modalPresentationStyle = .fullScreen
+            
+            let transition: CATransition = CATransition()
+            transition.duration = 0.5
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.reveal
+            transition.subtype = CATransitionSubtype.fromBottom
+            self.view.window!.layer.add(transition, forKey: nil)
+            
+			self.present(inputTemp, animated: false, completion: {
+				self.confirmationbutton.removeFromSuperview()
+			})
+		}
+
 	}
     
     @objc func pressedCancel() {

@@ -12,7 +12,7 @@ import Mapbox
 class InputTime: UIViewController {
 	
 	var location = CLLocationCoordinate2D()
-	var temp = Float()
+	var temp = Double()
 	var timePicker = UIDatePicker()
 	var nextButton = UIButton()
 	
@@ -21,7 +21,8 @@ class InputTime: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-		
+		self.isModalInPresentation = true
+
 		self.view.backgroundColor = .white
 		timePicker = addTimePicker()
 		nextButton = addNextButton()
@@ -38,6 +39,16 @@ class InputTime: UIViewController {
 		inputConfirmation.location = self.location
 		inputConfirmation.temp = self.temp
 		inputConfirmation.time = self.timePicker.date
+        inputConfirmation.modalPresentationStyle = .fullScreen
+        
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromBottom
+        self.view.window!.layer.add(transition, forKey: nil)
+        
 		self.present(inputConfirmation, animated: true, completion: nil)
 	}
 	
