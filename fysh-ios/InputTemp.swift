@@ -21,6 +21,8 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 		super.viewDidLoad()
 		presentingController = presentingViewController
 		
+        
+        
 		view.backgroundColor = .white
 		
 		tempInput = addTextInput()
@@ -59,7 +61,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		let parent = presentingController as! ViewController
+        let parent =  self.view.window!.rootViewController as! ViewController
 		parent.showUIElements()
 	}
 	
@@ -67,6 +69,15 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 		let inputTime = InputTime()
 		inputTime.location = self.location
 		inputTime.temp = self.temp
+        inputTime.modalPresentationStyle = .fullScreen
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromBottom
+        self.view.window!.layer.add(transition, forKey: nil)
+        
 		self.present(inputTime, animated: true, completion: nil)
 	}
 	
