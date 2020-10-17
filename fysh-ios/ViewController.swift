@@ -127,23 +127,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		print("Confirm button tapped")
 		locationDropper.removeFromSuperview()
 		
-		if let location = self.mapview.userLocation?.coordinate{
-			let inputTemp = InputTemp()
-			inputTemp.location = location
-            inputTemp.modalPresentationStyle = .fullScreen
-            
-            let transition: CATransition = CATransition()
-            transition.duration = 0.5
-            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-            transition.type = CATransitionType.reveal
-            transition.subtype = CATransitionSubtype.fromBottom
-            self.view.window!.layer.add(transition, forKey: nil)
-            
-			self.present(inputTemp, animated: false, completion: {
-				self.confirmationbutton.removeFromSuperview()
-			})
-		}
-
+		let inputTemp = InputTemp()
+		inputTemp.location = self.mapview.centerCoordinate
+		inputTemp.modalPresentationStyle = .fullScreen
+		
+		let transition: CATransition = CATransition()
+		transition.duration = 0.5
+		transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+		transition.type = CATransitionType.reveal
+		transition.subtype = CATransitionSubtype.fromBottom
+		self.view.window!.layer.add(transition, forKey: nil)
+		
+		self.present(inputTemp, animated: false, completion: {
+			self.confirmationbutton.removeFromSuperview()
+		})
 	}
     
     @objc func pressedCancel() {
