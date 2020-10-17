@@ -17,7 +17,7 @@ class InputConfirmation: UIViewController {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	var location = CLLocationCoordinate2D()
-	var temp = Double()
+	var temp: Measurement<UnitTemperature>!
 	var time = Date()
 	var doneButton = UIButton()
 	
@@ -41,7 +41,7 @@ class InputConfirmation: UIViewController {
 		dateFormatter.dateFormat = "HH:mm"
 		let date24 = dateFormatter.string(from: time)
 		DispatchQueue.global(qos: .default).async {
-			self.uploadData(temp: String(self.temp), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24 )
+			self.uploadData(temp: String(self.temp.converted(to: .fahrenheit).value), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24 )
 			
 			DispatchQueue.main.async {
 				let transition: CATransition = CATransition()

@@ -12,7 +12,7 @@ import Mapbox
 class InputTime: UIViewController {
 	
 	var location = CLLocationCoordinate2D()
-	var temp = Double()
+	var temp: Measurement<UnitTemperature>!
 	var timePicker = UIDatePicker()
 	var nextButton = UIButton()
 	

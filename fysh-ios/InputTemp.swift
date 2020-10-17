@@ -13,7 +13,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     var location = CLLocationCoordinate2D()
     var tempInput = UITextField()
     var nextButton = UIButton()
-    var temp = Double()
+	var temp: Measurement<UnitTemperature>!
     
     var presentingController: UIViewController?
     
@@ -43,8 +43,8 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     
     @objc func textFieldDidChange(textField: UITextField){
         if tempInput.text != "" {
-            if let t = Double(tempInput.text!) {
-                self.temp = t
+			if let t = Double(tempInput.text!) {
+                self.temp = Measurement(value: t, unit: UnitTemperature.fahrenheit)
                 nextButton.isEnabled = true
             } else {
                 tempInput.text = ""
