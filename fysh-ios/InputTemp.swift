@@ -46,7 +46,11 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     @objc func textFieldDidChange(textField: UITextField){
         if tempInput.text != "" {
 			if let t = Double(tempInput.text!) {
-                self.temp = Measurement(value: t, unit: UnitTemperature.fahrenheit)
+				if tempType.title(for: .normal)! == "Fahrenheit" {
+					self.temp = Measurement(value: t, unit: UnitTemperature.fahrenheit)
+				} else {
+					self.temp = Measurement(value: t, unit: UnitTemperature.celsius)
+				}
                 nextButton.isEnabled = true
             } else {
                 tempInput.text = ""
@@ -80,7 +84,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     }
 	
     @objc func pressedTempType(){
-		if (tempType.title(for: .normal) == "Fahrenheit") {
+		if tempType.title(for: .normal) == "Fahrenheit" {
 			tempType.setTitle("Celsius", for: .normal)
 		} else {
 			tempType.setTitle("Fahrenheit", for: .normal)

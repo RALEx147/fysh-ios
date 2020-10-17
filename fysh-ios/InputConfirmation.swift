@@ -40,8 +40,9 @@ class InputConfirmation: UIViewController {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm"
 		let date24 = dateFormatter.string(from: time)
+		let t = (self.temp.converted(to: .fahrenheit).value * 10).rounded() / 10
 		DispatchQueue.global(qos: .default).async {
-			self.uploadData(temp: String(self.temp.converted(to: .fahrenheit).value), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24 )
+			self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24 )
 			
 			DispatchQueue.main.async {
 				let transition: CATransition = CATransition()
