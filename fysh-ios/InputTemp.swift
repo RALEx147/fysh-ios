@@ -63,7 +63,6 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         let parent =  self.view.window!.rootViewController as! ViewController
         parent.showUIElements()
-		parent.retrieveAnnotations()
     }
     
     @objc func pressedNext(){

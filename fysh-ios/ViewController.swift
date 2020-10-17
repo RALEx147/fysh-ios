@@ -31,7 +31,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		retrieveAnnotations()
 		
 		locationPermission()
         mapview = addUIMapbox()
@@ -39,6 +38,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         searchbutton = addUISearch()
         inputbutton = addUIInput()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		retrieveAnnotations()
+	}
 	
 	func retrieveAnnotations() {
 		DispatchQueue.global(qos: .utility).async {
