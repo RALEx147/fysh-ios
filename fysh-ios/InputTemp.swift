@@ -14,6 +14,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     var tempInput = UITextField()
     var nextButton = UIButton()
 	var temp: Measurement<UnitTemperature>!
+	var tempType = UIButton()
     
     var presentingController: UIViewController?
     
@@ -27,6 +28,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         
         tempInput = addTextInput()
         nextButton = addNextButton()
+		tempType = addTempTypeButton()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tempInput.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
@@ -76,6 +78,13 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         
         self.present(inputTime, animated: true, completion: nil)
     }
-    
+	
+    @objc func pressedTempType(){
+		if (tempType.title(for: .normal) == "Fahrenheit") {
+			tempType.setTitle("Celsius", for: .normal)
+		} else {
+			tempType.setTitle("Fahrenheit", for: .normal)
+		}
+    }
 	
 }

@@ -52,4 +52,21 @@ extension InputTemp{
 		return button
 	}
 	
+	func addTempTypeButton() -> UIButton {
+		let button = UIButton()
+		button.setTitle("Fahrenheit", for: .normal)
+		button.setTitleColor(.systemBlue, for: .normal)
+		button.addTarget(self, action: #selector(pressedTempType), for: .touchUpInside)
+		view.addSubview(button)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+			button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+			button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100),
+			button.heightAnchor.constraint(equalToConstant: 50)
+		])
+		
+		return button
+	}
 }
