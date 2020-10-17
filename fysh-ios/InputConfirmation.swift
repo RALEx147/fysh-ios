@@ -39,18 +39,22 @@ class InputConfirmation: UIViewController {
     @objc func pressedDone() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let date24 = dateFormatter.string(from: time)
-        
-        uploadData(temp: String(temp), lat: String(location.latitude), long: String(location.longitude), time: date24 )
-        let transition: CATransition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.reveal
-        transition.subtype = CATransitionSubtype.fromRight
-        
-        self.view.window!.layer.add(transition, forKey: nil)
-        
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+		let date24 = dateFormatter.string(from: time)
+		DispatchQueue.global(qos: .default).async {
+			self.uploadData(temp: String(self.temp), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24 )
+
+			DispatchQueue.main.async {
+				let transition: CATransition = CATransition()
+				transition.duration = 0.5
+				transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+				transition.type = CATransitionType.reveal
+				transition.subtype = CATransitionSubtype.fromRight
+				
+				self.view.window!.layer.add(transition, forKey: nil)
+				self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+			}
+		}
+
     }
 	
 	func uploadData(temp: String, lat: String, long: String, time: String ) {
