@@ -60,10 +60,6 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        let parent =  self.view.window!.rootViewController as! ViewController
-        parent.showUIElements()
-    }
     
     @objc func pressedNext(){
         let inputTime = InputTime()

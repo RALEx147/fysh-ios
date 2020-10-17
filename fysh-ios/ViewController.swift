@@ -41,6 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		retrieveAnnotations()
+		showUIElements()
 	}
 	
 	func retrieveAnnotations() {
