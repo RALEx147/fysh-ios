@@ -39,6 +39,7 @@
 		1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */; };
 		220452F64AE97FB69C857752 /* Pods_fysh_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C264549EE6BE80B2DAFF0 /* Pods_fysh_iosTests.framework */; };
 		3E11754BA26D4FAF8597EA19 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D7A046D41D4BD2A9112CEB /* amplifyconfiguration.json */; };
+		576B1770253D526C00F1B02E /* HowToPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B176F253D526C00F1B02E /* HowToPage.swift */; };
 		68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF14F0EF6F400BB30DE2B3 /* AmplifyModels.swift */; };
 		C0D1B2433BDF43668E3E74D1 /* Record+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5E4DA161741CAA338ED54 /* Record+Schema.swift */; };
 		D08A70CEC327670902476BA4 /* Pods_fysh_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1EA2F4245CF1DD14946299 /* Pods_fysh_ios.framework */; };
@@ -89,6 +90,7 @@
 		1FAC2392252FDE4C00E1D6B3 /* ReachPolygons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachPolygons.swift; sourceTree = "<group>"; };
 		1FF392D1252A626100AA306B /* InputConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmation.swift; sourceTree = "<group>"; };
 		1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationUIExtension.swift; sourceTree = "<group>"; };
+		576B176F253D526C00F1B02E /* HowToPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPage.swift; sourceTree = "<group>"; };
 		7A1EA2F4245CF1DD14946299 /* Pods_fysh_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fysh_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F094499725E79738F4C16A7 /* Pods-fysh-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-ios.release.xcconfig"; path = "Target Support Files/Pods-fysh-ios/Pods-fysh-ios.release.xcconfig"; sourceTree = "<group>"; };
 		928CBC185E937DB82CF9A322 /* Pods-fysh-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-iosTests.release.xcconfig"; path = "Target Support Files/Pods-fysh-iosTests/Pods-fysh-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				1F05538F25155CEA009A6A6F /* AppDelegate.swift */,
 				1F05539325155CEA009A6A6F /* ViewController.swift */,
 				0665AB1B2524D7160092A988 /* InputTemp.swift */,
+				576B176F253D526C00F1B02E /* HowToPage.swift */,
 				0665AB202525041C0092A988 /* InputTime.swift */,
 				1FF392D1252A626100AA306B /* InputConfirmation.swift */,
 				06751AAE252F3CD3006748AC /* Menu.swift */,
@@ -448,6 +451,7 @@
 				1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */,
 				1F1EC95E25339BB700112563 /* UIButtonExtension.swift in Sources */,
 				1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */,
+				576B1770253D526C00F1B02E /* HowToPage.swift in Sources */,
 				0608F40B2533E1610066FD0F /* SlideInPresentationAnimator.swift in Sources */,
 				0608F4072533DCE30066FD0F /* SlideInPresentationManager.swift in Sources */,
 				06FB148E252A33A90002F5CF /* DataModel.swift in Sources */,

@@ -66,7 +66,8 @@ class Menu: UIViewController {
         
         let howTo = UIButton()
         howTo.setTitle("How to Use", for: .normal)
-        aboutUs.setTitleColor(.black, for: .normal)
+        howTo.setTitleColor(.black, for: .normal)
+        howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
         menu!.addArrangedSubview(howTo)
         
         
@@ -110,6 +111,24 @@ class Menu: UIViewController {
         
         
         self.present(aboutUsPage, animated: false)
+        
+        
+    }
+    
+    @objc func goToHowTo(){
+        
+        let howToPage = HowToPage()
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromRight
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+        
+        
+        self.present(howToPage, animated: false)
         
         
     }
