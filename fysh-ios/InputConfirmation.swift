@@ -20,6 +20,7 @@ class InputConfirmation: UIViewController {
 	var temp: Measurement<UnitTemperature>!
 	var time = Date()
 	var doneButton = UIButton()
+    var backButton = UIButton()
 	
 	var presentingController: UIViewController?
 	
@@ -30,6 +31,7 @@ class InputConfirmation: UIViewController {
 		
 		self.view.backgroundColor = .white
 		doneButton = addDoneButton()
+        backButton = addUIBack()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -111,4 +113,18 @@ class InputConfirmation: UIViewController {
 		})
 		_ = semaphore.wait(wallTimeout: .now() + 5)
 	}
+    
+    @objc func pressedBack(){
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromTop
+        
+        
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+    }
 }

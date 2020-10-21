@@ -1,20 +1,15 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-fyshios-dev-183052-authRole",
-      "UnauthRoleArn": "arn:aws:iam::298036551118:role/amplify-fyshios-dev-183052-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::298036551118:role/amplify-fyshios-dev-183052-authRole",
+      "AuthRoleName": "amplify-fyshios-dev-133821-authRole",
+      "UnauthRoleArn": "arn:aws:iam::998235515638:role/amplify-fyshios-dev-133821-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::998235515638:role/amplify-fyshios-dev-133821-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-fyshios-dev-183052-deployment",
-      "UnauthRoleName": "amplify-fyshios-dev-183052-unauthRole",
-      "StackName": "amplify-fyshios-dev-183052",
-      "StackId": "arn:aws:cloudformation:us-east-1:298036551118:stack/amplify-fyshios-dev-183052/1b3c98c0-0111-11eb-9b1e-12f4ed1177e6",
-      "AmplifyAppId": "d2zu1hm5zru8te"
-    },
-    "categories": {
-      "auth": {
-        "fyshiosfeb20b10": {}
-      }
+      "DeploymentBucketName": "amplify-fyshios-dev-133821-deployment",
+      "UnauthRoleName": "amplify-fyshios-dev-133821-unauthRole",
+      "StackName": "amplify-fyshios-dev-133821",
+      "StackId": "arn:aws:cloudformation:us-east-1:998235515638:stack/amplify-fyshios-dev-133821/373378d0-13c4-11eb-9f53-0eba1c1b0c34",
+      "AmplifyAppId": "d3run8oxp90yev"
     }
   }
 }

@@ -37,6 +37,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         menubutton = addUIMenu()
         searchbutton = addUISearch()
         inputbutton = addUIInput()
+        
+        
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +101,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func pressedSearch() {
+        
+        print("zoom level")
+        print(mapview.zoomLevel)
+        
+
+        
+        
+
         print("Search button tapped")
 		let coord = self.mapview.centerCoordinate
 		let data = try! self.geojsonData(from: "map")!
@@ -130,17 +140,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
  	@objc func pressedConfirm() {
 		print("Confirm button tapped")
 		locationDropper.removeFromSuperview()
+        
+        
+        
 		
 		let inputTemp = InputTemp()
 		inputTemp.location = self.mapview.centerCoordinate
 		inputTemp.modalPresentationStyle = .fullScreen
-		
+        
+        
 		let transition: CATransition = CATransition()
 		transition.duration = 0.5
 		transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-		transition.type = CATransitionType.reveal
+        transition.type = CATransitionType.reveal
 		transition.subtype = CATransitionSubtype.fromBottom
 		self.view.window!.layer.add(transition, forKey: nil)
+        
+        
+        
 		
 		self.present(inputTemp, animated: false, completion: {
 			self.confirmationbutton.removeFromSuperview()
