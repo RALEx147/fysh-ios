@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import SwiftUI
 
-class HowToPage: UIViewController {
+class HowToPage: UIViewController, UITextViewDelegate {
     
-
+    var textBody = UITextView()
+    
+    var presentingController: UIViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let howToText = UITextView()
-        howToText.textColor = .black
-        howToText.text = "how to use the app"
+        presentingController = presentingViewController
         
-        view.addSubview(howToText)
+        textBody = addHowTo()
+        
     }
     
 

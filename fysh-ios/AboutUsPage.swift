@@ -9,18 +9,24 @@
 import UIKit
 import SwiftUI
 
-class AboutUsPage: UIViewController {
+class AboutUsPage: UIViewController, UITextViewDelegate {
     
-    @State private var text = ""
+    var textBody = UITextView()
     
-    var body: some View {
-        Text("Hi").font(.largeTitle).foregroundColor(.red).fontWeight(.black)
-        //TextField("blah", text: $text).textFieldStyle(RoundedBorderTextFieldStyle())
-    }
+    var presentingController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        presentingController = presentingViewController
+        
+        textBody = addAboutUs()
+    
+        //var body: some View {
+         //   Text("Hi").font(.largeTitle).foregroundColor(.red).fontWeight(.black)
+            //TextField("blah", text: $text).textFieldStyle(RoundedBorderTextFieldStyle())
+        //}
         
         //let aboutUsText = UITextView()
         //aboutUsText.textColor = .black
