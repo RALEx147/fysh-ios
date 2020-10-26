@@ -49,6 +49,66 @@ extension InputConfirmation{
         
         return button
     }
+	
+	func addUITempText() -> UILabel {
+		let label = UILabel()
+		let t = (temp.converted(to: .fahrenheit).value * 10).rounded() / 10
+		label.text = "\(t) °F"
+		view.addSubview(label)
+		
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+			label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50)
+        ])
+        
+        return label
+	}
+	
+	func addUITimeText() -> UILabel {
+		let label = UILabel()
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "HH:mm:ss"
+		let date24 = dateFormatter.string(from: time)
+		label.text = "Time: \(date24)"
+		view.addSubview(label)
+
+		label.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+			label.topAnchor.constraint(equalTo: self.textTemp.bottomAnchor, constant: 50)
+		])
+        
+        return label
+	}
+	
+	func addUILocationText() -> UILabel {
+		let label = UILabel()
+		label.text = "(lat: \(location.latitude), long: \(location.longitude))"
+		view.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+			label.topAnchor.constraint(equalTo: self.textTime.bottomAnchor, constant: 50)
+		])
+        
+        return label
+	}
+	
+	func addUIReachText() -> UILabel {
+		let label = UILabel()
+		label.text = "reach"
+		view.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+			label.topAnchor.constraint(equalTo: self.textLocation.bottomAnchor, constant: 50)
+		])
+        
+        return label
+	}
     
     
 }

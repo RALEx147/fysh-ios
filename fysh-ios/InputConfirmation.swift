@@ -22,6 +22,12 @@ class InputConfirmation: UIViewController {
 	var doneButton = UIButton()
     var backButton = UIButton()
 	
+	var textTemp = UILabel()
+	var textTime = UILabel()
+	var textLocation = UILabel()
+	var textReach = UILabel()
+	
+	
 	var presentingController: UIViewController?
 	
 	override func viewDidLoad() {
@@ -32,6 +38,11 @@ class InputConfirmation: UIViewController {
 		self.view.backgroundColor = .white
 		doneButton = addDoneButton()
         backButton = addUIBack()
+		
+		textTemp = addUITempText()
+		textTime = addUITimeText()
+		textLocation = addUILocationText()
+		textReach = addUIReachText()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
