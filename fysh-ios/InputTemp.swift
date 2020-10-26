@@ -13,7 +13,9 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     var location = CLLocationCoordinate2D()
     var tempInput = UITextField()
     var nextButton = UIButton()
-    var temp = Double()
+	var temp: Measurement<UnitTemperature>!
+	var tempType = UIButton()
+    var backButton = UIButton()
     
     var presentingController: UIViewController?
     
@@ -27,6 +29,8 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         
         tempInput = addTextInput()
         nextButton = addNextButton()
+		tempType = addTempTypeButton()
+        backButton = addUIBack()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tempInput.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
@@ -43,8 +47,12 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     
     @objc func textFieldDidChange(textField: UITextField){
         if tempInput.text != "" {
-            if let t = Double(tempInput.text!) {
-                self.temp = t
+			if let t = Double(tempInput.text!) {
+				if tempType.title(for: .normal)! == "Fahrenheit" {
+					self.temp = Measurement(value: t, unit: UnitTemperature.fahrenheit)
+				} else {
+					self.temp = Measurement(value: t, unit: UnitTemperature.celsius)
+				}
                 nextButton.isEnabled = true
             } else {
                 tempInput.text = ""
@@ -60,6 +68,19 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    @objc func pressedBack(){
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromTop
+        
+        
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+    }
     
     @objc func pressedNext(){
         let inputTime = InputTime()
@@ -76,6 +97,13 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         
         self.present(inputTime, animated: true, completion: nil)
     }
-    
+	
+    @objc func pressedTempType(){
+		if tempType.title(for: .normal) == "Fahrenheit" {
+			tempType.setTitle("Celsius", for: .normal)
+		} else {
+			tempType.setTitle("Fahrenheit", for: .normal)
+		}
+    }
 	
 }

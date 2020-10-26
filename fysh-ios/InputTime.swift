@@ -12,9 +12,10 @@ import Mapbox
 class InputTime: UIViewController {
 	
 	var location = CLLocationCoordinate2D()
-	var temp = Double()
+	var temp: Measurement<UnitTemperature>!
 	var timePicker = UIDatePicker()
 	var nextButton = UIButton()
+    var backButton = UIButton()
 	
 	var presentingController: UIViewController?
 	
@@ -26,6 +27,7 @@ class InputTime: UIViewController {
 		self.view.backgroundColor = .white
 		timePicker = addTimePicker()
 		nextButton = addNextButton()
+        backButton = addUIBack()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -61,5 +63,19 @@ class InputTime: UIViewController {
 	// Pass the selected object to the new view controller.
 	}
 	*/
+    
+    @objc func pressedBack(){
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromTop
+        
+        
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+    }
 	
 }

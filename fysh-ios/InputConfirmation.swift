@@ -17,9 +17,10 @@ class InputConfirmation: UIViewController {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	var location = CLLocationCoordinate2D()
-	var temp = Double()
+	var temp: Measurement<UnitTemperature>!
 	var time = Date()
 	var doneButton = UIButton()
+    var backButton = UIButton()
 	
 	var presentingController: UIViewController?
 	
@@ -30,6 +31,7 @@ class InputConfirmation: UIViewController {
 		
 		self.view.backgroundColor = .white
 		doneButton = addDoneButton()
+        backButton = addUIBack()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -40,8 +42,9 @@ class InputConfirmation: UIViewController {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm"
 		let date24 = dateFormatter.string(from: time)
+		let t = (self.temp.converted(to: .fahrenheit).value * 10).rounded() / 10
 		DispatchQueue.global(qos: .default).async {
-			self.uploadData(temp: String(self.temp), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24 )
+			self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24 )
 			
 			DispatchQueue.main.async {
 				let transition: CATransition = CATransition()
@@ -110,4 +113,18 @@ class InputConfirmation: UIViewController {
 		})
 		_ = semaphore.wait(wallTimeout: .now() + 5)
 	}
+    
+    @objc func pressedBack(){
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromTop
+        
+        
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+    }
 }
