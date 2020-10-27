@@ -6,6 +6,9 @@ subscription OnCreateRecord {
     latitude
     longitude
     time
+    stream
+    reach
+    date
     createdAt
     updatedAt
   }
@@ -17,6 +20,9 @@ subscription OnUpdateRecord {
     latitude
     longitude
     time
+    stream
+    reach
+    date
     createdAt
     updatedAt
   }
@@ -28,6 +34,9 @@ subscription OnDeleteRecord {
     latitude
     longitude
     time
+    stream
+    reach
+    date
     createdAt
     updatedAt
   }
