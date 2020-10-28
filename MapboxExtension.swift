@@ -10,13 +10,13 @@ import Mapbox
 extension ViewController: MGLMapViewDelegate {
 	
 	func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-		let shape = MGLPolygon(coordinates: ReachPolygons.PennsCreek.Selin.geodata, count: UInt(ReachPolygons.PennsCreek.Selin.geodata.count))
-		let source = MGLShapeSource(identifier: "PennsCreek.Selin", shape: shape, options: nil)
+		let url = URL(fileURLWithPath: Bundle.main.path(forResource: "map", ofType: "geojson")!)
+		let source = MGLShapeSource(identifier: "reaches", url: url, options: nil)
 		style.addSource(source)
-		
+		 
 		let layer = MGLFillStyleLayer(identifier: "Reaches", source: source)
 		layer.fillColor = NSExpression(forConstantValue: UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00))
-		layer.fillOpacity = NSExpression(forConstantValue: 0.3)
+		layer.fillOpacity = NSExpression(forConstantValue: 0.2)
 		style.addLayer(layer)
 	}
 

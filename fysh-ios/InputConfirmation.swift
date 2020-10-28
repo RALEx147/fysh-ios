@@ -8,9 +8,10 @@
 
 import UIKit
 import Mapbox
-import Amplify
 import AmplifyPlugins
 import AWSAppSync
+import Turf
+
 
 class InputConfirmation: UIViewController {
 	
@@ -19,8 +20,17 @@ class InputConfirmation: UIViewController {
 	var location = CLLocationCoordinate2D()
 	var temp: Measurement<UnitTemperature>!
 	var time = Date()
+	var stream = String()
+	var reach = Int()
+	
 	var doneButton = UIButton()
     var backButton = UIButton()
+	
+	var textTemp = UILabel()
+	var textTime = UILabel()
+	var textLocation = UILabel()
+	var textReach = UILabel()
+	
 	
 	var presentingController: UIViewController?
 	
@@ -32,7 +42,41 @@ class InputConfirmation: UIViewController {
 		self.view.backgroundColor = .white
 		doneButton = addDoneButton()
         backButton = addUIBack()
+		
+		textTemp = addUITempText()
+		textTime = addUITimeText()
+		textLocation = addUILocationText()
+		textReach = addUIReachText()
+		
+		textReach.text = calculateReach()
 	}
+	
+	func calculateReach() -> String {
+		let data = try! geojsonData(from: "map")!
+		let geojson = try! GeoJSON.parse(FeatureCollection.self, from: data)
+		
+		for i in geojson.features {
+			let p = i.geometry.value as! Polygon
+			if p.contains(location) {
+				if let p = i.properties {
+					if let stream = p["stream"], let reach = p["reach"] {
+						self.stream = stream as! String
+						self.reach = reach as! Int
+						return "Reach: \(self.stream)\(self.reach)"
+					}
+				}
+			}
+		}
+		return "Reach: none"
+	}
+	
+	func geojsonData(from name: String) throws -> Data? {
+		guard let path = Bundle.main.path(forResource: name, ofType: "geojson") else {
+            return nil
+        }
+        let filePath = URL(fileURLWithPath: path)
+        return try Data(contentsOf: filePath)
+    }
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		self.presentingController?.dismiss(animated: true, completion: nil)
