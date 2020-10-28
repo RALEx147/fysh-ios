@@ -54,7 +54,6 @@ class Menu: UIViewController {
         
         
         
-        
         let aboutUs = UIButton()
         aboutUs.setTitle("About Us", for: .normal)
         aboutUs.setTitleColor(.black, for: .normal)
@@ -63,11 +62,13 @@ class Menu: UIViewController {
         
         
         menu?.addArrangedSubview(aboutUs)
+
         
         let howTo = UIButton()
         howTo.setTitle("How to Use", for: .normal)
-        aboutUs.setTitleColor(.black, for: .normal)
-        menu!.addArrangedSubview(howTo)
+        howTo.setTitleColor(.black, for: .normal)
+        howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
+        menu?.addArrangedSubview(howTo)
         
         
         view.addSubview(menu!)
@@ -107,9 +108,26 @@ class Menu: UIViewController {
         transition.subtype = CATransitionSubtype.fromRight
         
         self.view.window!.layer.add(transition, forKey: nil)
-        
-        
+
         self.present(aboutUsPage, animated: false)
+        
+        
+    }
+    
+    @objc func goToHowTo(){
+        
+        let howToPage = HowToPage()
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromRight
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+        
+        
+        self.present(howToPage, animated: false)
         
         
     }

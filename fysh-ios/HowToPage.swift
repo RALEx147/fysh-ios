@@ -1,18 +1,18 @@
 //
-//  AboutUsPage.swift
+//  HowToPage.swift
 //  fysh-ios
 //
-//  Created by Jack on 10/15/20.
+//  Created by Katherine on 10/19/20.
 //  Copyright © 2020 bucknell-csci479. All rights reserved.
 //
 
 import UIKit
 import SwiftUI
 
-class AboutUsPage: UIViewController, UITextViewDelegate {
+class HowToPage: UIViewController, UITextViewDelegate {
     
     var textBody = UITextView()
-    var aboutUsTitle = UITextView()
+    var howToTitle = UITextView()
     
     var presentingController: UIViewController?
     
@@ -22,9 +22,9 @@ class AboutUsPage: UIViewController, UITextViewDelegate {
         
         presentingController = presentingViewController
         
-        textBody = addAboutUsBody()
-        aboutUsTitle = addAboutUsTitle()
-    
+        textBody = addHowTo()
+        howToTitle = addHowToTitle()
+        
     }
     
 
@@ -39,4 +39,3 @@ class AboutUsPage: UIViewController, UITextViewDelegate {
     */
 
 }
-
