@@ -12,6 +12,7 @@ import SwiftUI
 class AboutUsPage: UIViewController, UITextViewDelegate {
     
     var textBody = UITextView()
+    var aboutUsTitle = UITextView()
     
     var presentingController: UIViewController?
     
@@ -21,7 +22,8 @@ class AboutUsPage: UIViewController, UITextViewDelegate {
         
         presentingController = presentingViewController
         
-        textBody = addAboutUs()
+        textBody = addAboutUsBody()
+        aboutUsTitle = addAboutUsTitle()
     
     }
     
@@ -37,3 +39,4 @@ class AboutUsPage: UIViewController, UITextViewDelegate {
     */
 
 }
+

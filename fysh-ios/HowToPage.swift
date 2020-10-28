@@ -12,6 +12,7 @@ import SwiftUI
 class HowToPage: UIViewController, UITextViewDelegate {
     
     var textBody = UITextView()
+    var howToTitle = UITextView()
     
     var presentingController: UIViewController?
     
@@ -22,6 +23,7 @@ class HowToPage: UIViewController, UITextViewDelegate {
         presentingController = presentingViewController
         
         textBody = addHowTo()
+        howToTitle = addHowToTitle()
         
     }
     
