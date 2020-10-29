@@ -13,6 +13,7 @@ class AboutUsPage: UIViewController, UITextViewDelegate {
     
     var textBody = UITextView()
     var aboutUsTitle = UITextView()
+    var backButton = UIButton()
     
     var presentingController: UIViewController?
     
@@ -24,8 +25,25 @@ class AboutUsPage: UIViewController, UITextViewDelegate {
         
         textBody = addAboutUsBody()
         aboutUsTitle = addAboutUsTitle()
+        backButton = addUIBack()
     
     }
+    
+    @objc func pressedBack(){
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromRight
+        
+        
+        
+        self.view.window!.layer.add(transition, forKey: nil)
+     //   self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
+    }
+
     
 
     /*

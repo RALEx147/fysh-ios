@@ -66,6 +66,9 @@ class Menu: UIViewController {
         
         let howTo = UIButton()
         howTo.setTitle("How to Use", for: .normal)
+        howTo.titleLabel?.minimumScaleFactor = 0.1
+        howTo.titleLabel?.numberOfLines = 1
+        howTo.titleLabel?.adjustsFontSizeToFitWidth = true
         howTo.setTitleColor(.black, for: .normal)
         howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
         menu?.addArrangedSubview(howTo)
@@ -100,12 +103,12 @@ class Menu: UIViewController {
     @objc func goToAboutUs(){
         
         let aboutUsPage = AboutUsPage()
-        
+        aboutUsPage.modalPresentationStyle = .fullScreen
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.reveal
-        transition.subtype = CATransitionSubtype.fromRight
+        transition.subtype = CATransitionSubtype.fromLeft
         
         self.view.window!.layer.add(transition, forKey: nil)
 
@@ -117,12 +120,14 @@ class Menu: UIViewController {
     @objc func goToHowTo(){
         
         let howToPage = HowToPage()
-        
+        howToPage.modalPresentationStyle = .fullScreen
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.reveal
-        transition.subtype = CATransitionSubtype.fromRight
+        transition.subtype = CATransitionSubtype.fromLeft
+        
+     
         
         self.view.window!.layer.add(transition, forKey: nil)
         
