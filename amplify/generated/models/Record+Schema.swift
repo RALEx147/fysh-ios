@@ -10,6 +10,9 @@ extension Record {
     case latitude
     case longitude
     case time
+    case stream
+    case reach
+    case date
   }
   
   public static let keys = CodingKeys.self
@@ -25,7 +28,10 @@ extension Record {
       .field(record.temp, is: .required, ofType: .string),
       .field(record.latitude, is: .optional, ofType: .string),
       .field(record.longitude, is: .optional, ofType: .string),
-      .field(record.time, is: .optional, ofType: .string)
+      .field(record.time, is: .optional, ofType: .string),
+      .field(record.stream, is: .optional, ofType: .string),
+      .field(record.reach, is: .optional, ofType: .string),
+      .field(record.date, is: .optional, ofType: .dateTime)
     )
     }
 }

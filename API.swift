@@ -5,8 +5,8 @@ import AWSAppSync
 public struct CreateRecordInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID? = nil, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil) {
-    graphQLMap = ["id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time]
+  public init(id: GraphQLID? = nil, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil) {
+    graphQLMap = ["id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date]
   }
 
   public var id: GraphQLID? {
@@ -53,13 +53,40 @@ public struct CreateRecordInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "time")
     }
   }
+
+  public var stream: String? {
+    get {
+      return graphQLMap["stream"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "stream")
+    }
+  }
+
+  public var reach: String? {
+    get {
+      return graphQLMap["reach"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "reach")
+    }
+  }
+
+  public var date: String? {
+    get {
+      return graphQLMap["date"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "date")
+    }
+  }
 }
 
 public struct ModelRecordConditionInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(temp: ModelStringInput? = nil, latitude: ModelStringInput? = nil, longitude: ModelStringInput? = nil, time: ModelStringInput? = nil, and: [ModelRecordConditionInput?]? = nil, or: [ModelRecordConditionInput?]? = nil, not: ModelRecordConditionInput? = nil) {
-    graphQLMap = ["temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "and": and, "or": or, "not": not]
+  public init(temp: ModelStringInput? = nil, latitude: ModelStringInput? = nil, longitude: ModelStringInput? = nil, time: ModelStringInput? = nil, stream: ModelStringInput? = nil, reach: ModelStringInput? = nil, date: ModelStringInput? = nil, and: [ModelRecordConditionInput?]? = nil, or: [ModelRecordConditionInput?]? = nil, not: ModelRecordConditionInput? = nil) {
+    graphQLMap = ["temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "and": and, "or": or, "not": not]
   }
 
   public var temp: ModelStringInput? {
@@ -95,6 +122,33 @@ public struct ModelRecordConditionInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "time")
+    }
+  }
+
+  public var stream: ModelStringInput? {
+    get {
+      return graphQLMap["stream"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "stream")
+    }
+  }
+
+  public var reach: ModelStringInput? {
+    get {
+      return graphQLMap["reach"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "reach")
+    }
+  }
+
+  public var date: ModelStringInput? {
+    get {
+      return graphQLMap["date"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "date")
     }
   }
 
@@ -390,8 +444,8 @@ public struct ModelSizeInput: GraphQLMapConvertible {
 public struct UpdateRecordInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID, temp: String? = nil, latitude: String? = nil, longitude: String? = nil, time: String? = nil) {
-    graphQLMap = ["id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time]
+  public init(id: GraphQLID, temp: String? = nil, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil) {
+    graphQLMap = ["id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date]
   }
 
   public var id: GraphQLID {
@@ -438,6 +492,33 @@ public struct UpdateRecordInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "time")
     }
   }
+
+  public var stream: String? {
+    get {
+      return graphQLMap["stream"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "stream")
+    }
+  }
+
+  public var reach: String? {
+    get {
+      return graphQLMap["reach"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "reach")
+    }
+  }
+
+  public var date: String? {
+    get {
+      return graphQLMap["date"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "date")
+    }
+  }
 }
 
 public struct DeleteRecordInput: GraphQLMapConvertible {
@@ -460,8 +541,8 @@ public struct DeleteRecordInput: GraphQLMapConvertible {
 public struct ModelRecordFilterInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: ModelIDInput? = nil, temp: ModelStringInput? = nil, latitude: ModelStringInput? = nil, longitude: ModelStringInput? = nil, time: ModelStringInput? = nil, and: [ModelRecordFilterInput?]? = nil, or: [ModelRecordFilterInput?]? = nil, not: ModelRecordFilterInput? = nil) {
-    graphQLMap = ["id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "and": and, "or": or, "not": not]
+  public init(id: ModelIDInput? = nil, temp: ModelStringInput? = nil, latitude: ModelStringInput? = nil, longitude: ModelStringInput? = nil, time: ModelStringInput? = nil, stream: ModelStringInput? = nil, reach: ModelStringInput? = nil, date: ModelStringInput? = nil, and: [ModelRecordFilterInput?]? = nil, or: [ModelRecordFilterInput?]? = nil, not: ModelRecordFilterInput? = nil) {
+    graphQLMap = ["id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "and": and, "or": or, "not": not]
   }
 
   public var id: ModelIDInput? {
@@ -506,6 +587,33 @@ public struct ModelRecordFilterInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "time")
+    }
+  }
+
+  public var stream: ModelStringInput? {
+    get {
+      return graphQLMap["stream"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "stream")
+    }
+  }
+
+  public var reach: ModelStringInput? {
+    get {
+      return graphQLMap["reach"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "reach")
+    }
+  }
+
+  public var date: ModelStringInput? {
+    get {
+      return graphQLMap["date"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "date")
     }
   }
 
@@ -664,7 +772,7 @@ public struct ModelIDInput: GraphQLMapConvertible {
 
 public final class CreateRecordMutation: GraphQLMutation {
   public static let operationString =
-    "mutation CreateRecord($input: CreateRecordInput!, $condition: ModelRecordConditionInput) {\n  createRecord(input: $input, condition: $condition) {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation CreateRecord($input: CreateRecordInput!, $condition: ModelRecordConditionInput) {\n  createRecord(input: $input, condition: $condition) {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    stream\n    reach\n    date\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: CreateRecordInput
   public var condition: ModelRecordConditionInput?
@@ -714,6 +822,9 @@ public final class CreateRecordMutation: GraphQLMutation {
         GraphQLField("latitude", type: .scalar(String.self)),
         GraphQLField("longitude", type: .scalar(String.self)),
         GraphQLField("time", type: .scalar(String.self)),
+        GraphQLField("stream", type: .scalar(String.self)),
+        GraphQLField("reach", type: .scalar(String.self)),
+        GraphQLField("date", type: .scalar(String.self)),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -724,8 +835,8 @@ public final class CreateRecordMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -782,6 +893,33 @@ public final class CreateRecordMutation: GraphQLMutation {
         }
       }
 
+      public var stream: String? {
+        get {
+          return snapshot["stream"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "stream")
+        }
+      }
+
+      public var reach: String? {
+        get {
+          return snapshot["reach"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "reach")
+        }
+      }
+
+      public var date: String? {
+        get {
+          return snapshot["date"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "date")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -805,7 +943,7 @@ public final class CreateRecordMutation: GraphQLMutation {
 
 public final class UpdateRecordMutation: GraphQLMutation {
   public static let operationString =
-    "mutation UpdateRecord($input: UpdateRecordInput!, $condition: ModelRecordConditionInput) {\n  updateRecord(input: $input, condition: $condition) {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation UpdateRecord($input: UpdateRecordInput!, $condition: ModelRecordConditionInput) {\n  updateRecord(input: $input, condition: $condition) {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    stream\n    reach\n    date\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: UpdateRecordInput
   public var condition: ModelRecordConditionInput?
@@ -855,6 +993,9 @@ public final class UpdateRecordMutation: GraphQLMutation {
         GraphQLField("latitude", type: .scalar(String.self)),
         GraphQLField("longitude", type: .scalar(String.self)),
         GraphQLField("time", type: .scalar(String.self)),
+        GraphQLField("stream", type: .scalar(String.self)),
+        GraphQLField("reach", type: .scalar(String.self)),
+        GraphQLField("date", type: .scalar(String.self)),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -865,8 +1006,8 @@ public final class UpdateRecordMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -923,6 +1064,33 @@ public final class UpdateRecordMutation: GraphQLMutation {
         }
       }
 
+      public var stream: String? {
+        get {
+          return snapshot["stream"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "stream")
+        }
+      }
+
+      public var reach: String? {
+        get {
+          return snapshot["reach"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "reach")
+        }
+      }
+
+      public var date: String? {
+        get {
+          return snapshot["date"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "date")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -946,7 +1114,7 @@ public final class UpdateRecordMutation: GraphQLMutation {
 
 public final class DeleteRecordMutation: GraphQLMutation {
   public static let operationString =
-    "mutation DeleteRecord($input: DeleteRecordInput!, $condition: ModelRecordConditionInput) {\n  deleteRecord(input: $input, condition: $condition) {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    createdAt\n    updatedAt\n  }\n}"
+    "mutation DeleteRecord($input: DeleteRecordInput!, $condition: ModelRecordConditionInput) {\n  deleteRecord(input: $input, condition: $condition) {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    stream\n    reach\n    date\n    createdAt\n    updatedAt\n  }\n}"
 
   public var input: DeleteRecordInput
   public var condition: ModelRecordConditionInput?
@@ -996,6 +1164,9 @@ public final class DeleteRecordMutation: GraphQLMutation {
         GraphQLField("latitude", type: .scalar(String.self)),
         GraphQLField("longitude", type: .scalar(String.self)),
         GraphQLField("time", type: .scalar(String.self)),
+        GraphQLField("stream", type: .scalar(String.self)),
+        GraphQLField("reach", type: .scalar(String.self)),
+        GraphQLField("date", type: .scalar(String.self)),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1006,8 +1177,8 @@ public final class DeleteRecordMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1064,6 +1235,33 @@ public final class DeleteRecordMutation: GraphQLMutation {
         }
       }
 
+      public var stream: String? {
+        get {
+          return snapshot["stream"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "stream")
+        }
+      }
+
+      public var reach: String? {
+        get {
+          return snapshot["reach"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "reach")
+        }
+      }
+
+      public var date: String? {
+        get {
+          return snapshot["date"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "date")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1087,7 +1285,7 @@ public final class DeleteRecordMutation: GraphQLMutation {
 
 public final class GetRecordQuery: GraphQLQuery {
   public static let operationString =
-    "query GetRecord($id: ID!) {\n  getRecord(id: $id) {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    createdAt\n    updatedAt\n  }\n}"
+    "query GetRecord($id: ID!) {\n  getRecord(id: $id) {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    stream\n    reach\n    date\n    createdAt\n    updatedAt\n  }\n}"
 
   public var id: GraphQLID
 
@@ -1135,6 +1333,9 @@ public final class GetRecordQuery: GraphQLQuery {
         GraphQLField("latitude", type: .scalar(String.self)),
         GraphQLField("longitude", type: .scalar(String.self)),
         GraphQLField("time", type: .scalar(String.self)),
+        GraphQLField("stream", type: .scalar(String.self)),
+        GraphQLField("reach", type: .scalar(String.self)),
+        GraphQLField("date", type: .scalar(String.self)),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1145,8 +1346,8 @@ public final class GetRecordQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1203,6 +1404,33 @@ public final class GetRecordQuery: GraphQLQuery {
         }
       }
 
+      public var stream: String? {
+        get {
+          return snapshot["stream"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "stream")
+        }
+      }
+
+      public var reach: String? {
+        get {
+          return snapshot["reach"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "reach")
+        }
+      }
+
+      public var date: String? {
+        get {
+          return snapshot["date"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "date")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1226,7 +1454,7 @@ public final class GetRecordQuery: GraphQLQuery {
 
 public final class ListRecordsQuery: GraphQLQuery {
   public static let operationString =
-    "query ListRecords($filter: ModelRecordFilterInput, $limit: Int, $nextToken: String) {\n  listRecords(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      temp\n      latitude\n      longitude\n      time\n      createdAt\n      updatedAt\n    }\n    nextToken\n  }\n}"
+    "query ListRecords($filter: ModelRecordFilterInput, $limit: Int, $nextToken: String) {\n  listRecords(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      temp\n      latitude\n      longitude\n      time\n      stream\n      reach\n      date\n      createdAt\n      updatedAt\n    }\n    nextToken\n  }\n}"
 
   public var filter: ModelRecordFilterInput?
   public var limit: Int?
@@ -1324,6 +1552,9 @@ public final class ListRecordsQuery: GraphQLQuery {
           GraphQLField("latitude", type: .scalar(String.self)),
           GraphQLField("longitude", type: .scalar(String.self)),
           GraphQLField("time", type: .scalar(String.self)),
+          GraphQLField("stream", type: .scalar(String.self)),
+          GraphQLField("reach", type: .scalar(String.self)),
+          GraphQLField("date", type: .scalar(String.self)),
           GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
           GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
         ]
@@ -1334,8 +1565,8 @@ public final class ListRecordsQuery: GraphQLQuery {
           self.snapshot = snapshot
         }
 
-        public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, createdAt: String, updatedAt: String) {
-          self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "createdAt": createdAt, "updatedAt": updatedAt])
+        public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil, createdAt: String, updatedAt: String) {
+          self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "createdAt": createdAt, "updatedAt": updatedAt])
         }
 
         public var __typename: String {
@@ -1392,6 +1623,33 @@ public final class ListRecordsQuery: GraphQLQuery {
           }
         }
 
+        public var stream: String? {
+          get {
+            return snapshot["stream"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "stream")
+          }
+        }
+
+        public var reach: String? {
+          get {
+            return snapshot["reach"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "reach")
+          }
+        }
+
+        public var date: String? {
+          get {
+            return snapshot["date"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "date")
+          }
+        }
+
         public var createdAt: String {
           get {
             return snapshot["createdAt"]! as! String
@@ -1416,7 +1674,7 @@ public final class ListRecordsQuery: GraphQLQuery {
 
 public final class OnCreateRecordSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnCreateRecord {\n  onCreateRecord {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnCreateRecord {\n  onCreateRecord {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    stream\n    reach\n    date\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -1457,6 +1715,9 @@ public final class OnCreateRecordSubscription: GraphQLSubscription {
         GraphQLField("latitude", type: .scalar(String.self)),
         GraphQLField("longitude", type: .scalar(String.self)),
         GraphQLField("time", type: .scalar(String.self)),
+        GraphQLField("stream", type: .scalar(String.self)),
+        GraphQLField("reach", type: .scalar(String.self)),
+        GraphQLField("date", type: .scalar(String.self)),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1467,8 +1728,8 @@ public final class OnCreateRecordSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1525,6 +1786,33 @@ public final class OnCreateRecordSubscription: GraphQLSubscription {
         }
       }
 
+      public var stream: String? {
+        get {
+          return snapshot["stream"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "stream")
+        }
+      }
+
+      public var reach: String? {
+        get {
+          return snapshot["reach"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "reach")
+        }
+      }
+
+      public var date: String? {
+        get {
+          return snapshot["date"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "date")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1548,7 +1836,7 @@ public final class OnCreateRecordSubscription: GraphQLSubscription {
 
 public final class OnUpdateRecordSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnUpdateRecord {\n  onUpdateRecord {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnUpdateRecord {\n  onUpdateRecord {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    stream\n    reach\n    date\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -1589,6 +1877,9 @@ public final class OnUpdateRecordSubscription: GraphQLSubscription {
         GraphQLField("latitude", type: .scalar(String.self)),
         GraphQLField("longitude", type: .scalar(String.self)),
         GraphQLField("time", type: .scalar(String.self)),
+        GraphQLField("stream", type: .scalar(String.self)),
+        GraphQLField("reach", type: .scalar(String.self)),
+        GraphQLField("date", type: .scalar(String.self)),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1599,8 +1890,8 @@ public final class OnUpdateRecordSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1657,6 +1948,33 @@ public final class OnUpdateRecordSubscription: GraphQLSubscription {
         }
       }
 
+      public var stream: String? {
+        get {
+          return snapshot["stream"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "stream")
+        }
+      }
+
+      public var reach: String? {
+        get {
+          return snapshot["reach"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "reach")
+        }
+      }
+
+      public var date: String? {
+        get {
+          return snapshot["date"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "date")
+        }
+      }
+
       public var createdAt: String {
         get {
           return snapshot["createdAt"]! as! String
@@ -1680,7 +1998,7 @@ public final class OnUpdateRecordSubscription: GraphQLSubscription {
 
 public final class OnDeleteRecordSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnDeleteRecord {\n  onDeleteRecord {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    createdAt\n    updatedAt\n  }\n}"
+    "subscription OnDeleteRecord {\n  onDeleteRecord {\n    __typename\n    id\n    temp\n    latitude\n    longitude\n    time\n    stream\n    reach\n    date\n    createdAt\n    updatedAt\n  }\n}"
 
   public init() {
   }
@@ -1721,6 +2039,9 @@ public final class OnDeleteRecordSubscription: GraphQLSubscription {
         GraphQLField("latitude", type: .scalar(String.self)),
         GraphQLField("longitude", type: .scalar(String.self)),
         GraphQLField("time", type: .scalar(String.self)),
+        GraphQLField("stream", type: .scalar(String.self)),
+        GraphQLField("reach", type: .scalar(String.self)),
+        GraphQLField("date", type: .scalar(String.self)),
         GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
         GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
       ]
@@ -1731,8 +2052,8 @@ public final class OnDeleteRecordSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, createdAt: String, updatedAt: String) {
-        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "createdAt": createdAt, "updatedAt": updatedAt])
+      public init(id: GraphQLID, temp: String, latitude: String? = nil, longitude: String? = nil, time: String? = nil, stream: String? = nil, reach: String? = nil, date: String? = nil, createdAt: String, updatedAt: String) {
+        self.init(snapshot: ["__typename": "Record", "id": id, "temp": temp, "latitude": latitude, "longitude": longitude, "time": time, "stream": stream, "reach": reach, "date": date, "createdAt": createdAt, "updatedAt": updatedAt])
       }
 
       public var __typename: String {
@@ -1786,6 +2107,33 @@ public final class OnDeleteRecordSubscription: GraphQLSubscription {
         }
         set {
           snapshot.updateValue(newValue, forKey: "time")
+        }
+      }
+
+      public var stream: String? {
+        get {
+          return snapshot["stream"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "stream")
+        }
+      }
+
+      public var reach: String? {
+        get {
+          return snapshot["reach"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "reach")
+        }
+      }
+
+      public var date: String? {
+        get {
+          return snapshot["date"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "date")
         }
       }
 

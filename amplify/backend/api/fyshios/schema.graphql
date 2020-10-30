@@ -4,4 +4,7 @@ type Record @model {
   latitude: String
   longitude: String
   time: String
+  stream: String
+  reach: String
+  date: AWSDateTime
 }

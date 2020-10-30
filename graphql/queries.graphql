@@ -6,6 +6,9 @@ query GetRecord($id: ID!) {
     latitude
     longitude
     time
+    stream
+    reach
+    date
     createdAt
     updatedAt
   }
@@ -22,6 +25,9 @@ query ListRecords(
       latitude
       longitude
       time
+      stream
+      reach
+      date
       createdAt
       updatedAt
     }
