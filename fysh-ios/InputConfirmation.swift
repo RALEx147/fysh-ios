@@ -83,15 +83,12 @@ class InputConfirmation: UIViewController {
 	}
 	
 	@objc func pressedDone() {
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "HH:mm"
-		let date24 = dateFormatter.string(from: time)
 		let iso8601DateFormatter = ISO8601DateFormatter()
 		iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
 		let date = iso8601DateFormatter.string(from: time)
 		let t = (self.temp.converted(to: .fahrenheit).value * 10).rounded() / 10
 		DispatchQueue.global(qos: .default).async {
-			self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), time: date24, stream: self.stream, reach: self.reach, date: date)
+			self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
 			
 			DispatchQueue.main.async {
 				let transition: CATransition = CATransition()
@@ -108,7 +105,7 @@ class InputConfirmation: UIViewController {
 	}
 	
 	
-	func uploadData(temp: String, lat: String, long: String, time: String, stream: String, reach: String, date: String) {
+	func uploadData(temp: String, lat: String, long: String, stream: String, reach: String, date: String) {
 		var appSyncClient: AWSAppSyncClient?
 		appSyncClient = appDelegate.appSyncClient
 		
@@ -116,17 +113,12 @@ class InputConfirmation: UIViewController {
 		
 		let query = ListRecordsQuery()
 		let UUID = NSUUID().uuidString
-		let mutationInput = CreateRecordInput(temp: temp, latitude: lat, longitude: long, time: time, stream: stream, reach: reach, date: date)
+		let mutationInput = CreateRecordInput(temp: temp, latitude: lat, longitude: long, time: "", stream: stream, reach: reach, date: date)
 		appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput), optimisticUpdate: { record in
-			
-			/*
-			Add to the local cache to be pushed later somehow
-			*/
 			do{
 				try record?.update(query: query){ (data: inout ListRecordsQuery.Data) in
-					data.listRecords?.items?.append(ListRecordsQuery.Data.ListRecord.Item.init(id: UUID, temp: temp, latitude: lat, longitude: long, time: time, stream: stream, reach: reach, date: date, createdAt: "now", updatedAt: "now"))
+					data.listRecords?.items?.append(ListRecordsQuery.Data.ListRecord.Item.init(id: UUID, temp: temp, latitude: lat, longitude: long, time: "", stream: stream, reach: reach, date: date, createdAt: "now", updatedAt: "now"))
 				}
-				
 			}catch{
 				print("Error updating cache with optimistic response for")
 			}
@@ -162,7 +154,6 @@ class InputConfirmation: UIViewController {
 	}
     
     @objc func pressedBack(){
-        
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
