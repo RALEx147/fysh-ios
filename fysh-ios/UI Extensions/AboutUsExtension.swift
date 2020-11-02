@@ -16,11 +16,14 @@ extension AboutUsPage {
         
         
         let uiTextView = UITextView()
-        uiTextView.frame = CGRect(x: 13, y: 75, width: 300, height: 300)
+        uiTextView.frame = CGRect(x: 9, y: 75, width: 295, height: 450)
         uiTextView.attributedText = aboutUs
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 12)
+        uiTextView.font = UIFont(name: "Arial", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
+        uiTextView.allowsEditingTextAttributes = false
+        uiTextView.isEditable = false
+        uiTextView.isScrollEnabled = true
         
         uiTextView.delegate = self
         self.view.addSubview(uiTextView)
@@ -33,10 +36,12 @@ extension AboutUsPage {
         let theText = NSAttributedString(string: "About Us")
         let uiTextView = UITextView()
         //uiTextView.frame(.center)
-        uiTextView.frame = CGRect(x: 92, y: 20, width: 300, height: 40)
+        uiTextView.frame = CGRect(x: 100, y: 20, width: 300, height: 40)
         uiTextView.attributedText = theText
         uiTextView.isScrollEnabled = true
         uiTextView.font = UIFont(name: "Arial", size: 25)
+        uiTextView.allowsEditingTextAttributes = false
+        uiTextView.isEditable = false
         
         
         uiTextView.delegate = self

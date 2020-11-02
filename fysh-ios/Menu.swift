@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import MapKit
 
 class Menu: UIViewController {
     
     var menuGrad : CAGradientLayer?
     var menu : UIStackView?
+    var homeButton = UIButton()
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         
         
         let menuLayer = UIView()
@@ -42,17 +43,30 @@ class Menu: UIViewController {
         
         menu = UIStackView()
         
+        //3
         menu!.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height)
         menu!.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        menu!.alignment = .firstBaseline
         menu!.isLayoutMarginsRelativeArrangement = true
-        menu!.backgroundColor = .white
         menu!.axis = .vertical
         menu!.distribution = .equalSpacing
-        menu!.alignment = .center
-        //  menu!.spacing = 10
+        menu!.spacing = 15
+        //menu!.constraints =
+        menu!.backgroundColor = .white
+        menu!.axis = .vertical
+        menu!.alignment = .firstBaseline //.center
         
         
         
+        
+        let home = UIButton()
+        home.setTitle("Home", for: .normal)
+        home.setTitleColor(.black, for: .normal)
+        home.addTarget(self, action: #selector(goHome), for: .touchUpInside)
+        //menu?.addSubview(home)
+        //menu?.addArrangedSubview(home)
+        //menu!.setCustomSpacing(10, after: home)
+        menu?.insertArrangedSubview(home, at: 1)
         
         let aboutUs = UIButton()
         aboutUs.setTitle("About Us", for: .normal)
@@ -60,15 +74,20 @@ class Menu: UIViewController {
         
         aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
         
-        
-        menu?.addArrangedSubview(aboutUs)
+        //menu?.insertSubview(aboutUs, belowSubview: home)
+        //menu?.addSubview(aboutUs)
+        //menu?.addArrangedSubview(aboutUs)
+        menu?.insertArrangedSubview(aboutUs, at: 2)
 
         
         let howTo = UIButton()
-        howTo.setTitle("How to Use", for: .normal)
+        howTo.setTitle("How To", for: .normal)
         howTo.setTitleColor(.black, for: .normal)
         howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
-        menu?.addArrangedSubview(howTo)
+        //menu?.addSubview(howTo)
+        //menu?.addArrangedSubview(howTo)
+        menu?.insertArrangedSubview(howTo, at: 3)
+        
         
         
         view.addSubview(menu!)
@@ -130,6 +149,11 @@ class Menu: UIViewController {
         self.present(howToPage, animated: false)
         
         
+    }
+    
+    @objc func goHome() {
+        //self.view.window!.layer.add(transition, forKey: nil)
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
     /*
