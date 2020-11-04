@@ -11,7 +11,7 @@ import Mapbox
 import AmplifyPlugins
 import AWSAppSync
 import Turf
-
+import Foundation
 
 class InputConfirmation: UIViewController {
 	
