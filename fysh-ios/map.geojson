@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
 	    "stream": "Penns Creek",
-		"reach": 1,
+		"reach": "1",
         "stroke": "#555555",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -348,7 +348,7 @@
       "type": "Feature",
       "properties": {
 		"stream": "Penns Creek",
-		"reach": 2,
+		"reach": "2",
         "stroke": "#555555",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -835,7 +835,7 @@
       "type": "Feature",
       "properties": {
 		"stream": "Penns Creek",
-		"reach": 3,
+		"reach": "3",
         "stroke": "#0000ff",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -1422,7 +1422,7 @@
       "type": "Feature",
       "properties": {
 		"stream": "Penns Creek",
-		"reach": 4,
+		"reach": "4",
         "stroke": "#ff0000",
         "stroke-width": 2,
         "stroke-opacity": 1,

@@ -62,7 +62,7 @@ extension InputTemp{
         NSLayoutConstraint.activate([
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
         

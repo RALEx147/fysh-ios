@@ -79,9 +79,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 				if let lat = Double(i.latitude!), let long = Double(i.longitude!) {
 					let coord = CLLocationCoordinate2D(latitude: lat, longitude: long)
 					if coord.latitude != -180.0 && coord.longitude != -180.0 {
+						let dateFormatter = DateFormatter()
+						dateFormatter.dateFormat = "HH:mm MM/dd"
+						let date24 = dateFormatter.string(from: i.date!.foundationDate)
 						m.coordinate = coord
 						m.title = i.temp + " °F"
-						m.subtitle = i.time!
+						m.subtitle = "\(date24), stream: \(i.stream ?? "")\(i.reach ?? "")"
 						output.append((i.id, m))
 					}
 				}

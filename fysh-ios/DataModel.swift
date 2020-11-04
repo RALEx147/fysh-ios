@@ -37,8 +37,12 @@ class DataModel: CustomStringConvertible {
 				return
 			}
 			var temp = [Record]()
-			result?.data?.listRecords?.items?.forEach{record in
-				temp.append(Record(id: record?.id ?? "No ID", temp: record?.temp ?? "No Temp", latitude: record?.latitude ?? "No Lat", longitude: record?.longitude ?? "No Long", time: record?.time ?? "No Time"))
+			do{
+				try result?.data?.listRecords?.items?.forEach{record in
+					temp.append(Record(id: record?.id ?? "", temp: record?.temp ?? "", latitude: record?.latitude!, longitude: record?.longitude!, time: record?.time!, stream: record?.stream, reach:  record?.reach, date: try               Temporal.DateTime(iso8601String: (record?.date ?? "1970-01-01T00:00:00.0000000Z"))))
+				}
+			} catch {
+				print("Temporal.DateTime(iso8601String) error")
 			}
 			self.Records = temp
 			semaphore.signal()
