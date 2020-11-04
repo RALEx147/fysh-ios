@@ -85,6 +85,7 @@ extension InputConfirmation{
 	func addUILocationText() -> UILabel {
 		let label = UILabel()
 		label.text = "(lat: \(location.latitude) long: \(location.longitude))"
+		label.adjustsFontSizeToFitWidth = true
 		view.addSubview(label)
 
         label.translatesAutoresizingMaskIntoConstraints = false
