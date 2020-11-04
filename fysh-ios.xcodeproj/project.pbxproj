@@ -138,14 +138,14 @@
 			path = .;
 			sourceTree = "<group>";
 		};
-		0608F4052533DCC20066FD0F /* New Group */ = {
+		0608F4052533DCC20066FD0F /* SlideAnimator */ = {
 			isa = PBXGroup;
 			children = (
 				0608F4062533DCE30066FD0F /* SlideInPresentationManager.swift */,
 				0608F4082533DDAB0066FD0F /* SlideInPresentationController.swift */,
 				0608F40A2533E1610066FD0F /* SlideInPresentationAnimator.swift */,
 			);
-			path = "New Group";
+			path = SlideAnimator;
 			sourceTree = "<group>";
 		};
 		1F05538325155CEA009A6A6F = {
@@ -173,17 +173,14 @@
 		1F05538E25155CEA009A6A6F /* fysh-ios */ = {
 			isa = PBXGroup;
 			children = (
-				0608F4052533DCC20066FD0F /* New Group */,
-				1F05538F25155CEA009A6A6F /* AppDelegate.swift */,
 				1F05539325155CEA009A6A6F /* ViewController.swift */,
 				0665AB1B2524D7160092A988 /* InputTemp.swift */,
-				576B176F253D526C00F1B02E /* HowToPage.swift */,
 				0665AB202525041C0092A988 /* InputTime.swift */,
 				1FF392D1252A626100AA306B /* InputConfirmation.swift */,
-				06751AAE252F3CD3006748AC /* Menu.swift */,
-				067025A52538F9E400476256 /* AboutUsPage.swift */,
+				1F3450872553242700E1B702 /* Menu */,
 				1FDBF032252C1D920063CA1B /* UI Extensions */,
 				1FDBF033252C1E0A0063CA1B /* Others */,
+				0608F4052533DCC20066FD0F /* SlideAnimator */,
 				1F05539D25155CEA009A6A6F /* Info.plist */,
 				1F59F56D251E9EEB00400A94 /* API.swift */,
 				06FB148D252A33A90002F5CF /* DataModel.swift */,
@@ -200,6 +197,16 @@
 				1F0553A825155CEA009A6A6F /* Info.plist */,
 			);
 			path = "fysh-iosTests";
+			sourceTree = "<group>";
+		};
+		1F3450872553242700E1B702 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				576B176F253D526C00F1B02E /* HowToPage.swift */,
+				06751AAE252F3CD3006748AC /* Menu.swift */,
+				067025A52538F9E400476256 /* AboutUsPage.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		1FDBF032252C1D920063CA1B /* UI Extensions */ = {
@@ -220,6 +227,7 @@
 		1FDBF033252C1E0A0063CA1B /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				1F05538F25155CEA009A6A6F /* AppDelegate.swift */,
 				1F05539125155CEA009A6A6F /* SceneDelegate.swift */,
 				1F05539525155CEA009A6A6F /* Main.storyboard */,
 				1F05539825155CEA009A6A6F /* Assets.xcassets */,
