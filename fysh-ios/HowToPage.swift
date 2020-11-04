@@ -22,7 +22,11 @@ class HowToPage: UIViewController, UITextViewDelegate {
         
         presentingController = presentingViewController
         
-        textBody = addHowTo()
+        textBody = add1()
+        textBody = add2()
+        textBody = add3()
+        textBody = add4()
+        textBody = add5()
         howToTitle = addHowToTitle()
         
     }
