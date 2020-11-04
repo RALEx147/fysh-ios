@@ -90,7 +90,8 @@ extension InputConfirmation{
         label.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-			label.topAnchor.constraint(equalTo: self.textTime.bottomAnchor, constant: 50)
+			label.topAnchor.constraint(equalTo: self.textTime.bottomAnchor, constant: 50),
+			label.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.95)
 		])
         
         return label
