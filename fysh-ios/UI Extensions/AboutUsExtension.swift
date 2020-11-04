@@ -90,4 +90,21 @@ extension AboutUsPage {
         self.view.addSubview(uiTextView)
         return uiTextView
     }
+    
+    func addUIBack() -> UIButton {
+        let button = UIButton()
+        let image = UIImage(systemName: "trash.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(pressedBack), for: .touchUpInside)
+        view.addSubview(button)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+        ])
+        
+        return button
+    }
 }
