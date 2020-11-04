@@ -64,9 +64,9 @@ class Menu: UIViewController {
         home.setTitleColor(.black, for: .normal)
         home.addTarget(self, action: #selector(goHome), for: .touchUpInside)
         //menu?.addSubview(home)
-        //menu?.addArrangedSubview(home)
+        menu?.addArrangedSubview(home)
         //menu!.setCustomSpacing(10, after: home)
-        menu?.insertArrangedSubview(home, at: 1)
+        //menu?.insertArrangedSubview(home, at: 1)
         
         let aboutUs = UIButton()
         aboutUs.setTitle("About Us", for: .normal)
@@ -76,8 +76,8 @@ class Menu: UIViewController {
         
         //menu?.insertSubview(aboutUs, belowSubview: home)
         //menu?.addSubview(aboutUs)
-        //menu?.addArrangedSubview(aboutUs)
-        menu?.insertArrangedSubview(aboutUs, at: 2)
+        menu?.addArrangedSubview(aboutUs)
+        //menu?.insertArrangedSubview(aboutUs, at: 2)
 
         
         let howTo = UIButton()
@@ -85,8 +85,8 @@ class Menu: UIViewController {
         howTo.setTitleColor(.black, for: .normal)
         howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
         //menu?.addSubview(howTo)
-        //menu?.addArrangedSubview(howTo)
-        menu?.insertArrangedSubview(howTo, at: 3)
+        menu?.addArrangedSubview(howTo)
+        //menu?.insertArrangedSubview(howTo, at: 3)
         
         
         
