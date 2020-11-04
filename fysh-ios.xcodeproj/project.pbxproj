@@ -173,6 +173,7 @@
 		1F05538E25155CEA009A6A6F /* fysh-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1F05538F25155CEA009A6A6F /* AppDelegate.swift */,
 				1F05539325155CEA009A6A6F /* ViewController.swift */,
 				0665AB1B2524D7160092A988 /* InputTemp.swift */,
 				0665AB202525041C0092A988 /* InputTime.swift */,
@@ -227,7 +228,6 @@
 		1FDBF033252C1E0A0063CA1B /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				1F05538F25155CEA009A6A6F /* AppDelegate.swift */,
 				1F05539125155CEA009A6A6F /* SceneDelegate.swift */,
 				1F05539525155CEA009A6A6F /* Main.storyboard */,
 				1F05539825155CEA009A6A6F /* Assets.xcassets */,
