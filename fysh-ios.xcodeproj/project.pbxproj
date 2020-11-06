@@ -23,7 +23,6 @@
 		068BFC7D6A8E4773B9090CE1 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588482FE36D46B78ABFB2FB /* Record.swift */; };
 		06FB148E252A33A90002F5CF /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB148D252A33A90002F5CF /* DataModel.swift */; };
 		1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05538F25155CEA009A6A6F /* AppDelegate.swift */; };
-		1F05539225155CEA009A6A6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05539125155CEA009A6A6F /* SceneDelegate.swift */; };
 		1F05539425155CEA009A6A6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05539325155CEA009A6A6F /* ViewController.swift */; };
 		1F05539725155CEA009A6A6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F05539525155CEA009A6A6F /* Main.storyboard */; };
 		1F05539925155CEA009A6A6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F05539825155CEA009A6A6F /* Assets.xcassets */; };
@@ -75,7 +74,6 @@
 		19AF14F0EF6F400BB30DE2B3 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		1F05538C25155CEA009A6A6F /* fysh-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fysh-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F05538F25155CEA009A6A6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F05539125155CEA009A6A6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1F05539325155CEA009A6A6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F05539625155CEA009A6A6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F05539825155CEA009A6A6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 		1FDBF033252C1E0A0063CA1B /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				1F05539125155CEA009A6A6F /* SceneDelegate.swift */,
 				1F05539525155CEA009A6A6F /* Main.storyboard */,
 				1F05539825155CEA009A6A6F /* Assets.xcassets */,
 				1F05539A25155CEA009A6A6F /* LaunchScreen.storyboard */,
@@ -472,7 +469,6 @@
 				06FB148E252A33A90002F5CF /* DataModel.swift in Sources */,
 				0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */,
 				1FF392D2252A626100AA306B /* InputConfirmation.swift in Sources */,
-				1F05539225155CEA009A6A6F /* SceneDelegate.swift in Sources */,
 				06751AAF252F3CD3006748AC /* Menu.swift in Sources */,
 				68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */,
 				068BFC7D6A8E4773B9090CE1 /* Record.swift in Sources */,
@@ -649,8 +645,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3F483VPL7Y;
+				DEVELOPMENT_TEAM = 44WHLLW2EP;
 				INFOPLIST_FILE = "fysh-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -670,8 +667,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3F483VPL7Y;
+				DEVELOPMENT_TEAM = 44WHLLW2EP;
 				INFOPLIST_FILE = "fysh-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
