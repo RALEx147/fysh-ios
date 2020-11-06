@@ -16,7 +16,8 @@ extension AboutUsPage {
         
         
         let uiTextView = UITextView()
-        uiTextView.frame = CGRect(x: 9, y: 65, width: 295, height: 450)
+        uiTextView.frame = CGRect(x: view.frame.width/8, y: view.frame.height/12, width: view.frame.width, height: view.frame.height)
+        //uiTextView.frame = CGRect(x: 9, y: 65, width: 295, height: 450)
         uiTextView.attributedText = aboutUs
         uiTextView.isScrollEnabled = true
         uiTextView.font = UIFont(name: "Arial", size: 14)
