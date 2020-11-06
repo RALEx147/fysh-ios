@@ -22,7 +22,7 @@ class InputTime: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-		self.isModalInPresentation = true
+//		self.isModalInPresentation = true
 
 		self.view.backgroundColor = .white
 		timePicker = addTimePicker()

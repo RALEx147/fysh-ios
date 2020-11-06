@@ -36,8 +36,9 @@ extension InputTemp{
     
     func addUIBack() -> UIButton {
         let button = UIButton()
-        let image = UIImage(systemName: "trash.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+//        let image = UIImage(systemName: "trash.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let image = UIImage(named: "buttonPlaceholder")
+		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(pressedBack), for: .touchUpInside)
         view.addSubview(button)

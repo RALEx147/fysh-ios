@@ -29,7 +29,8 @@ extension ViewController {
 	
 	func addUIMenu() -> UIButton {
 		let button = UIButton()
-		let image = UIImage(systemName: "line.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+//		let image = UIImage(systemName: "line.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+		let image = UIImage(named: "buttonPlaceholder")
 		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedMenu), for: .touchUpInside)
@@ -46,7 +47,8 @@ extension ViewController {
 	
 	func addUISearch() -> UIButton{
 		let button = UIButton()
-		let image = UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+//		let image = UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+		let image = UIImage(named: "buttonPlaceholder")
 		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedSearch), for: .touchUpInside)
@@ -62,7 +64,8 @@ extension ViewController {
 	
 	func addUIInput() -> UIButton{
 		let button = UIButton()
-		let image = UIImage(systemName: "plus.app.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 55))?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+//		let image = UIImage(systemName: "plus.app.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 55))?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+		let image = UIImage(named: "buttonPlaceholder")
 		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedInput), for: .touchUpInside)
@@ -80,7 +83,8 @@ extension ViewController {
 	
 	//MARK: - Location UI
 	func addUILocationDropper() -> UIImageView{
-		let image = UIImage(systemName: "mappin", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
+//		let image = UIImage(systemName: "mappin", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
+		let image = UIImage(named: "buttonPlaceholder")
 		let imageview = UIImageView(image: image)
 		imageview.frame = CGRect(x: 300, y: 300, width: 25, height: 30)
 		view.addSubview(imageview)
@@ -119,7 +123,8 @@ extension ViewController {
 	
 	func addUICancelButton() -> UIButton {
 		let button = UIButton()
-		let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+//		let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+		let image = UIImage(named: "buttonPlaceholder")
 		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedCancel), for: .touchUpInside)
