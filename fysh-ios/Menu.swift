@@ -44,9 +44,9 @@ class Menu: UIViewController {
         menu = UIStackView()
         
         //3
-        menu!.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height)
+        menu!.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height/4)
         menu!.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        menu!.alignment = .firstBaseline
+        menu!.alignment = .leading
         menu!.isLayoutMarginsRelativeArrangement = true
         menu!.axis = .vertical
         menu!.distribution = .equalSpacing
@@ -87,6 +87,8 @@ class Menu: UIViewController {
         //menu?.addSubview(howTo)
         menu?.addArrangedSubview(howTo)
         //menu?.insertArrangedSubview(howTo, at: 3)
+        
+        menu?.setCustomSpacing(10, after: home)
         
         
         
