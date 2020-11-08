@@ -29,9 +29,7 @@ extension ViewController {
 	
 	func addUIMenu() -> UIButton {
 		let button = UIButton()
-//		let image = UIImage(systemName: "line.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-		let image = UIImage(named: "buttonPlaceholder")
-		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        let image = UIImage(named: "menu")
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedMenu), for: .touchUpInside)
 		view.addSubview(button)
@@ -47,9 +45,7 @@ extension ViewController {
 	
 	func addUISearch() -> UIButton{
 		let button = UIButton()
-//		let image = UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-		let image = UIImage(named: "buttonPlaceholder")
-		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        let image = UIImage(named: "search")
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedSearch), for: .touchUpInside)
 		view.addSubview(button)
@@ -57,16 +53,14 @@ extension ViewController {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-			button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+			button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
 		])
 		return button
 	}
 	
 	func addUIInput() -> UIButton{
 		let button = UIButton()
-//		let image = UIImage(systemName: "plus.app.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 55))?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
-		let image = UIImage(named: "buttonPlaceholder")
-		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        let image = UIImage(named: "add")
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedInput), for: .touchUpInside)
 		view.addSubview(button)
@@ -83,19 +77,18 @@ extension ViewController {
 	
 	//MARK: - Location UI
 	func addUILocationDropper() -> UIImageView{
-//		let image = UIImage(systemName: "mappin", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
-		let image = UIImage(named: "buttonPlaceholder")
+        let image = UIImage(named: "mappin")
 		let imageview = UIImageView(image: image)
 		imageview.frame = CGRect(x: 300, y: 300, width: 25, height: 30)
 		view.addSubview(imageview)
 		
+		let factor = -16.5852*pow(0.9987, image!.size.height)
 		imageview.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			imageview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.size.width/2 - image!.size.width/2),
-			imageview.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.size.height/2 - image!.size.height/1.4)
+            imageview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: image!.size.height/factor),
+            imageview.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		])
         
-		
 		return imageview
 	}
 	
@@ -123,9 +116,7 @@ extension ViewController {
 	
 	func addUICancelButton() -> UIButton {
 		let button = UIButton()
-//		let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
-		let image = UIImage(named: "buttonPlaceholder")
-		button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        let image = UIImage(named: "cancel")
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedCancel), for: .touchUpInside)
 		view.addSubview(button)
