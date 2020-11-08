@@ -81,11 +81,11 @@ extension ViewController {
 		let imageview = UIImageView(image: image)
 		imageview.frame = CGRect(x: 300, y: 300, width: 25, height: 30)
 		view.addSubview(imageview)
-		
-		let factor = -16.5852*pow(0.9987, image!.size.height)
+
+        let factor = 26399.0428 / pow(view.frame.size.height, 1.2855)
 		imageview.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-            imageview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: image!.size.height/factor),
+            imageview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -image!.size.height/factor),
             imageview.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		])
         
