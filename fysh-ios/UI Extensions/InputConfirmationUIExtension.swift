@@ -13,8 +13,8 @@ extension InputConfirmation{
     
     func addDoneButton() -> UIButton {
         let button = UIButton()
-        button.setBackground(UIColor(red: 0.25, green: 0.65, blue: 1.00, alpha: 1.00), for: .normal)
-        button.setBackground(UIColor(red: 0.25, green: 0.45, blue: 1.00, alpha: 1.00), for: .highlighted)
+        button.setBackground(UIColor(named: "blue")!, for: .normal)
+        button.setBackground(UIColor(named: "blue-h")!, for: .highlighted)
         button.setTitle("Done", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 5
