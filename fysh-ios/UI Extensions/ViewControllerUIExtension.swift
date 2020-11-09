@@ -45,7 +45,7 @@ extension ViewController {
 	
 	func addUIInfo() -> UIButton{
 		let button = UIButton()
-        let image = UIImage(named: "i")
+        let image = UIImage(named: "location")
 		button.setImage(image, for: .normal)
 		button.addTarget(self, action: #selector(pressedInfo), for: .touchUpInside)
 		view.addSubview(button)
