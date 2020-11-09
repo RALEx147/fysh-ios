@@ -15,7 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var mapview = MGLMapView()
     var menubutton = UIButton()
-    var searchbutton = UIButton()
+    //var searchbutton = UIButton()
     var inputbutton = UIButton()
     
     var locationDropper = UIImageView()
@@ -34,7 +34,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		locationPermission()
         mapview = addUIMapbox()
         menubutton = addUIMenu()
-        searchbutton = addUISearch()
+        //searchbutton = addUISearch()
         inputbutton = addUIInput()
         
         
@@ -102,9 +102,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.present(menu, animated: true)
     }
     
-    @objc func pressedSearch() {
-        print("Search button tapped")
-    }
+    //@objc func pressedSearch() {
+    //    print("Search button tapped")
+    //}
     
     @objc func pressedInput() {
         print("Input button tapped")
@@ -150,13 +150,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func hideUIElements() {
-        searchbutton.isHidden = true
+        //searchbutton.isHidden = true
         menubutton.isHidden = true
         inputbutton.isHidden = true
     }
     
     func showUIElements() {
-        searchbutton.isHidden = false
+        //searchbutton.isHidden = false
         menubutton.isHidden = false
         inputbutton.isHidden = false
 		cancelbutton.removeFromSuperview()
