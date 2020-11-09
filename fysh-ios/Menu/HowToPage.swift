@@ -11,8 +11,12 @@ import SwiftUI
 
 class HowToPage: UIViewController, UITextViewDelegate {
     
-    var textBody = UITextView()
     var howToTitle = UITextView()
+    var textBody1 = UITextView()
+    var textBody2 = UITextView()
+    var textBody3 = UITextView()
+    var textBody4 = UITextView()
+    var textBody5 = UITextView()
     var backButton = UIButton()
     
     var presentingController: UIViewController?
@@ -23,12 +27,12 @@ class HowToPage: UIViewController, UITextViewDelegate {
         
         presentingController = presentingViewController
         
-        textBody = add1()
-        textBody = add2()
-        textBody = add3()
-        textBody = add4()
-        textBody = add5()
         howToTitle = addHowToTitle()
+        textBody1 = add1()
+        textBody2 = add2()
+        textBody3 = add3()
+        textBody4 = add4()
+        textBody5 = add5()
         backButton = addUIBack()
         
         

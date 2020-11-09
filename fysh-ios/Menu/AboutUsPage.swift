@@ -26,10 +26,10 @@ class AboutUsPage: UIViewController, UITextViewDelegate {
         
         presentingController = presentingViewController
         
+        aboutUsTitle = addAboutUsTitle()
         bullet1 = addBullet1()
         bullet2 = addBullet2()
         bullet3 = addBullet3()
-        aboutUsTitle = addAboutUsTitle()
         backButton = addUIBack()
     
     }

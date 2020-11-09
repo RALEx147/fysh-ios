@@ -11,12 +11,29 @@ import UIKit
 
 extension AboutUsPage {
     
+    func addAboutUsTitle() -> UITextView {
+        let theText = NSAttributedString(string: "About Us")
+        let uiTextView = UITextView()
+        //uiTextView.frame(.center)
+        uiTextView.frame = CGRect(x: 0, y: 80, width: view.frame.width, height: view.frame.height)
+        uiTextView.attributedText = theText
+        uiTextView.isScrollEnabled = true
+        uiTextView.textAlignment = NSTextAlignment(.center)
+        uiTextView.font = UIFont(name: "Arial", size: 25)
+        uiTextView.allowsEditingTextAttributes = false
+        uiTextView.isEditable = false
+        
+        uiTextView.delegate = self
+        self.view.addSubview(uiTextView)
+        return uiTextView
+    }
+    
     func addBullet1()  -> UITextView {//UITextField {
         let aboutUs = NSAttributedString(string: "Central Pennsylvania is home to a network of fishable streams and experienced fishermen. Many of these fishermen frequently take temperature data at local streams to predict the water’s current fishability. The Citizen Science Watershed App Project hopes to gather this data from the local fishermen, and extend its meaning to climate change.")
         
         
         let uiTextView = UITextView()
-        uiTextView.frame = CGRect(x: view.frame.width/8, y: view.frame.height/12, width: view.frame.width, height: view.frame.height)
+        uiTextView.frame = CGRect(x: 10, y: 160, width: view.frame.width-20, height: view.frame.height)
         //uiTextView.frame = CGRect(x: 9, y: 65, width: 295, height: 450)
         uiTextView.attributedText = aboutUs
         uiTextView.isScrollEnabled = true
@@ -24,7 +41,6 @@ extension AboutUsPage {
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
-        uiTextView.isScrollEnabled = true
         
         uiTextView.delegate = self
         self.view.addSubview(uiTextView)
@@ -38,7 +54,7 @@ extension AboutUsPage {
         
         
         let uiTextView = UITextView()
-        uiTextView.frame = CGRect(x: 9, y: 215, width: 295, height: 450)
+        uiTextView.frame = CGRect(x: 10, y: 290, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = aboutUs
         uiTextView.isScrollEnabled = true
         uiTextView.font = UIFont(name: "Arial", size: 14)
@@ -59,7 +75,7 @@ extension AboutUsPage {
         
         
         let uiTextView = UITextView()
-        uiTextView.frame = CGRect(x: 9, y: 420, width: 295, height: 450)
+        uiTextView.frame = CGRect(x: 10, y: 450, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = aboutUs
         uiTextView.isScrollEnabled = true
         uiTextView.font = UIFont(name: "Arial", size: 14)
@@ -74,37 +90,20 @@ extension AboutUsPage {
         
         return uiTextView
     }
-    
-    func addAboutUsTitle() -> UITextView {
-        let theText = NSAttributedString(string: "About Us")
-        let uiTextView = UITextView()
-        //uiTextView.frame(.center)
-        uiTextView.frame = CGRect(x: 100, y: 20, width: 300, height: 40)
-        uiTextView.attributedText = theText
-        uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 25)
-        uiTextView.allowsEditingTextAttributes = false
-        uiTextView.isEditable = false
-        
-        
-        uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
-        return uiTextView
-    }
+
     
     func addUIBack() -> UIButton {
         let button = UIButton()
-//        let image = UIImage(systemName: "trash.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-		let image = UIImage(named: "buttonPlaceholder")
-        button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+        let image = UIImage(named: "back")
+        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(pressedBack), for: .touchUpInside)
         view.addSubview(button)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
         
         return button
