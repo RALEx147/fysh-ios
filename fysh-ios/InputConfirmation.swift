@@ -25,23 +25,24 @@ class InputConfirmation: UIViewController {
 	
 	var doneButton = UIButton()
     var backButton = UIButton()
+    var loadingView = UIImageView()
+    var doneAnimating = false
 	
 	var textTemp = UILabel()
 	var textTime = UILabel()
 	var textLocation = UILabel()
 	var textReach = UILabel()
 	
-	
 	var presentingController: UIViewController?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-//		self.isModalInPresentation = true
 		
 		self.view.backgroundColor = .white
 		doneButton = addDoneButton()
         backButton = addUIBack()
+        loadingView = addUILoadingView()
 		
 		textTemp = addUITempText()
 		textTime = addUITimeText()
@@ -87,11 +88,14 @@ class InputConfirmation: UIViewController {
 		iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
 		let date = iso8601DateFormatter.string(from: time)
 		let t = (self.temp.converted(to: .fahrenheit).value * 10).rounded() / 10
+        
+        UIView.animate(withDuration: 1) {
+            self.loadingView.alpha = 1
+        }
 		DispatchQueue.global(qos: .default).async {
 			let result = self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
+            
 			DispatchQueue.main.async {
-                
-                
 				let transition: CATransition = CATransition()
 				transition.duration = 0.5
 				transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
@@ -101,6 +105,7 @@ class InputConfirmation: UIViewController {
                 if let p = self.view.window!.rootViewController as? ViewController {
                     p.uploadResult = result
                 }
+                
 				self.view.window!.layer.add(transition, forKey: nil)
 				self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
 			}
@@ -163,9 +168,9 @@ class InputConfirmation: UIViewController {
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromTop
         
-        
-        
         self.view.window!.layer.add(transition, forKey: nil)
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
+    
+    
 }
