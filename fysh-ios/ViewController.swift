@@ -15,7 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var mapview = MGLMapView()
     var menubutton = UIButton()
-    var infobutton = UIButton()
+    var locationbutton = UIButton()
     var inputbutton = UIButton()
     
     var locationDropper = UIImageView()
@@ -35,7 +35,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		locationPermission()
         mapview = addUIMapbox()
         menubutton = addUIMenu()
-        infobutton = addUIInfo()
+        locationbutton = addUILocation()
         inputbutton = addUIInput()
         
         
@@ -106,8 +106,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.present(menu, animated: true)
     }
     
-    @objc func pressedInfo() {
-        print("Search button tapped")
+    @objc func pressedLocation() {
+        if let userlocation = mapview.userLocation?.coordinate{
+            mapview.setCenter(userlocation, animated: true)
+        }
     }
     
     @objc func pressedInput() {
