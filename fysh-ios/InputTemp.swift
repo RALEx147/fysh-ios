@@ -78,14 +78,14 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         
         
         
-        self.view.window!.layer.add(transition, forKey: nil)
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        view.window!.layer.add(transition, forKey: nil)
+        view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
     @objc func pressedNext(){
         let inputTime = InputTime()
-        inputTime.location = self.location
-        inputTime.temp = self.temp
+        inputTime.location = location
+        inputTime.temp = temp
         inputTime.modalPresentationStyle = .fullScreen
         
         let transition: CATransition = CATransition()
@@ -93,9 +93,9 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromBottom
-        self.view.window!.layer.add(transition, forKey: nil)
+        view.window!.layer.add(transition, forKey: nil)
         
-        self.present(inputTime, animated: true, completion: nil)
+        present(inputTime, animated: true, completion: nil)
     }
 	
     @objc func pressedTempType(){

@@ -38,7 +38,7 @@ class InputConfirmation: UIViewController {
 		super.viewDidLoad()
 		presentingController = presentingViewController
 		
-		self.view.backgroundColor = .white
+		view.backgroundColor = .white
 		doneButton = addDoneButton()
         backButton = addUIBack()
 //        loadingView = addUILoadingView()
@@ -79,7 +79,7 @@ class InputConfirmation: UIViewController {
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		self.presentingController?.dismiss(animated: true, completion: nil)
+		presentingController?.dismiss(animated: true, completion: nil)
 	}
     
     func showLoading() {
@@ -98,7 +98,7 @@ class InputConfirmation: UIViewController {
 		let iso8601DateFormatter = ISO8601DateFormatter()
 		iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
 		let date = iso8601DateFormatter.string(from: time)
-		let t = (self.temp.converted(to: .fahrenheit).value * 10).rounded() / 10
+		let t = (temp.converted(to: .fahrenheit).value * 10).rounded() / 10
         
 //        UIView.animate(withDuration: 1) {
 //            self.loadingView.alpha = 1
@@ -180,8 +180,8 @@ class InputConfirmation: UIViewController {
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromTop
         
-        self.view.window!.layer.add(transition, forKey: nil)
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        view.window!.layer.add(transition, forKey: nil)
+        view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
     

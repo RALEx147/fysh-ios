@@ -23,7 +23,7 @@ extension InputTemp{
         temperatureInput.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         temperatureInput.delegate = self
         temperatureInput.keyboardType = UIKeyboardType.decimalPad
-        self.view.addSubview(temperatureInput)
+        view.addSubview(temperatureInput)
 		
 		temperatureInput.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
