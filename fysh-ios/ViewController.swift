@@ -25,6 +25,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	let locationManager = CLLocationManager()
 	var Data_Model = DataModel()
 	var annotations = [(id: String, annotation: MGLPointAnnotation)]()
+    var uploadResult:DispatchTimeoutResult! = .success
     
     lazy var slideInTransitioningDelegate = SlideInPresentationManager()
 	
@@ -41,7 +42,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
-		retrieveAnnotations()
+        if uploadResult != .timedOut {
+            retrieveAnnotations()
+            uploadResult = .timedOut
+        }
 		showUIElements()
 	}
 	

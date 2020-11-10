@@ -88,15 +88,19 @@ class InputConfirmation: UIViewController {
 		let date = iso8601DateFormatter.string(from: time)
 		let t = (self.temp.converted(to: .fahrenheit).value * 10).rounded() / 10
 		DispatchQueue.global(qos: .default).async {
-			self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
-			
+			let result = self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
 			DispatchQueue.main.async {
+                
+                
 				let transition: CATransition = CATransition()
 				transition.duration = 0.5
 				transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 				transition.type = CATransitionType.reveal
 				transition.subtype = CATransitionSubtype.fromRight
 				
+                if let p = self.view.window!.rootViewController as? ViewController {
+                    p.uploadResult = result
+                }
 				self.view.window!.layer.add(transition, forKey: nil)
 				self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
 			}
@@ -105,7 +109,7 @@ class InputConfirmation: UIViewController {
 	}
 	
 	
-	func uploadData(temp: String, lat: String, long: String, stream: String, reach: String, date: String) {
+    func uploadData(temp: String, lat: String, long: String, stream: String, reach: String, date: String) -> DispatchTimeoutResult {
 		var appSyncClient: AWSAppSyncClient?
 		appSyncClient = appDelegate.appSyncClient
 		
@@ -123,8 +127,6 @@ class InputConfirmation: UIViewController {
 				print("Error updating cache with optimistic response for")
 			}
 			
-			semaphore.signal()
-			
 		}, resultHandler: { (result, error) in
 			if let error = error as? AWSAppSyncClientError {
 				print("Error occurred: \(error.localizedDescription )")
@@ -133,7 +135,7 @@ class InputConfirmation: UIViewController {
 				print("Error saving the item on server: \(resultError)")
 				return
 			}
-			if let result = result{
+            if result != nil{
 				let _ = appSyncClient?.store?.withinReadWriteTransaction { record in
 					try record.update(query: ListRecordsQuery())
 					{ (data: inout ListRecordsQuery.Data) in
@@ -148,9 +150,10 @@ class InputConfirmation: UIViewController {
 						
 					}
 				}
+                semaphore.signal()
 			}
 		})
-		_ = semaphore.wait(wallTimeout: .now() + 5)
+		return semaphore.wait(wallTimeout: .now() + 5)
 	}
     
     @objc func pressedBack(){
