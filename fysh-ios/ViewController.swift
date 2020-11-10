@@ -37,8 +37,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         menubutton = addUIMenu()
         locationbutton = addUILocation()
         inputbutton = addUIInput()
-        
-        
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +46,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             let alert = UIAlertController(title: "Connection Timeout", message: "The connection took too long to process, the tempurature data will be uploaded once reconnected.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
 		showUIElements()
 	}
@@ -79,9 +77,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	func loadAnnotations() -> [(String, MGLPointAnnotation)] {
 		var output = [(String, MGLPointAnnotation)]()
-		let ids = self.annotations.map { $0.id }
+		let ids = annotations.map { $0.id }
 		
-		for i in self.Data_Model.Records {
+		for i in Data_Model.Records {
 			if !ids.contains(i.id) {
 				let m = MGLPointAnnotation()
 				if let lat = Double(i.latitude!), let long = Double(i.longitude!) {
@@ -107,7 +105,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         menu.transitioningDelegate = slideInTransitioningDelegate
         menu.modalPresentationStyle = .custom
         
-        self.present(menu, animated: true)
+        present(menu, animated: true)
     }
     
     @objc func pressedLocation() {
@@ -127,26 +125,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
  	@objc func pressedConfirm() {
 		print("Confirm button tapped")
 		locationDropper.removeFromSuperview()
-        
-        
-        
-		
+	
 		let inputTemp = InputTemp()
-		inputTemp.location = self.mapview.centerCoordinate
+		inputTemp.location = mapview.centerCoordinate
 		inputTemp.modalPresentationStyle = .fullScreen
-        
         
 		let transition: CATransition = CATransition()
 		transition.duration = 0.5
 		transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.reveal
 		transition.subtype = CATransitionSubtype.fromBottom
-		self.view.window!.layer.add(transition, forKey: nil)
+		view.window!.layer.add(transition, forKey: nil)
         
-        
-        
-		
-		self.present(inputTemp, animated: false, completion: {
+		present(inputTemp, animated: false, completion: {
 			self.confirmationbutton.removeFromSuperview()
 		})
 	}
@@ -174,9 +165,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	func locationPermission() {
         // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
+        locationManager.requestAlwaysAuthorization()
         // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
 
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
