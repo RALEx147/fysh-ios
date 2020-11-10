@@ -47,7 +47,7 @@ extension ViewController {
 		let button = UIButton()
         let image = UIImage(named: "location")
 		button.setImage(image, for: .normal)
-		button.addTarget(self, action: #selector(Location), for: .touchUpInside)
+		button.addTarget(self, action: #selector(pressedLocation), for: .touchUpInside)
 		view.addSubview(button)
 		
 		button.translatesAutoresizingMaskIntoConstraints = false
