@@ -40,14 +40,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
-        if uploadResult != .timedOut {
+        if uploadResult == .success {
             retrieveAnnotations()
-            uploadResult = .timedOut
-        } else {
+        } else if uploadResult == .timedOut {
             let alert = UIAlertController(title: "Connection Timeout", message: "The connection took too long to process, the tempurature data will be uploaded once reconnected.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
+        uploadResult = nil
+        
 		showUIElements()
 	}
 	
