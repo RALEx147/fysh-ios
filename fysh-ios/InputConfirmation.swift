@@ -25,8 +25,7 @@ class InputConfirmation: UIViewController {
 	
 	var doneButton = UIButton()
     var backButton = UIButton()
-    var loadingView = UIImageView()
-    var doneAnimating = false
+//    var loadingView = UIImageView()
 	
 	var textTemp = UILabel()
 	var textTime = UILabel()
@@ -42,7 +41,7 @@ class InputConfirmation: UIViewController {
 		self.view.backgroundColor = .white
 		doneButton = addDoneButton()
         backButton = addUIBack()
-        loadingView = addUILoadingView()
+//        loadingView = addUILoadingView()
 		
 		textTemp = addUITempText()
 		textTime = addUITimeText()
@@ -82,6 +81,18 @@ class InputConfirmation: UIViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		self.presentingController?.dismiss(animated: true, completion: nil)
 	}
+    
+    func showLoading() {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating()
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
 	
 	@objc func pressedDone() {
 		let iso8601DateFormatter = ISO8601DateFormatter()
@@ -89,9 +100,10 @@ class InputConfirmation: UIViewController {
 		let date = iso8601DateFormatter.string(from: time)
 		let t = (self.temp.converted(to: .fahrenheit).value * 10).rounded() / 10
         
-        UIView.animate(withDuration: 1) {
-            self.loadingView.alpha = 1
-        }
+//        UIView.animate(withDuration: 1) {
+//            self.loadingView.alpha = 1
+//        }
+        showLoading()
 		DispatchQueue.global(qos: .default).async {
 			let result = self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
             
