@@ -125,7 +125,6 @@ class InputConfirmation: UIViewController {
 		
 	}
 	
-	
     func uploadData(temp: String, lat: String, long: String, stream: String, reach: String, date: String) -> DispatchTimeoutResult {
 		var appSyncClient: AWSAppSyncClient?
 		appSyncClient = appDelegate.appSyncClient
@@ -183,6 +182,5 @@ class InputConfirmation: UIViewController {
         view.window!.layer.add(transition, forKey: nil)
         view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
-    
     
 }
