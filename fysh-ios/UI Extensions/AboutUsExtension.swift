@@ -19,7 +19,7 @@ extension AboutUsPage {
         uiTextView.attributedText = theText
         uiTextView.isScrollEnabled = true
         uiTextView.textAlignment = NSTextAlignment(.center)
-        uiTextView.font = UIFont(name: "Arial", size: 25)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 25)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
         
@@ -37,7 +37,7 @@ extension AboutUsPage {
         //uiTextView.frame = CGRect(x: 9, y: 65, width: 295, height: 450)
         uiTextView.attributedText = aboutUs
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 14)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
@@ -57,7 +57,7 @@ extension AboutUsPage {
         uiTextView.frame = CGRect(x: 10, y: 290, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = aboutUs
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 14)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
@@ -78,7 +78,7 @@ extension AboutUsPage {
         uiTextView.frame = CGRect(x: 10, y: 450, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = aboutUs
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 14)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
@@ -94,15 +94,15 @@ extension AboutUsPage {
     
     func addUIBack() -> UIButton {
         let button = UIButton()
-        let image = UIImage(named: "back")
-        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        let image = UIImage(named: "cancel")
+        button.frame = CGRect(x: 0, y: 0, width: 8, height: 8)
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(pressedBack), for: .touchUpInside)
         view.addSubview(button)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
         

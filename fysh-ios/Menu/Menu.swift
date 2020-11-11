@@ -60,8 +60,8 @@ class Menu: UIViewController {
         
         
         let home = UIButton()
-        let image = UIImage(named: "back")
-        home.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        let image = UIImage(named: "home")
+        //home.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
         home.setImage(image, for: .normal)
         
         
