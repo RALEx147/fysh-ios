@@ -18,7 +18,7 @@ extension HowToPage {
         uiTextView.frame = CGRect(x: 0, y: 80, width: view.frame.width, height: view.frame.height)
         uiTextView.attributedText = theText
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 25)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 25)
         uiTextView.textAlignment = NSTextAlignment(.center)
         
         uiTextView.delegate = self
@@ -39,7 +39,7 @@ extension HowToPage {
         uiTextView.frame = CGRect(x: 10, y: 160, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = theText
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 14)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
@@ -66,7 +66,7 @@ extension HowToPage {
         uiTextView.frame = CGRect(x: 10, y: 210, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = theText
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 14)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
@@ -94,7 +94,7 @@ extension HowToPage {
         uiTextView.frame = CGRect(x: 10, y: 270, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = theText
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 14)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
@@ -121,7 +121,7 @@ extension HowToPage {
         uiTextView.frame = CGRect(x: 10, y: 330, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = theText
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 14)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
@@ -148,7 +148,7 @@ extension HowToPage {
         uiTextView.frame = CGRect(x: 10, y: 430, width: view.frame.width-20, height: view.frame.height)
         uiTextView.attributedText = theText
         uiTextView.isScrollEnabled = true
-        uiTextView.font = UIFont(name: "Arial", size: 14)
+        uiTextView.font = UIFont(name: "Times New Roman", size: 14)
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
@@ -172,17 +172,23 @@ extension HowToPage {
     
     func addUIBack() -> UIButton {
         let button = UIButton()
-        let image = UIImage(named: "back")
-        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        let image = UIImage(named: "cancel")
+        button.frame = CGRect(x: 0, y: 0, width: 8, height: 8)
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(pressedBack), for: .touchUpInside)
         view.addSubview(button)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
+        
+        //button.translatesAutoresizingMaskIntoConstraints = false
+        //NSLayoutConstraint.activate([
+          //  button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+          //  button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
+        //])
         
         return button
     }
