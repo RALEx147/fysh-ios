@@ -22,7 +22,7 @@ extension HowToPage {
         uiTextView.textAlignment = NSTextAlignment(.center)
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         //uiTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -49,7 +49,7 @@ extension HowToPage {
     
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         //uiTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -76,7 +76,7 @@ extension HowToPage {
     
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         //uiTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -104,7 +104,7 @@ extension HowToPage {
     
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         //uiTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -131,7 +131,7 @@ extension HowToPage {
         
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         //uiTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -158,7 +158,7 @@ extension HowToPage {
         
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         //uiTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

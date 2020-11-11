@@ -23,10 +23,6 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         presentingController = presentingViewController
         
-        
-        
-        view.backgroundColor = .white
-        
         tempInput = addTextInput()
         nextButton = addNextButton()
 		tempType = addTempTypeButton()
@@ -34,13 +30,9 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tempInput.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-        
         view.addGestureRecognizer(tap)
     }
     
-    //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -69,23 +61,20 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     }
     
     @objc func pressedBack(){
-        
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromTop
         
-        
-        
-        self.view.window!.layer.add(transition, forKey: nil)
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        view.window!.layer.add(transition, forKey: nil)
+        view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
     @objc func pressedNext(){
         let inputTime = InputTime()
-        inputTime.location = self.location
-        inputTime.temp = self.temp
+        inputTime.location = location
+        inputTime.temp = temp
         inputTime.modalPresentationStyle = .fullScreen
         
         let transition: CATransition = CATransition()
@@ -93,9 +82,9 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromBottom
-        self.view.window!.layer.add(transition, forKey: nil)
+        view.window!.layer.add(transition, forKey: nil)
         
-        self.present(inputTime, animated: true, completion: nil)
+        present(inputTime, animated: true, completion: nil)
     }
 	
     @objc func pressedTempType(){
@@ -104,6 +93,15 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 		} else {
 			tempType.setTitle("Fahrenheit", for: .normal)
 		}
+        if tempInput.text != "" {
+            if let t = Double(tempInput.text!) {
+                if tempType.title(for: .normal)! == "Fahrenheit" {
+                    self.temp = Measurement(value: t, unit: UnitTemperature.fahrenheit)
+                } else {
+                    self.temp = Measurement(value: t, unit: UnitTemperature.celsius)
+                }
+            }
+        }
     }
 	
 }

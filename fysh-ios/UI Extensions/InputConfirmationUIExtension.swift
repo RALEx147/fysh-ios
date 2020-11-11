@@ -112,5 +112,19 @@ extension InputConfirmation{
         return label
 	}
     
+    func addUILoadingView() -> UIImageView {
+        let image = UIImage(named: "AppIcon")
+        let imageView = UIImageView(image: image)
+        imageView.alpha = 0
+        view.addSubview(imageView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        return imageView
+    }
     
 }

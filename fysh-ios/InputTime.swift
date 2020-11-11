@@ -22,60 +22,45 @@ class InputTime: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-//		self.isModalInPresentation = true
 
-		self.view.backgroundColor = .white
+		view.backgroundColor = .white
 		timePicker = addTimePicker()
 		nextButton = addNextButton()
         backButton = addUIBack()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		self.presentingController?.dismiss(animated: false, completion: nil)
+		presentingController?.dismiss(animated: false, completion: nil)
 	}
 	
 	@objc func pressedNext() {
 		print("confirmation screen")
 		
 		let inputConfirmation = InputConfirmation()
-		inputConfirmation.location = self.location
-		inputConfirmation.temp = self.temp
-		inputConfirmation.time = self.timePicker.date
+		inputConfirmation.location = location
+		inputConfirmation.temp = temp
+		inputConfirmation.time = timePicker.date
         inputConfirmation.modalPresentationStyle = .fullScreen
-        
         
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromBottom
-        self.view.window!.layer.add(transition, forKey: nil)
+        view.window!.layer.add(transition, forKey: nil)
         
-		self.present(inputConfirmation, animated: true, completion: nil)
+		present(inputConfirmation, animated: true, completion: nil)
 	}
-	
-	/*
-	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	// Get the new view controller using segue.destination.
-	// Pass the selected object to the new view controller.
-	}
-	*/
     
     @objc func pressedBack(){
-        
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromTop
         
-        
-        
-        self.view.window!.layer.add(transition, forKey: nil)
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        view.window!.layer.add(transition, forKey: nil)
+        view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
 	
 }

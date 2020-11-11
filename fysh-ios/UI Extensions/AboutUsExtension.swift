@@ -24,7 +24,7 @@ extension AboutUsPage {
         uiTextView.isEditable = false
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         return uiTextView
     }
     
@@ -43,7 +43,7 @@ extension AboutUsPage {
         uiTextView.isEditable = false
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         
         return uiTextView
@@ -64,7 +64,7 @@ extension AboutUsPage {
         uiTextView.isScrollEnabled = true
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         
         return uiTextView
@@ -85,7 +85,7 @@ extension AboutUsPage {
         uiTextView.isScrollEnabled = true
         
         uiTextView.delegate = self
-        self.view.addSubview(uiTextView)
+        view.addSubview(uiTextView)
         
         
         return uiTextView

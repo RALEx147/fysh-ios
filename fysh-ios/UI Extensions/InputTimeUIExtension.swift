@@ -13,7 +13,7 @@ extension InputTime{
     func addTimePicker() -> UIDatePicker {
         let tp = UIDatePicker()
         tp.datePickerMode = .time
-        self.view.addSubview(tp)
+        view.addSubview(tp)
         
         tp.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

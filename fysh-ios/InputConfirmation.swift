@@ -25,23 +25,23 @@ class InputConfirmation: UIViewController {
 	
 	var doneButton = UIButton()
     var backButton = UIButton()
+//    var loadingView = UIImageView()
 	
 	var textTemp = UILabel()
 	var textTime = UILabel()
 	var textLocation = UILabel()
 	var textReach = UILabel()
 	
-	
 	var presentingController: UIViewController?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-//		self.isModalInPresentation = true
 		
-		self.view.backgroundColor = .white
+		view.backgroundColor = .white
 		doneButton = addDoneButton()
         backButton = addUIBack()
+//        loadingView = addUILoadingView()
 		
 		textTemp = addUITempText()
 		textTime = addUITimeText()
@@ -79,17 +79,34 @@ class InputConfirmation: UIViewController {
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		self.presentingController?.dismiss(animated: true, completion: nil)
+		presentingController?.dismiss(animated: true, completion: nil)
 	}
+    
+    func showLoading() {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating()
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
 	
 	@objc func pressedDone() {
 		let iso8601DateFormatter = ISO8601DateFormatter()
 		iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
 		let date = iso8601DateFormatter.string(from: time)
-		let t = (self.temp.converted(to: .fahrenheit).value * 10).rounded() / 10
+		let t = (temp.converted(to: .fahrenheit).value * 10).rounded() / 10
+        
+//        UIView.animate(withDuration: 1) {
+//            self.loadingView.alpha = 1
+//        }
+        showLoading()
 		DispatchQueue.global(qos: .default).async {
-			self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
-			
+			let result = self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
+            
 			DispatchQueue.main.async {
 				let transition: CATransition = CATransition()
 				transition.duration = 0.5
@@ -97,6 +114,10 @@ class InputConfirmation: UIViewController {
 				transition.type = CATransitionType.reveal
 				transition.subtype = CATransitionSubtype.fromRight
 				
+                if let p = self.view.window!.rootViewController as? ViewController {
+                    p.uploadResult = result
+                }
+                
 				self.view.window!.layer.add(transition, forKey: nil)
 				self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
 			}
@@ -104,8 +125,7 @@ class InputConfirmation: UIViewController {
 		
 	}
 	
-	
-	func uploadData(temp: String, lat: String, long: String, stream: String, reach: String, date: String) {
+    func uploadData(temp: String, lat: String, long: String, stream: String, reach: String, date: String) -> DispatchTimeoutResult {
 		var appSyncClient: AWSAppSyncClient?
 		appSyncClient = appDelegate.appSyncClient
 		
@@ -123,8 +143,6 @@ class InputConfirmation: UIViewController {
 				print("Error updating cache with optimistic response for")
 			}
 			
-			semaphore.signal()
-			
 		}, resultHandler: { (result, error) in
 			if let error = error as? AWSAppSyncClientError {
 				print("Error occurred: \(error.localizedDescription )")
@@ -133,7 +151,7 @@ class InputConfirmation: UIViewController {
 				print("Error saving the item on server: \(resultError)")
 				return
 			}
-			if let result = result{
+            if result != nil{
 				let _ = appSyncClient?.store?.withinReadWriteTransaction { record in
 					try record.update(query: ListRecordsQuery())
 					{ (data: inout ListRecordsQuery.Data) in
@@ -148,9 +166,10 @@ class InputConfirmation: UIViewController {
 						
 					}
 				}
+                semaphore.signal()
 			}
 		})
-		_ = semaphore.wait(wallTimeout: .now() + 5)
+		return semaphore.wait(wallTimeout: .now() + 5)
 	}
     
     @objc func pressedBack(){
@@ -160,9 +179,8 @@ class InputConfirmation: UIViewController {
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromTop
         
-        
-        
-        self.view.window!.layer.add(transition, forKey: nil)
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        view.window!.layer.add(transition, forKey: nil)
+        view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
+    
 }

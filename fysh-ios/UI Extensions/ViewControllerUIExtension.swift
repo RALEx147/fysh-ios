@@ -43,20 +43,20 @@ extension ViewController {
 		return button
 	}
 	
-	//func addUISearch() -> UIButton{
-	//	let button = UIButton()
-     //   let image = UIImage(named: "search")
-	//	button.setImage(image, for: .normal)
-	//	button.addTarget(self, action: #selector(pressedSearch), for: .touchUpInside)
-	//	view.addSubview(button)
+	func addUILocation() -> UIButton{
+		let button = UIButton()
+        let image = UIImage(named: "location")
+		button.setImage(image, for: .normal)
+		button.addTarget(self, action: #selector(pressedLocation), for: .touchUpInside)
+		view.addSubview(button)
 		
-	//	button.translatesAutoresizingMaskIntoConstraints = false
-	//	NSLayoutConstraint.activate([
-	//		button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-	//		button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
-		//])
-		//return button
-	//}
+		button.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+			button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+		])
+		return button
+	}
 	
 	func addUIInput() -> UIButton{
 		let button = UIButton()
