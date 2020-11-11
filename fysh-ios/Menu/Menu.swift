@@ -60,13 +60,16 @@ class Menu: UIViewController {
         
         
         let home = UIButton()
-        home.setTitle("Home", for: .normal)
-        home.setTitleColor(.black, for: .normal)
+        let image = UIImage(named: "back")
+        home.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        home.setImage(image, for: .normal)
+        
+        
+        
+        //home.setTitle("Home", for: .normal)
+        //home.setTitleColor(.black, for: .normal)
         home.addTarget(self, action: #selector(goHome), for: .touchUpInside)
-        //menu?.addSubview(home)
         menu?.addArrangedSubview(home)
-        //menu!.setCustomSpacing(10, after: home)
-        //menu?.insertArrangedSubview(home, at: 1)
         
         let aboutUs = UIButton()
         aboutUs.setTitle("About Us", for: .normal)
