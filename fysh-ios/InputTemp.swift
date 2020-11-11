@@ -22,7 +22,8 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         presentingController = presentingViewController
-        
+        view.backgroundColor = .white
+
         tempInput = addTextInput()
         nextButton = addNextButton()
 		tempType = addTempTypeButton()
