@@ -11,100 +11,63 @@ import MapKit
 
 class Menu: UIViewController {
     
-    var menuGrad : CAGradientLayer?
-    var menu : UIStackView?
+    var menuGrad: CAGradientLayer?
+    var menu = UIStackView()
     var homeButton = UIButton()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        view.backgroundColor = UIColor(named: "menu-color-2")
+
+        menu.backgroundColor = UIColor(named: "menu-color-2")
+        menu.layoutMargins = UIEdgeInsets(top: 10, left: 12, bottom: 0, right: 0)
+        menu.alignment = .top
+        menu.isLayoutMarginsRelativeArrangement = true
+        menu.axis = .vertical
+        menu.spacing = 10
+        menu.alignment = .firstBaseline
+        view.addSubview(menu)
         
         
-        let menuLayer = UIView()
-        menuLayer.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height)
-        menuLayer.isUserInteractionEnabled = false
+
         
-        
-        let colorLeft = UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:1.0).cgColor
-        let colorRight = UIColor(red:198.0/255.0, green:198.0/255.0, blue:197.0/255.0, alpha:1.0).cgColor
-        menuGrad = CAGradientLayer()
-        menuGrad!.colors = [colorRight, colorLeft]
-        menuGrad!.locations = [0,1]
-        menuGrad!.startPoint = CGPoint(x: 0, y: 0.5)
-        menuGrad!.endPoint = CGPoint(x: 1, y: 0.5)
-        menuGrad!.frame = menuLayer.layer.frame
-        menuLayer.layer.addSublayer(menuGrad!)
-        
-        view.addSubview(menuLayer)
-        
-        
-        
-        
-        menu = UIStackView()
-        
-        //3
-        menu!.frame = CGRect(x:0, y: 0, width: view.frame.width/3, height: view.frame.height/4)
-        menu!.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        menu!.alignment = .leading
-        menu!.isLayoutMarginsRelativeArrangement = true
-        menu!.axis = .vertical
-        menu!.distribution = .equalSpacing
-        menu!.spacing = 15
-        //menu!.constraints =
-        menu!.backgroundColor = .white
-        menu!.axis = .vertical
-        menu!.alignment = .firstBaseline //.center
-        
-        
+        menu.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            menu.topAnchor.constraint(equalTo: view.topAnchor),
+            menu.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            menu.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.size.width/4)
+        ])
         
         
         let home = UIButton()
-        let image = UIImage(named: "home")
-        //home.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
-        home.setImage(image, for: .normal)
-        
-        
-        
-        //home.setTitle("Home", for: .normal)
-        //home.setTitleColor(.black, for: .normal)
-        home.addTarget(self, action: #selector(goHome), for: .touchUpInside)
-        menu?.addArrangedSubview(home)
-        
         let aboutUs = UIButton()
-        aboutUs.setTitle("About Us", for: .normal)
-        aboutUs.setTitleColor(.black, for: .normal)
-        
-        aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
-        
-        //menu?.insertSubview(aboutUs, belowSubview: home)
-        //menu?.addSubview(aboutUs)
-        menu?.addArrangedSubview(aboutUs)
-        //menu?.insertArrangedSubview(aboutUs, at: 2)
-
-        
         let howTo = UIButton()
+        
+        home.setTitle("Home", for: .normal)
+        home.setTitleColor(.white, for: .normal)
+        home.addTarget(self, action: #selector(goHome), for: .touchUpInside)
+        menu.addArrangedSubview(home)
+        
+        aboutUs.setTitle("About Us", for: .normal)
+        aboutUs.setTitleColor(.white, for: .normal)
+        aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
+        menu.addArrangedSubview(aboutUs)
+
         howTo.setTitle("How to Use", for: .normal)
-        howTo.titleLabel?.minimumScaleFactor = 0.1
-        howTo.titleLabel?.numberOfLines = 1
-        howTo.titleLabel?.adjustsFontSizeToFitWidth = true
-        howTo.setTitleColor(.black, for: .normal)
+        howTo.setTitleColor(.white, for: .normal)
         howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
-        //menu?.addSubview(howTo)
-        menu?.addArrangedSubview(howTo)
-        //menu?.insertArrangedSubview(howTo, at: 3)
-        
-        menu?.setCustomSpacing(10, after: home)
-        
-        
-        
-        view.addSubview(menu!)
+        menu.addArrangedSubview(howTo)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMenu))
         
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(tap)
-        view.backgroundColor = .white
         
         
     }
@@ -115,9 +78,6 @@ class Menu: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        menuGrad!.frame = menu!.frame
-    }
     
     @objc func dismissMenu(){
         
@@ -166,14 +126,5 @@ class Menu: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
