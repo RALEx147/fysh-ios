@@ -91,8 +91,7 @@ class SlideInPresentationController: UIPresentationController {
       presentedView?.frame = frameOfPresentedViewInContainerView
     }
     
-    override func size(forChildContentContainer container: UIContentContainer,
-                       withParentContainerSize parentSize: CGSize) -> CGSize {
+    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
       switch direction {
       case .left, .right:
         return CGSize(width: parentSize.width*(9.0/20.0), height: parentSize.height)

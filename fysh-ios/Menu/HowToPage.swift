@@ -23,7 +23,7 @@ class HowToPage: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "menu-color")
         
         presentingController = presentingViewController
         
@@ -34,34 +34,16 @@ class HowToPage: UIViewController, UITextViewDelegate {
         textBody4 = add4()
         textBody5 = add5()
         backButton = addUIBack()
-        
-        
     }
     
     @objc func pressedBack(){
-        
         let transition: CATransition = CATransition()
-        transition.duration = 0.5
+        transition.duration = 0.3
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.reveal
-        transition.subtype = CATransitionSubtype.fromRight
-        
-        
+        transition.type = CATransitionType.fade
         
         self.view.window!.layer.add(transition, forKey: nil)
-     //   self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
-        self.dismiss(animated: false, completion: nil)
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

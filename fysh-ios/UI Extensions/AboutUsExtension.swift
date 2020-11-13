@@ -22,6 +22,8 @@ extension AboutUsPage {
         uiTextView.font = UIFont(name: "Times New Roman", size: 25)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         uiTextView.delegate = self
         view.addSubview(uiTextView)
@@ -41,6 +43,8 @@ extension AboutUsPage {
         uiTextView.textAlignment = NSTextAlignment(.center)
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         uiTextView.delegate = self
         view.addSubview(uiTextView)
@@ -62,6 +66,8 @@ extension AboutUsPage {
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
         uiTextView.isScrollEnabled = true
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         uiTextView.delegate = self
         view.addSubview(uiTextView)
@@ -83,6 +89,8 @@ extension AboutUsPage {
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
         uiTextView.isScrollEnabled = true
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         uiTextView.delegate = self
         view.addSubview(uiTextView)
@@ -94,7 +102,7 @@ extension AboutUsPage {
     
     func addUIBack() -> UIButton {
         let button = UIButton()
-        let image = UIImage(named: "cancel")
+        let image = UIImage(named: "back")
         button.frame = CGRect(x: 0, y: 0, width: 8, height: 8)
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(pressedBack), for: .touchUpInside)

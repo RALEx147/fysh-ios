@@ -20,6 +20,9 @@ extension HowToPage {
         uiTextView.isScrollEnabled = true
         uiTextView.font = UIFont(name: "Times New Roman", size: 25)
         uiTextView.textAlignment = NSTextAlignment(.center)
+        uiTextView.isEditable = false
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         uiTextView.delegate = self
         view.addSubview(uiTextView)
@@ -44,6 +47,8 @@ extension HowToPage {
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
         uiTextView.isScrollEnabled = true
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         //uiTextView.topAnchor.constraint(equalTo: howToTitle.topAnchor, constant: 50)
     
@@ -71,6 +76,8 @@ extension HowToPage {
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
         uiTextView.isScrollEnabled = true
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         //uiTextView.topAnchor.constraint(equalTo: textBody1.topAnchor, constant: 50)
     
@@ -99,6 +106,8 @@ extension HowToPage {
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
         uiTextView.isScrollEnabled = true
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         //uiTextView.topAnchor.constraint(equalTo: textBody2.topAnchor, constant: 50)
     
@@ -126,6 +135,8 @@ extension HowToPage {
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
         uiTextView.isScrollEnabled = true
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         //uiTextView.topAnchor.constraint(equalTo: textBody3.topAnchor, constant: 50)
         
@@ -153,6 +164,8 @@ extension HowToPage {
         uiTextView.allowsEditingTextAttributes = false
         uiTextView.isEditable = false
         uiTextView.isScrollEnabled = true
+        uiTextView.backgroundColor = UIColor(named: "menu-color")
+        uiTextView.textColor = UIColor(named: "off-white")
         
         //uiTextView.topAnchor.constraint(equalTo: textBody4.topAnchor, constant: 50)
         
@@ -172,7 +185,7 @@ extension HowToPage {
     
     func addUIBack() -> UIButton {
         let button = UIButton()
-        let image = UIImage(named: "cancel")
+        let image = UIImage(named: "back")
         button.frame = CGRect(x: 0, y: 0, width: 8, height: 8)
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(pressedBack), for: .touchUpInside)

@@ -51,17 +51,17 @@ class Menu: UIViewController, WKUIDelegate {
         let howTo = UIButton()
         
         home.setTitle("Home", for: .normal)
-        home.setTitleColor(.white, for: .normal)
+        home.setTitleColor(UIColor(named: "off-white"), for: .normal)
         home.addTarget(self, action: #selector(goHome), for: .touchUpInside)
         menu.addArrangedSubview(home)
         
         aboutUs.setTitle("About Us", for: .normal)
-        aboutUs.setTitleColor(.white, for: .normal)
+        aboutUs.setTitleColor(UIColor(named: "off-white"), for: .normal)
         aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
         menu.addArrangedSubview(aboutUs)
 
         howTo.setTitle("How to Use", for: .normal)
-        howTo.setTitleColor(.white, for: .normal)
+        howTo.setTitleColor(UIColor(named: "off-white"), for: .normal)
         howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
         menu.addArrangedSubview(howTo)
         
@@ -79,8 +79,7 @@ class Menu: UIViewController, WKUIDelegate {
         externalButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             externalButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            externalButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            externalButton.heightAnchor.constraint(equalToConstant: 50)
+            externalButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15)
         ])
         
     }
@@ -90,80 +89,70 @@ class Menu: UIViewController, WKUIDelegate {
         self.present(wvc, animated: true)
     }
     
-    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
+    
+    @objc func goToAboutUs(){
+        view.layer.cornerRadius = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: view.window!.topAnchor),
+            view.leadingAnchor.constraint(equalTo: view.window!.leadingAnchor),
+            view.bottomAnchor.constraint(equalTo: view.window!.bottomAnchor),
+            view.trailingAnchor.constraint(equalTo: view.window!.trailingAnchor)
+        ])
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut]) {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.window!.frame.size.width, height: self.view.window!.frame.size.height)
+            self.updateViewConstraints()
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            let aboutUsPage = AboutUsPage()
+            aboutUsPage.modalPresentationStyle = .fullScreen
+            let transition: CATransition = CATransition()
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.fade
+            transition.subtype = CATransitionSubtype.fromLeft
+            
+            self.view.window!.layer.add(transition, forKey: nil)
+            self.present(aboutUsPage, animated: false)
+        }
+    }
+    
+    @objc func goToHowTo(){
+        view.layer.cornerRadius = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: view.window!.topAnchor),
+            view.leadingAnchor.constraint(equalTo: view.window!.leadingAnchor),
+            view.bottomAnchor.constraint(equalTo: view.window!.bottomAnchor),
+            view.trailingAnchor.constraint(equalTo: view.window!.trailingAnchor)
+        ])
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut]) {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.window!.frame.size.width, height: self.view.window!.frame.size.height)
+            self.updateViewConstraints()
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            let howToPage = HowToPage()
+            howToPage.modalPresentationStyle = .fullScreen
+            let transition: CATransition = CATransition()
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.fade
+            
+            self.view.window!.layer.add(transition, forKey: nil)
+            self.present(howToPage, animated: false)
+        }
+    }
+    
+    @objc func goHome() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     @objc func dismissMenu(){
-        
         self.dismiss(animated: true, completion: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        view.layer.cornerRadius = 10
-        self.updateViewConstraints()
-    }
-    
-    @objc func goToAboutUs(){
-        
-        if let w = self.view.window {
-            view.layer.cornerRadius = 0
-            view.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                view.topAnchor.constraint(equalTo: w.topAnchor),
-                view.leadingAnchor.constraint(equalTo: w.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: w.trailingAnchor),
-                view.bottomAnchor.constraint(equalTo: w.bottomAnchor)
-            ])
-            
-            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut]) {
-                self.updateViewConstraints()
-            } completion: { (_) in
-                let aboutUsPage = AboutUsPage()
-                aboutUsPage.modalPresentationStyle = .fullScreen
-                let transition: CATransition = CATransition()
-                transition.duration = 0.5
-                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-                transition.type = CATransitionType.fade
-                transition.subtype = CATransitionSubtype.fromLeft
-
-                self.view.window!.layer.add(transition, forKey: nil)
-
-                self.present(aboutUsPage, animated: false)
-            }
-        }
-
-        
-        
-        
-    }
-    
-    @objc func goToHowTo(){
-        
-        let howToPage = HowToPage()
-        howToPage.modalPresentationStyle = .fullScreen
-        let transition: CATransition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.fade
-        transition.subtype = CATransitionSubtype.fromLeft
-        
-     
-        
-        self.view.window!.layer.add(transition, forKey: nil)
-        
-        
-        self.present(howToPage, animated: false)
-        
-        
-    }
-    
-    @objc func goHome() {
-        //self.view.window!.layer.add(transition, forKey: nil)
-        self.dismiss(animated: true, completion: nil)
-    }
     
     
 }

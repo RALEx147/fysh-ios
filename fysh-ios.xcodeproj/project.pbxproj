@@ -203,9 +203,9 @@
 		1F3450872553242700E1B702 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				576B176F253D526C00F1B02E /* HowToPage.swift */,
 				06751AAE252F3CD3006748AC /* Menu.swift */,
 				067025A52538F9E400476256 /* AboutUsPage.swift */,
+				576B176F253D526C00F1B02E /* HowToPage.swift */,
 				3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */,
 			);
 			path = Menu;
