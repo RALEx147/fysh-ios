@@ -9,26 +9,31 @@
 import UIKit
 import Mapbox
 
+//Manages the view heirarchy of the application.
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    //Add menu button, temperature input button, and map view for home page.
     var mapview = MGLMapView()
     var menubutton = UIButton()
     var locationbutton = UIButton()
     var inputbutton = UIButton()
     
+    //Add location pin, confirmation button, and cancel button for temperature input pages.
     var locationDropper = UIImageView()
     var confirmationbutton = UIButton()
     var cancelbutton = UIButton()
     
-	let locationManager = CLLocationManager()
+    //The locationManager starts and stops the delivery of location related events to the app, Data_Model stores data, annotations allows points on the map to be associated with a title.
+    let locationManager = CLLocationManager()
 	var Data_Model = DataModel()
 	var annotations = [(id: String, annotation: MGLPointAnnotation)]()
     var uploadResult:DispatchTimeoutResult! = .success
     
     lazy var slideInTransitioningDelegate = SlideInPresentationManager()
 	
+    //Adds buttons and menu to the main home view. Also adds location permission pop up box.
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -39,6 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         inputbutton = addUIInput()
     }
 	
+    //Notifies the view controller that its view is about to be added to view hierarchy.
 	override func viewWillAppear(_ animated: Bool) {
         if uploadResult == .success {
             retrieveAnnotations()
@@ -52,6 +58,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		showUIElements()
 	}
 	
+    //Retrieves the assigned titles of dropped location pins, including latitude and longitude from the database.
 	func retrieveAnnotations() {
 		DispatchQueue.global(qos: .utility).async {
 			self.Data_Model.getRecords {
@@ -76,6 +83,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		}
 	}
 	
+    //Loads the assigned annotations of pins including latitude, longitude, stream, and date, for use in confirmation pages.
 	func loadAnnotations() -> [(String, MGLPointAnnotation)] {
 		var output = [(String, MGLPointAnnotation)]()
 		let ids = annotations.map { $0.id }
@@ -100,6 +108,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		return output
 	}
     
+    //If a user presses the menu button, transition into menu view with custom presenting style.
     @objc func pressedMenu() {
         let menu = Menu()
         slideInTransitioningDelegate.direction = .left
@@ -109,12 +118,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         present(menu, animated: true)
     }
     
+    //If a user presses the location button,
     @objc func pressedLocation() {
         if let userlocation = mapview.userLocation?.coordinate{
             mapview.setCenter(userlocation, animated: true)
         }
     }
     
+    //If a user presses the input temperature button, add the confirmation button, the canel button, and the location dropper to the view and hide UI elements of home page to transition to a relevant location input view.
     @objc func pressedInput() {
         print("Input button tapped")
         confirmationbutton = addUIConfirmButton()
@@ -123,6 +134,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         hideUIElements()
     }
     
+    //If the user presses the confirm button, remove the location pin from the view, assign the temperature and location on the presented temperature input screen. Remove the confirmation button from the screen after it is tapped.
  	@objc func pressedConfirm() {
 		print("Confirm button tapped")
 		locationDropper.removeFromSuperview()
@@ -143,6 +155,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		})
 	}
     
+    //If the user presses cancel, remove the confirmation button, cancel button, and location dropper from the view. Call showUIElements() to bring the homescreen back as the view.
     @objc func pressedCancel() {
         print("Cancel button tapped")
         confirmationbutton.removeFromSuperview()
@@ -151,19 +164,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         showUIElements()
     }
     
+    //This function is called when a user action prompts the app to leave the home page.
     func hideUIElements() {
-        //searchbutton.isHidden = true
+        locationbutton.isHidden = true
         menubutton.isHidden = true
         inputbutton.isHidden = true
     }
     
+    //This function is called when a user action prompts the app to return to the home page.
     func showUIElements() {
-        //searchbutton.isHidden = false
+        locationbutton.isHidden = false
         menubutton.isHidden = false
         inputbutton.isHidden = false
 		cancelbutton.removeFromSuperview()
     }
 	
+    //This function is called when the initial view is rendered on the app to ask the user if they give permission to the applciation to have access to their location.
 	func locationPermission() {
         // Ask for Authorisation from the User.
         locationManager.requestAlwaysAuthorization()

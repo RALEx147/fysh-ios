@@ -22,7 +22,8 @@ class InputTime: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-
+        
+        //Sets temp input background color to white and renders the time picker, next button, and back button.
 		view.backgroundColor = .white
 		timePicker = addTimePicker()
 		nextButton = addNextButton()
