@@ -39,6 +39,7 @@
 		220452F64AE97FB69C857752 /* Pods_fysh_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C264549EE6BE80B2DAFF0 /* Pods_fysh_iosTests.framework */; };
 		3E11754BA26D4FAF8597EA19 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D7A046D41D4BD2A9112CEB /* amplifyconfiguration.json */; };
 		3F5EBC50255E15AF00C65F16 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */; };
+		3F5EBC5A255E2D1200C65F16 /* MenuUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EBC59255E2D1200C65F16 /* MenuUIExtension.swift */; };
 		576B1770253D526C00F1B02E /* HowToPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B176F253D526C00F1B02E /* HowToPage.swift */; };
 		576B17A72547651700F1B02E /* AboutUsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B17A62547651700F1B02E /* AboutUsExtension.swift */; };
 		576B17AB25476EE600F1B02E /* HowToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B17AA25476EE600F1B02E /* HowToExtension.swift */; };
@@ -92,6 +93,7 @@
 		1FF392D1252A626100AA306B /* InputConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmation.swift; sourceTree = "<group>"; };
 		1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationUIExtension.swift; sourceTree = "<group>"; };
 		3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		3F5EBC59255E2D1200C65F16 /* MenuUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIExtension.swift; sourceTree = "<group>"; };
 		576B176F253D526C00F1B02E /* HowToPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPage.swift; sourceTree = "<group>"; };
 		576B17A62547651700F1B02E /* AboutUsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsExtension.swift; sourceTree = "<group>"; };
 		576B17AA25476EE600F1B02E /* HowToExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToExtension.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				1F1EC95D25339BB700112563 /* UIButtonExtension.swift */,
 				576B17A62547651700F1B02E /* AboutUsExtension.swift */,
 				576B17AA25476EE600F1B02E /* HowToExtension.swift */,
+				3F5EBC59255E2D1200C65F16 /* MenuUIExtension.swift */,
 			);
 			path = "UI Extensions";
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				06FB148E252A33A90002F5CF /* DataModel.swift in Sources */,
 				0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */,
 				1FF392D2252A626100AA306B /* InputConfirmation.swift in Sources */,
+				3F5EBC5A255E2D1200C65F16 /* MenuUIExtension.swift in Sources */,
 				06751AAF252F3CD3006748AC /* Menu.swift in Sources */,
 				68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */,
 				068BFC7D6A8E4773B9090CE1 /* Record.swift in Sources */,
