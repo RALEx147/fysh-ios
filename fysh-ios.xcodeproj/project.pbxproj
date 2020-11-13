@@ -38,6 +38,7 @@
 		1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */; };
 		220452F64AE97FB69C857752 /* Pods_fysh_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C264549EE6BE80B2DAFF0 /* Pods_fysh_iosTests.framework */; };
 		3E11754BA26D4FAF8597EA19 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D7A046D41D4BD2A9112CEB /* amplifyconfiguration.json */; };
+		3F5EBC50255E15AF00C65F16 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */; };
 		576B1770253D526C00F1B02E /* HowToPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B176F253D526C00F1B02E /* HowToPage.swift */; };
 		576B17A72547651700F1B02E /* AboutUsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B17A62547651700F1B02E /* AboutUsExtension.swift */; };
 		576B17AB25476EE600F1B02E /* HowToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B17AA25476EE600F1B02E /* HowToExtension.swift */; };
@@ -90,6 +91,7 @@
 		1FAC2392252FDE4C00E1D6B3 /* ReachPolygons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachPolygons.swift; sourceTree = "<group>"; };
 		1FF392D1252A626100AA306B /* InputConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmation.swift; sourceTree = "<group>"; };
 		1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationUIExtension.swift; sourceTree = "<group>"; };
+		3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		576B176F253D526C00F1B02E /* HowToPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPage.swift; sourceTree = "<group>"; };
 		576B17A62547651700F1B02E /* AboutUsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsExtension.swift; sourceTree = "<group>"; };
 		576B17AA25476EE600F1B02E /* HowToExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToExtension.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				576B176F253D526C00F1B02E /* HowToPage.swift */,
 				06751AAE252F3CD3006748AC /* Menu.swift */,
 				067025A52538F9E400476256 /* AboutUsPage.swift */,
+				3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				576B17AB25476EE600F1B02E /* HowToExtension.swift in Sources */,
 				576B1770253D526C00F1B02E /* HowToPage.swift in Sources */,
 				0608F40B2533E1610066FD0F /* SlideInPresentationAnimator.swift in Sources */,
+				3F5EBC50255E15AF00C65F16 /* WebViewController.swift in Sources */,
 				0608F4072533DCE30066FD0F /* SlideInPresentationManager.swift in Sources */,
 				06FB148E252A33A90002F5CF /* DataModel.swift in Sources */,
 				0665AB1F252501240092A988 /* InputTempUIExtension.swift in Sources */,

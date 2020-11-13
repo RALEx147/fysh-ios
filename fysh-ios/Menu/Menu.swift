@@ -8,12 +8,13 @@
 
 import UIKit
 import MapKit
+import WebKit
 
-class Menu: UIViewController {
+class Menu: UIViewController, WKUIDelegate {
     
-    var menuGrad: CAGradientLayer?
     var menu = UIStackView()
     var homeButton = UIButton()
+    var externalButton = UIButton()
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -70,12 +71,27 @@ class Menu: UIViewController {
         view.addGestureRecognizer(tap)
         
         
+        externalButton.setImage(UIImage(named: "external"), for: .normal)
+        externalButton.addTarget(self, action: #selector(pressedExternal), for: .touchUpInside)
+        externalButton.layer.shadowRadius = 10
+        view.addSubview(externalButton)
+        
+        externalButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            externalButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            externalButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            externalButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+    }
+    
+    @objc func pressedExternal() {
+        let wvc = WebViewController()
+        self.present(wvc, animated: true)
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        
+//        super.viewDidLayoutSubviews()
     }
     
     
@@ -84,19 +100,42 @@ class Menu: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        view.layer.cornerRadius = 10
+        self.updateViewConstraints()
+    }
+    
     @objc func goToAboutUs(){
         
-        let aboutUsPage = AboutUsPage()
-        aboutUsPage.modalPresentationStyle = .fullScreen
-        let transition: CATransition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.fade
-        transition.subtype = CATransitionSubtype.fromLeft
-        
-        self.view.window!.layer.add(transition, forKey: nil)
+        if let w = self.view.window {
+            view.layer.cornerRadius = 0
+            view.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                view.topAnchor.constraint(equalTo: w.topAnchor),
+                view.leadingAnchor.constraint(equalTo: w.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: w.trailingAnchor),
+                view.bottomAnchor.constraint(equalTo: w.bottomAnchor)
+            ])
+            
+            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut]) {
+                self.updateViewConstraints()
+            } completion: { (_) in
+                let aboutUsPage = AboutUsPage()
+                aboutUsPage.modalPresentationStyle = .fullScreen
+                let transition: CATransition = CATransition()
+                transition.duration = 0.5
+                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                transition.type = CATransitionType.fade
+                transition.subtype = CATransitionSubtype.fromLeft
 
-        self.present(aboutUsPage, animated: false)
+                self.view.window!.layer.add(transition, forKey: nil)
+
+                self.present(aboutUsPage, animated: false)
+            }
+        }
+
+        
         
         
     }
