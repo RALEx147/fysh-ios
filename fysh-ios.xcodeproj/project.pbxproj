@@ -37,6 +37,8 @@
 		1FF392D4252A63F600AA306B /* InputConfirmationUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */; };
 		220452F64AE97FB69C857752 /* Pods_fysh_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07C264549EE6BE80B2DAFF0 /* Pods_fysh_iosTests.framework */; };
 		3E11754BA26D4FAF8597EA19 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D7A046D41D4BD2A9112CEB /* amplifyconfiguration.json */; };
+		3F1A55F4255F44CC000B24B3 /* ContactUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A55F3255F43C0000B24B3 /* ContactUsPage.swift */; };
+		3F1A55F8255F4569000B24B3 /* ContactUsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A55F7255F4569000B24B3 /* ContactUsExtension.swift */; };
 		3F5EBC50255E15AF00C65F16 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */; };
 		3F5EBC5A255E2D1200C65F16 /* MenuUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EBC59255E2D1200C65F16 /* MenuUIExtension.swift */; };
 		576B1770253D526C00F1B02E /* HowToPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B176F253D526C00F1B02E /* HowToPage.swift */; };
@@ -90,6 +92,8 @@
 		1F9D710F2537A2D100B747B2 /* map.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.geojson; sourceTree = "<group>"; };
 		1FF392D1252A626100AA306B /* InputConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmation.swift; sourceTree = "<group>"; };
 		1FF392D3252A62BD00AA306B /* InputConfirmationUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationUIExtension.swift; sourceTree = "<group>"; };
+		3F1A55F3255F43C0000B24B3 /* ContactUsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsPage.swift; sourceTree = "<group>"; };
+		3F1A55F7255F4569000B24B3 /* ContactUsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsExtension.swift; sourceTree = "<group>"; };
 		3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3F5EBC59255E2D1200C65F16 /* MenuUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIExtension.swift; sourceTree = "<group>"; };
 		576B176F253D526C00F1B02E /* HowToPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPage.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				06751AAE252F3CD3006748AC /* Menu.swift */,
 				067025A52538F9E400476256 /* AboutUsPage.swift */,
 				576B176F253D526C00F1B02E /* HowToPage.swift */,
+				3F1A55F3255F43C0000B24B3 /* ContactUsPage.swift */,
 				3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */,
 			);
 			path = Menu;
@@ -221,6 +226,7 @@
 				1F1EC95D25339BB700112563 /* UIButtonExtension.swift */,
 				576B17A62547651700F1B02E /* AboutUsExtension.swift */,
 				576B17AA25476EE600F1B02E /* HowToExtension.swift */,
+				3F1A55F7255F4569000B24B3 /* ContactUsExtension.swift */,
 				3F5EBC59255E2D1200C65F16 /* MenuUIExtension.swift */,
 			);
 			path = "UI Extensions";
@@ -481,6 +487,8 @@
 				576B17A72547651700F1B02E /* AboutUsExtension.swift in Sources */,
 				1F49F718253D38E400048A67 /* MapboxExtension.swift in Sources */,
 				1F59F56E251E9EEB00400A94 /* API.swift in Sources */,
+				3F1A55F8255F4569000B24B3 /* ContactUsExtension.swift in Sources */,
+				3F1A55F4255F44CC000B24B3 /* ContactUsPage.swift in Sources */,
 				0608F4092533DDAB0066FD0F /* SlideInPresentationController.swift in Sources */,
 				C0D1B2433BDF43668E3E74D1 /* Record+Schema.swift in Sources */,
 			);

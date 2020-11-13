@@ -17,6 +17,7 @@ class Menu: UIViewController, WKUIDelegate {
     var home = UIButton()
     var aboutUs = UIButton()
     var howTo = UIButton()
+    var contactUs = UIButton()
     var external = UIButton()
     
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class Menu: UIViewController, WKUIDelegate {
         home = addUIHome()
         aboutUs = addUIAboutUs()
         howTo = addUIHowTo()
+        contactUs = addUIContactUs()
         external = addUIExternal()
     }
     
@@ -70,6 +72,25 @@ class Menu: UIViewController, WKUIDelegate {
             
             self.view.window!.layer.add(transition, forKey: nil)
             self.present(howToPage, animated: false)
+        }
+    }
+    
+    @objc func goToContactUs(){
+        expandMenuConstraints()
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut]) {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.window!.frame.size.width, height: self.view.window!.frame.size.height)
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            let contactUsPage = ContactUsPage()
+            contactUsPage.modalPresentationStyle = .fullScreen
+            let transition: CATransition = CATransition()
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.fade
+            
+            self.view.window!.layer.add(transition, forKey: nil)
+            self.present(contactUsPage, animated: false)
         }
     }
     

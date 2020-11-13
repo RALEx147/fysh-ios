@@ -106,6 +106,27 @@ extension Menu{
         return howTo
     }
     
+    func addUIContactUs() -> UIButton {
+        let contactUs = UIButton(type: .system)
+        contactUs.setTitle("Contact Us", for: .normal)
+        contactUs.titleLabel?.font = .systemFont(ofSize: 20)
+        contactUs.titleLabel?.adjustsFontSizeToFitWidth = true
+        contactUs.setTitleColor(UIColor(named: "off-white"), for: .normal)
+        contactUs.addTarget(self, action: #selector(goToContactUs), for: .touchUpInside)
+        contactUs.contentHorizontalAlignment = .left
+        contactUs.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
+        contactUs.sizeToFit()
+        menu.addArrangedSubview(contactUs)
+        
+        contactUs.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contactUs.leadingAnchor.constraint(equalTo: menu.leadingAnchor, constant: 0),
+            contactUs.trailingAnchor.constraint(equalTo: menu.trailingAnchor, constant: 0)
+        ])
+        
+        return aboutUs
+    }
+    
     
     func addUIExternal() -> UIButton {
         let externalButton = UIButton()
