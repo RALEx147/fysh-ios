@@ -74,6 +74,7 @@ class Menu: UIViewController {
         let aboutUs = UIButton()
         aboutUs.setTitle("About Us", for: .normal)
         aboutUs.setTitleColor(.black, for: .normal)
+        aboutUs.frame = CGRect(x: 5, y: 20, width: 40, height: 30)
         
         aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
         
