@@ -23,9 +23,9 @@ class Menu: UIViewController {
         view.clipsToBounds = true
         view.layer.cornerRadius = 10
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        view.backgroundColor = UIColor(named: "menu-color-2")
+        view.backgroundColor = UIColor(named: "menu-color")
 
-        menu.backgroundColor = UIColor(named: "menu-color-2")
+        menu.backgroundColor = UIColor(named: "menu-color")
         menu.layoutMargins = UIEdgeInsets(top: 10, left: 12, bottom: 0, right: 0)
         menu.alignment = .top
         menu.isLayoutMarginsRelativeArrangement = true
@@ -41,7 +41,7 @@ class Menu: UIViewController {
         NSLayoutConstraint.activate([
             menu.topAnchor.constraint(equalTo: view.topAnchor),
             menu.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            menu.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.size.width/4)
+            menu.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 30)
         ])
         
         
@@ -91,7 +91,7 @@ class Menu: UIViewController {
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.reveal
+        transition.type = CATransitionType.fade
         transition.subtype = CATransitionSubtype.fromLeft
         
         self.view.window!.layer.add(transition, forKey: nil)
@@ -108,7 +108,7 @@ class Menu: UIViewController {
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.reveal
+        transition.type = CATransitionType.fade
         transition.subtype = CATransitionSubtype.fromLeft
         
      
