@@ -46,12 +46,12 @@ extension Menu{
     func addUIHome() -> UIButton {
         let home = UIButton(type: .system)
         home.setTitle("Home", for: .normal)
-        home.titleLabel?.font = .systemFont(ofSize: 22)
+        home.titleLabel?.font = .systemFont(ofSize: 20)
         home.titleLabel?.adjustsFontSizeToFitWidth = true
         home.setTitleColor(UIColor(named: "off-white"), for: .normal)
         home.addTarget(self, action: #selector(goHome), for: .touchUpInside)
         home.contentHorizontalAlignment = .left
-        home.contentEdgeInsets = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 0)
+        home.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
         home.sizeToFit()
         menu.addArrangedSubview(home)
         
@@ -67,12 +67,12 @@ extension Menu{
     func addUIAboutUs() -> UIButton {
         let aboutUs = UIButton(type: .system)
         aboutUs.setTitle("About Us", for: .normal)
-        aboutUs.titleLabel?.font = .systemFont(ofSize: 22)
+        aboutUs.titleLabel?.font = .systemFont(ofSize: 20)
         aboutUs.titleLabel?.adjustsFontSizeToFitWidth = true
         aboutUs.setTitleColor(UIColor(named: "off-white"), for: .normal)
         aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
         aboutUs.contentHorizontalAlignment = .left
-        aboutUs.contentEdgeInsets = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 0)
+        aboutUs.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
         aboutUs.sizeToFit()
         menu.addArrangedSubview(aboutUs)
         
@@ -88,12 +88,12 @@ extension Menu{
     func addUIHowTo() -> UIButton {
         let howTo = UIButton(type: .system)
         howTo.setTitle("How to Use", for: .normal)
-        howTo.titleLabel?.font = .systemFont(ofSize: 22)
+        howTo.titleLabel?.font = .systemFont(ofSize: 20)
         howTo.titleLabel?.adjustsFontSizeToFitWidth = true
         howTo.setTitleColor(UIColor(named: "off-white"), for: .normal)
         howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
         howTo.contentHorizontalAlignment = .left
-        howTo.contentEdgeInsets = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 0)
+        howTo.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
         howTo.sizeToFit()
         menu.addArrangedSubview(howTo)
         
