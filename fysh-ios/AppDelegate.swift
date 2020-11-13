@@ -11,16 +11,17 @@ import Amplify
 import AmplifyPlugins
 import AWSAppSync
 
-
+//Set of methods to manage shared behaviors of the application
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var appSyncClient: AWSAppSyncClient?
 	var window:UIWindow?
 	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
-		
+    // Attempt to initialize Amplify and client and AppSync configuration, and check for success or failure.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //Override point for customization after application launch.
 		let dataStorePlugin = AWSDataStorePlugin(modelRegistration: AmplifyModels())
 		do {
 			

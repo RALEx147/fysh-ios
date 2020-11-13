@@ -13,16 +13,19 @@ import AWSAppSync
 import Turf
 import Foundation
 
+//Creates the input confirmation page following the temperature and time input pages.
 class InputConfirmation: UIViewController {
 	
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
-	
+    
+    //Construct initial objects for location, temperature, time, stream name, and reach ID.
 	var location = CLLocationCoordinate2D()
 	var temp: Measurement<UnitTemperature>!
 	var time = Date()
 	var stream = String()
 	var reach = String()
 	
+    //Construct done button, back button, and labels for temperature, time, location, and reach for confirmation page. 
 	var doneButton = UIButton()
     var backButton = UIButton()
 	
@@ -31,14 +34,16 @@ class InputConfirmation: UIViewController {
 	var textLocation = UILabel()
 	var textReach = UILabel()
 	
-	
+	//UIViewController manages a view heirarchy for the confirmation page.
 	var presentingController: UIViewController?
 	
+    //Called when the controller's view is loaded into memory.
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-//		self.isModalInPresentation = true
+        //self.isModalInPresentation = true
 		
+        //Set confirmation page background color to white and render done button, back button, and labels for time, temp, location, and reach.
 		self.view.backgroundColor = .white
 		doneButton = addDoneButton()
         backButton = addUIBack()
@@ -48,9 +53,11 @@ class InputConfirmation: UIViewController {
 		textLocation = addUILocationText()
 		textReach = addUIReachText()
 		
+        //Call calculate reach function to decide what reach ID should be included on the confirmation page.
 		textReach.text = calculateReach()
 	}
 	
+    //Use latitude and longitde of location pin to decide using GeoJSON data which reach the pin belongs to. If the latitude and longitude are not within a reach, return "Reach: none".
 	func calculateReach() -> String {
 		let data = try! geojsonData(from: "map")!
 		let geojson = try! GeoJSON.parse(FeatureCollection.self, from: data)
@@ -70,6 +77,7 @@ class InputConfirmation: UIViewController {
 		return "Reach: none"
 	}
 	
+    //Get GeoJSON data representing the different reach locations.
 	func geojsonData(from name: String) throws -> Data? {
 		guard let path = Bundle.main.path(forResource: name, ofType: "geojson") else {
             return nil
@@ -78,10 +86,12 @@ class InputConfirmation: UIViewController {
         return try Data(contentsOf: filePath)
     }
 	
+    //Notifies the controller that its view is about to be removed from a view hierarchy.
 	override func viewWillDisappear(_ animated: Bool) {
 		self.presentingController?.dismiss(animated: true, completion: nil)
 	}
 	
+    //If the user presses the done button, they have confirmed their input is correct. Add the date, latitude and longitude, time, and temperature to the queue.
 	@objc func pressedDone() {
 		let iso8601DateFormatter = ISO8601DateFormatter()
 		iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
@@ -104,7 +114,7 @@ class InputConfirmation: UIViewController {
 		
 	}
 	
-	
+	//Upload data from the DispatchQueue, sending the data through the backend to the web application.
 	func uploadData(temp: String, lat: String, long: String, stream: String, reach: String, date: String) {
 		var appSyncClient: AWSAppSyncClient?
 		appSyncClient = appDelegate.appSyncClient
@@ -153,6 +163,7 @@ class InputConfirmation: UIViewController {
 		_ = semaphore.wait(wallTimeout: .now() + 5)
 	}
     
+    //If the user presses the back button, return the view to the home page. 
     @objc func pressedBack(){
         let transition: CATransition = CATransition()
         transition.duration = 0.5
