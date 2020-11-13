@@ -31,12 +31,10 @@ class Menu: UIViewController, WKUIDelegate {
         menu.alignment = .top
         menu.isLayoutMarginsRelativeArrangement = true
         menu.axis = .vertical
-        menu.spacing = 10
+        menu.spacing = 1
         menu.alignment = .firstBaseline
         view.addSubview(menu)
         
-        
-
         
         menu.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -46,24 +44,55 @@ class Menu: UIViewController, WKUIDelegate {
         ])
         
         
-        let home = UIButton()
-        let aboutUs = UIButton()
-        let howTo = UIButton()
-        
+        let home = UIButton(type: .system)
+        let aboutUs = UIButton(type: .system)
+        let howTo = UIButton(type: .system)
+
         home.setTitle("Home", for: .normal)
+        home.titleLabel?.font = .systemFont(ofSize: 22)
+        home.titleLabel?.adjustsFontSizeToFitWidth = true
         home.setTitleColor(UIColor(named: "off-white"), for: .normal)
         home.addTarget(self, action: #selector(goHome), for: .touchUpInside)
+        home.contentHorizontalAlignment = .left
+        home.contentEdgeInsets = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 0)
+        home.sizeToFit()
         menu.addArrangedSubview(home)
+        home.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            home.leadingAnchor.constraint(equalTo: menu.leadingAnchor, constant: 0),
+            home.trailingAnchor.constraint(equalTo: menu.trailingAnchor, constant: 0)
+        ])
         
         aboutUs.setTitle("About Us", for: .normal)
+        aboutUs.titleLabel?.font = .systemFont(ofSize: 22)
+        aboutUs.titleLabel?.adjustsFontSizeToFitWidth = true
         aboutUs.setTitleColor(UIColor(named: "off-white"), for: .normal)
         aboutUs.addTarget(self, action: #selector(goToAboutUs), for: .touchUpInside)
+        aboutUs.contentHorizontalAlignment = .left
+        aboutUs.contentEdgeInsets = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 0)
+        aboutUs.sizeToFit()
         menu.addArrangedSubview(aboutUs)
-
+        aboutUs.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            aboutUs.leadingAnchor.constraint(equalTo: menu.leadingAnchor, constant: 0),
+            aboutUs.trailingAnchor.constraint(equalTo: menu.trailingAnchor, constant: 0)
+        ])
+        
+        
         howTo.setTitle("How to Use", for: .normal)
+        howTo.titleLabel?.font = .systemFont(ofSize: 22)
+        howTo.titleLabel?.adjustsFontSizeToFitWidth = true
         howTo.setTitleColor(UIColor(named: "off-white"), for: .normal)
         howTo.addTarget(self, action: #selector(goToHowTo), for: .touchUpInside)
+        howTo.contentHorizontalAlignment = .left
+        howTo.contentEdgeInsets = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 0)
+        howTo.sizeToFit()
         menu.addArrangedSubview(howTo)
+        howTo.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            howTo.leadingAnchor.constraint(equalTo: menu.leadingAnchor, constant: 0),
+            howTo.trailingAnchor.constraint(equalTo: menu.trailingAnchor, constant: 0)
+        ])
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMenu))
         
