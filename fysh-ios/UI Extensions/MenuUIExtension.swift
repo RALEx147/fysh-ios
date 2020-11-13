@@ -111,15 +111,18 @@ extension Menu{
         let externalButton = UIButton()
         externalButton.setImage(UIImage(named: "external"), for: .normal)
         externalButton.addTarget(self, action: #selector(pressedExternal), for: .touchUpInside)
-        externalButton.layer.shadowRadius = 10
+        externalButton.imageView?.contentMode = .scaleAspectFit
         view.addSubview(externalButton)
         
         externalButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            externalButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            externalButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15)
+            externalButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            externalButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            externalButton.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.80)
         ])
         
+        externalButton.sizeToFit()
+
         return externalButton
     }
     
