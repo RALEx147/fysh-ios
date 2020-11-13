@@ -48,7 +48,6 @@ class Menu: UIViewController, WKUIDelegate {
             transition.duration = 0.3
             transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             transition.type = CATransitionType.fade
-            transition.subtype = CATransitionSubtype.fromLeft
             
             self.view.window!.layer.add(transition, forKey: nil)
             self.present(aboutUsPage, animated: false)
