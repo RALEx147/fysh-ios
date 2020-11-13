@@ -9,16 +9,20 @@
 import UIKit
 import Mapbox
 
+//Creates the input time view following the temperature input view.
 class InputTime: UIViewController {
-	
+    
+    //Construct initial objects for location, time suggestion, and next and back buttons.
 	var location = CLLocationCoordinate2D()
 	var temp: Measurement<UnitTemperature>!
 	var timePicker = UIDatePicker()
 	var nextButton = UIButton()
     var backButton = UIButton()
 	
+    //UIViewController manages a view heirarchy for the time input page.
 	var presentingController: UIViewController?
 	
+    //Called when the controller's view is loaded into memory.
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
@@ -30,10 +34,12 @@ class InputTime: UIViewController {
         backButton = addUIBack()
 	}
 	
+    //Notifies the controller that its view is about to be removed from a view hierarchy.
 	override func viewWillDisappear(_ animated: Bool) {
 		presentingController?.dismiss(animated: false, completion: nil)
 	}
 	
+    //If the user presses the next button, advance them to the confirmation screen, sending over information about their inputted time, location, and temperature.
 	@objc func pressedNext() {
 		print("confirmation screen")
 		
@@ -53,6 +59,7 @@ class InputTime: UIViewController {
 		present(inputConfirmation, animated: true, completion: nil)
 	}
     
+    //If the user presses the back button, bring the view back to the home page.
     @objc func pressedBack(){
         let transition: CATransition = CATransition()
         transition.duration = 0.5
