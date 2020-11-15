@@ -13,10 +13,12 @@ class InputTime: UIViewController {
 	
 	var location = CLLocationCoordinate2D()
 	var temp: Measurement<UnitTemperature>!
+    
 	var timePicker = UIDatePicker()
 	var nextButton = UIButton()
     var backButton = UIButton()
-	
+    var banner = UIButton()
+    
 	var presentingController: UIViewController?
 	
 	override func viewDidLoad() {
@@ -24,7 +26,8 @@ class InputTime: UIViewController {
 		presentingController = presentingViewController
         
         //Sets temp input background color to white and renders the time picker, next button, and back button.
-		view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "off-white")
+        banner = addUIbanner()
 		timePicker = addTimePicker()
 		nextButton = addNextButton()
         backButton = addUIBack()

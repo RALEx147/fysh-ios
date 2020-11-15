@@ -28,8 +28,7 @@ class InputConfirmation: UIViewController {
     //Construct done button, back button, and labels for temperature, time, location, and reach for confirmation page. 
 	var doneButton = UIButton()
     var backButton = UIButton()
-//    var loadingView = UIImageView()
-	
+    var banner = UIButton()
 	var textTemp = UILabel()
 	var textTime = UILabel()
 	var textLocation = UILabel()
@@ -45,11 +44,10 @@ class InputConfirmation: UIViewController {
 
 		
         //Set confirmation page background color to white and render done button, back button, and labels for time, temp, location, and reach.
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "off-white")
+        banner = addUIbanner()
 		doneButton = addDoneButton()
         backButton = addUIBack()
-
-		
 		textTemp = addUITempText()
 		textTime = addUITimeText()
 		textLocation = addUILocationText()
@@ -112,9 +110,7 @@ class InputConfirmation: UIViewController {
 		let date = iso8601DateFormatter.string(from: time)
 		let t = (temp.converted(to: .fahrenheit).value * 10).rounded() / 10
         
-//        UIView.animate(withDuration: 1) {
-//            self.loadingView.alpha = 1
-//        }
+        
         showLoading()
 		DispatchQueue.global(qos: .default).async {
 			let result = self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
