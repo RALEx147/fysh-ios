@@ -12,25 +12,23 @@ import UIKit
 extension InputTemp{
     
     func addTextInput()  -> UITextField {
-        let temperatureInput =  UITextField(frame: CGRect(x: 20, y: view.frame.height/2, width: 300, height: 40))
-        temperatureInput.placeholder = "Enter temp here"
+        let temperatureInput = UITextField()
+        temperatureInput.placeholder = "Enter Temp Here"
         temperatureInput.font = UIFont.systemFont(ofSize: 15)
-        temperatureInput.borderStyle = UITextField.BorderStyle.roundedRect
-        temperatureInput.autocorrectionType = UITextAutocorrectionType.no
-        temperatureInput.keyboardType = UIKeyboardType.default
-        temperatureInput.returnKeyType = UIReturnKeyType.done
+        temperatureInput.borderStyle = .roundedRect
+        temperatureInput.returnKeyType = .done
         temperatureInput.clearButtonMode = .never
-        temperatureInput.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        temperatureInput.textAlignment = .right
+        temperatureInput.keyboardType = .decimalPad
+        temperatureInput.adjustsFontSizeToFitWidth = true
         temperatureInput.delegate = self
-        temperatureInput.keyboardType = UIKeyboardType.decimalPad
-        
-
         view.addSubview(temperatureInput)
 		
 		temperatureInput.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             temperatureInput.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            temperatureInput.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40)
+            temperatureInput.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -55),
+            temperatureInput.widthAnchor.constraint(equalToConstant: 130)
         ])
         
         return temperatureInput
