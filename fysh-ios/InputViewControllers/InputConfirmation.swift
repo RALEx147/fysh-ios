@@ -59,7 +59,7 @@ class InputConfirmation: UIViewController {
 	
     //Use latitude and longitde of location pin to decide using GeoJSON data which reach the pin belongs to. If the latitude and longitude are not within a reach, return "Reach: none".
 	func calculateReach() -> String {
-		let data = try! geojsonData(from: "map")!
+		let data = try! geojsonData(from: "ReachGeoJSONs/map")!
 		let geojson = try! GeoJSON.parse(FeatureCollection.self, from: data)
 		
 		for i in geojson.features {

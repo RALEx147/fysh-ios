@@ -15,8 +15,8 @@ extension ViewController: MGLMapViewDelegate {
 		style.addSource(source)
 		 
 		let layer = MGLFillStyleLayer(identifier: "Reaches", source: source)
-		layer.fillColor = NSExpression(forConstantValue: UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 1.00))
-		layer.fillOpacity = NSExpression(forConstantValue: 0.2)
+		layer.fillColor = NSExpression(forConstantValue: UIColor(red: 0.91, green: 0.46, blue: 0.12, alpha: 1.00))
+		layer.fillOpacity = NSExpression(forConstantValue: 0.3)
 		style.insertLayer(layer, below: style.layer(withIdentifier: "com.mapbox.annotations.points")!)
 	}
 
