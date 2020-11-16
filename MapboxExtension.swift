@@ -7,8 +7,10 @@
 
 import Mapbox
 
+//Extension of the ViewController class to specify the way the map view will give and recieve data.
 extension ViewController: MGLMapViewDelegate {
 	
+    //Adds some opacity to reach outlines
 	func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
 		let url = URL(fileURLWithPath: Bundle.main.path(forResource: "map", ofType: "geojson")!)
 		let source = MGLShapeSource(identifier: "reaches", url: url, options: nil)
@@ -20,6 +22,7 @@ extension ViewController: MGLMapViewDelegate {
 		style.insertLayer(layer, below: style.layer(withIdentifier: "com.mapbox.annotations.points")!)
 	}
 
+    //Allows annotations to be presented in the mapview
 	func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
 		return true
 	}

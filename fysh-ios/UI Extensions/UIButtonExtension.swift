@@ -8,7 +8,10 @@
 
 import UIKit
 
+//Creates a specific color and size for the images that are used as buttons in the application.
 extension UIColor {
+    
+    //Makes sure all images that are used as buttons are uniformly formatted and sized.
     func createOnePixelImage() -> UIImage? {
         let size = CGSize(width: 1, height: 1)
         UIGraphicsBeginImageContext(size)
@@ -20,6 +23,7 @@ extension UIColor {
     }
 }
 
+//Specifies the color of the UIButtons included in the application.
 extension UIButton {
     func setBackground(_ color: UIColor, for state: UIControl.State) {
         setBackgroundImage(color.createOnePixelImage(), for: state)

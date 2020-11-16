@@ -9,14 +9,20 @@
 import Foundation
 import UIKit
 
+//Extends the InputTemp class to allow the user to input their initial data about stream temperature.
 extension InputTemp{
     
+    //Adds a text input field where the user can add the temperature they detected. The text field is titled "enter temp here: ".
     func addTextInput()  -> UITextField {
         let temperatureInput =  UITextField(frame: CGRect(x: 20, y: view.frame.height/2, width: 300, height: 40))
+        
+        //Title "Enter temp here: "
         temperatureInput.placeholder = "Enter temp here"
         temperatureInput.font = UIFont.systemFont(ofSize: 15)
         temperatureInput.borderStyle = UITextField.BorderStyle.roundedRect
         temperatureInput.autocorrectionType = UITextAutocorrectionType.no
+        
+        //Specifies the type of keyboard to be used.
         temperatureInput.keyboardType = UIKeyboardType.default
         temperatureInput.returnKeyType = UIReturnKeyType.done
         temperatureInput.clearButtonMode = UITextField.ViewMode.whileEditing
@@ -25,6 +31,7 @@ extension InputTemp{
         temperatureInput.keyboardType = UIKeyboardType.decimalPad
         view.addSubview(temperatureInput)
 		
+        //Specifies where the temperature input field should be placed on the screen.
 		temperatureInput.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             temperatureInput.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
@@ -34,6 +41,7 @@ extension InputTemp{
         return temperatureInput
     }
     
+    //Adds a back button to the temperature input view that allows users to navigate back to the home page.
     func addUIBack() -> UIButton {
         let button = UIButton()
         let image = UIImage(named: "cancel")
@@ -42,6 +50,7 @@ extension InputTemp{
         button.addTarget(self, action: #selector(pressedBack), for: .touchUpInside)
         view.addSubview(button)
         
+        //Places button at the bottom left of the view.
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -51,6 +60,7 @@ extension InputTemp{
         return button
     }
     
+    //Adds a next button that allows the user to proceed to the next step of inputting their data.
     func addNextButton() -> UIButton {
         let button = UIButton()
         button.setBackground(UIColor(named: "blue")!, for: .normal)
@@ -64,6 +74,7 @@ extension InputTemp{
         button.addTarget(self, action: #selector(pressedNext), for: .touchUpInside)
         view.addSubview(button)
         
+        //Places button at the bottom right of the view.
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
@@ -75,6 +86,7 @@ extension InputTemp{
         return button
     }
     
+    //Adds a button to the screen that allows users to specify whether the temperature they are inputting was taken in celcius or fahrenheit. 
     func addTempTypeButton() -> UIButton {
         let button = UIButton()
         button.setTitle("Fahrenheit", for: .normal)

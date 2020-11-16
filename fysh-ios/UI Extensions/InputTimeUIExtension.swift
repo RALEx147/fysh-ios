@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+
+//Extends input time class to create a view for functionality to add data about the time a temperature was taken.
 extension InputTime{
     
+    //Creates the functionality for the application to suggest the current time as the time the temperature input was taken.
     func addTimePicker() -> UIDatePicker {
         let tp = UIDatePicker()
         tp.datePickerMode = .time
@@ -24,7 +27,7 @@ extension InputTime{
         return tp
     }
     
-    
+    //Adds a back button that allows the user to return back to the temperature input page.
     func addUIBack() -> UIButton {
         let button = UIButton()
         let image = UIImage(named: "cancel")
@@ -42,6 +45,7 @@ extension InputTime{
         return button
     }
     
+    //Adds a next button that allows the user to proceed to the next step of the data input process.
     func addNextButton() -> UIButton {
         let button = UIButton()
         button.setBackground(UIColor(named: "blue")!, for: .normal)

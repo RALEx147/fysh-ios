@@ -8,8 +8,10 @@
 
 import Mapbox
 
+//Extends the ViewController class managing the heirarchy of views in the application
 extension ViewController {
 	
+    //Adds the map view with the functionality to track and follow the user's location.
 	func addUIMapbox() -> MGLMapView {
 		let url = URL(string: "mapbox://styles/mapbox/streets-v11")
 		let mapView = MGLMapView(frame: view.bounds, styleURL: url)
@@ -27,6 +29,7 @@ extension ViewController {
 		return mapView
 	}
 	
+    //Adds the menu button to the home page as a generic menu icon at the top right corner. Classifies the action that should be taken if the menu button is tapped by the user.
 	func addUIMenu() -> UIButton {
 		let button = UIButton()
         let image = UIImage(named: "menu")
@@ -43,6 +46,7 @@ extension ViewController {
 		return button
 	}
 	
+    //Adds the location finder button at the bottom right corner of the home page. Classifies that if the user taps this button, the application should recenter the map on the user's detected location.
 	func addUILocation() -> UIButton{
 		let button = UIButton()
         let image = UIImage(named: "location")
@@ -58,6 +62,7 @@ extension ViewController {
 		return button
 	}
 	
+    //Adds the temperature input button at the bottom right corner of the home page. Classifies that if the user taps this button, the application should navigate to the first portion of the temperature input process.
 	func addUIInput() -> UIButton{
 		let button = UIButton()
         let image = UIImage(named: "add")
@@ -75,7 +80,7 @@ extension ViewController {
 	}
 	
 	
-	//MARK: - Location UI
+	//Adds visible pin to the view that indicates where the location has been dropped when a user selects the option to input a temperature.
 	func addUILocationDropper() -> UIImageView{
         let image = UIImage(named: "mappin")
 		let imageview = UIImageView(image: image)
@@ -92,6 +97,7 @@ extension ViewController {
 		return imageview
 	}
 	
+    //Creates the confirmation button to be added to the temperature input pages that allows the user to click forward through the process of providing their location, time, and temperature information.
 	func addUIConfirmButton() -> UIButton {
 		let button = UIButton()
         button.setBackground(UIColor(named: "blue")!, for: .normal)
@@ -114,6 +120,7 @@ extension ViewController {
 		return button
 	}
 	
+    //Creates the cancel button that can be tapped throughout the temperature input process to allow the user to return to the main page. 
 	func addUICancelButton() -> UIButton {
 		let button = UIButton()
         let image = UIImage(named: "cancel")

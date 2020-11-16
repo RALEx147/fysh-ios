@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+//Extends the input confirmation class to create a view that restates the data inputed about time, temperature, and location to be sure it is all correct.
 extension InputConfirmation{
     
+    //Adds a done button to the confirmation page that the user can select if all of the information is correct.
     func addDoneButton() -> UIButton {
         let button = UIButton()
         button.setBackground(UIColor(named: "blue")!, for: .normal)
@@ -33,6 +35,7 @@ extension InputConfirmation{
         return button
     }
     
+    //Adds a back button that the user can select if something is incorrect and they need to edit the time, temperature, or location.
     func addUIBack() -> UIButton {
         let button = UIButton()
         let image = UIImage(named: "cancel")
@@ -50,6 +53,7 @@ extension InputConfirmation{
         return button
     }
 	
+    //Adds text giving context to the temperature display on the confirmation screen. Tells whether the temperature is in celcius or fahrenheit.
 	func addUITempText() -> UILabel {
 		let label = UILabel()
 		let t = (temp.converted(to: .fahrenheit).value * 10).rounded() / 10
@@ -65,6 +69,7 @@ extension InputConfirmation{
         return label
 	}
 	
+    //Adds a label to the time displayed on the screen.
 	func addUITimeText() -> UILabel {
 		let label = UILabel()
 		let dateFormatter = DateFormatter()
@@ -82,6 +87,7 @@ extension InputConfirmation{
         return label
 	}
 	
+    //Adds a label to the location displayed on the confirmation screen, specifying which number is the latitude, and which is the longitude.
 	func addUILocationText() -> UILabel {
 		let label = UILabel()
 		label.text = "(lat: \(location.latitude) long: \(location.longitude))"
@@ -98,6 +104,7 @@ extension InputConfirmation{
         return label
 	}
 	
+    //Adds a label to the reach specified on the confirmation page.
 	func addUIReachText() -> UILabel {
 		let label = UILabel()
 		label.text = "reach"
@@ -112,6 +119,7 @@ extension InputConfirmation{
         return label
 	}
     
+    //Adds the AppIcon to the loading page as the confirmation page saves. 
     func addUILoadingView() -> UIImageView {
         let image = UIImage(named: "AppIcon")
         let imageView = UIImageView(image: image)
