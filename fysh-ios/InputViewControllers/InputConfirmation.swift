@@ -58,32 +58,36 @@ class InputConfirmation: UIViewController {
 	}
 	
     //Use latitude and longitde of location pin to decide using GeoJSON data which reach the pin belongs to. If the latitude and longitude are not within a reach, return "Reach: none".
-	func calculateReach() -> String {
-		let data = try! geojsonData(from: "ReachGeoJSONs/map")!
-		let geojson = try! GeoJSON.parse(FeatureCollection.self, from: data)
-		
-		for i in geojson.features {
-			let p = i.geometry.value as! Polygon
-			if p.contains(location) {
-				if let p = i.properties {
-					if let stream = p["stream"], let reach = p["reach"] {
-						self.stream = stream as! String
-						self.reach = reach as! String
-						return "Reach: \(self.stream)\(self.reach)"
-					}
-				}
-			}
-		}
-		return "Reach: none"
-	}
-	
-    //Get GeoJSON data representing the different reach locations.
-	func geojsonData(from name: String) throws -> Data? {
-		guard let path = Bundle.main.path(forResource: name, ofType: "geojson") else {
-            return nil
+    func calculateReach() -> String {
+        
+        let datas = try! geojsonData(from: "ReachGeoJSONs/map")!
+        for data in datas {
+            let geojson = try! GeoJSON.parse(FeatureCollection.self, from: data)
+            
+            for i in geojson.features {
+                let p = i.geometry.value as! Polygon
+                if p.contains(location) {
+                    if let p = i.properties {
+                        if let stream = p["stream"], let reach = p["reach"] {
+                            self.stream = stream as! String
+                            self.reach = reach as! String
+                            return "Reach: \(self.stream)\(self.reach)"
+                        }
+                    }
+                }
+            }
         }
-        let filePath = URL(fileURLWithPath: path)
-        return try Data(contentsOf: filePath)
+        return "Reach: none"
+    }
+    
+    //Get GeoJSON data representing the different reach locations.
+	func geojsonData(from name: String) throws -> [Data]? {
+        let urls = Bundle.main.urls(forResourcesWithExtension: "geojson", subdirectory: "ReachGeoJSONs")
+        var datas = [Data]()
+        for filePath in urls! {
+            try datas.append(Data(contentsOf: filePath))
+        }
+        return datas
     }
 	
     //Notifies the controller that its view is about to be removed from a view hierarchy.
