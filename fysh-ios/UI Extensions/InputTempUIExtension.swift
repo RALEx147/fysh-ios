@@ -11,7 +11,7 @@ import UIKit
 
 extension InputTemp{
     
-    func addTextInput()  -> UITextField {
+    func addTextInput() -> UITextField {
         let temperatureInput = UITextField()
         temperatureInput.placeholder = "Enter Temp Here"
         temperatureInput.font = UIFont.systemFont(ofSize: 15)
@@ -22,6 +22,7 @@ extension InputTemp{
         temperatureInput.keyboardType = .decimalPad
         temperatureInput.adjustsFontSizeToFitWidth = true
         temperatureInput.delegate = self
+        temperatureInput.addDoneCancelToolbar()
         view.addSubview(temperatureInput)
 		
 		temperatureInput.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +77,7 @@ extension InputTemp{
     }
     
     func addTempTypeButton() -> UIButton {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Fahrenheit", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(pressedTempType), for: .touchUpInside)
