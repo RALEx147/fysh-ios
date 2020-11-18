@@ -42,6 +42,7 @@
 		576B1770253D526C00F1B02E /* HowToPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B176F253D526C00F1B02E /* HowToPage.swift */; };
 		576B17A72547651700F1B02E /* AboutUsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B17A62547651700F1B02E /* AboutUsExtension.swift */; };
 		576B17AB25476EE600F1B02E /* HowToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B17AA25476EE600F1B02E /* HowToExtension.swift */; };
+		576BBAFA2565773A00FBF311 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576BBAF92565773A00FBF311 /* UITextFieldExtension.swift */; };
 		68123E9CDF1A44699BBDBF1A /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF14F0EF6F400BB30DE2B3 /* AmplifyModels.swift */; };
 		C0D1B2433BDF43668E3E74D1 /* Record+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5E4DA161741CAA338ED54 /* Record+Schema.swift */; };
 		D08A70CEC327670902476BA4 /* Pods_fysh_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1EA2F4245CF1DD14946299 /* Pods_fysh_ios.framework */; };
@@ -95,6 +96,7 @@
 		576B176F253D526C00F1B02E /* HowToPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPage.swift; sourceTree = "<group>"; };
 		576B17A62547651700F1B02E /* AboutUsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsExtension.swift; sourceTree = "<group>"; };
 		576B17AA25476EE600F1B02E /* HowToExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToExtension.swift; sourceTree = "<group>"; };
+		576BBAF92565773A00FBF311 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		7A1EA2F4245CF1DD14946299 /* Pods_fysh_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fysh_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F094499725E79738F4C16A7 /* Pods-fysh-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-ios.release.xcconfig"; path = "Target Support Files/Pods-fysh-ios/Pods-fysh-ios.release.xcconfig"; sourceTree = "<group>"; };
 		928CBC185E937DB82CF9A322 /* Pods-fysh-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fysh-iosTests.release.xcconfig"; path = "Target Support Files/Pods-fysh-iosTests/Pods-fysh-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				576B17A62547651700F1B02E /* AboutUsExtension.swift */,
 				576B17AA25476EE600F1B02E /* HowToExtension.swift */,
 				3F5EBC59255E2D1200C65F16 /* MenuUIExtension.swift */,
+				576BBAF92565773A00FBF311 /* UITextFieldExtension.swift */,
 			);
 			path = "UI Extensions";
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				067025A62538F9E400476256 /* AboutUsPage.swift in Sources */,
+				576BBAFA2565773A00FBF311 /* UITextFieldExtension.swift in Sources */,
 				1F239D362518337100D5B048 /* ViewControllerUIExtension.swift in Sources */,
 				1F05539425155CEA009A6A6F /* ViewController.swift in Sources */,
 				0665AB1C2524D7160092A988 /* InputTemp.swift in Sources */,

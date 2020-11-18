@@ -27,9 +27,10 @@ extension InputTemp{
         temperatureInput.returnKeyType = UIReturnKeyType.done
         temperatureInput.clearButtonMode = UITextField.ViewMode.whileEditing
         temperatureInput.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
-        temperatureInput.delegate = self
         temperatureInput.keyboardType = UIKeyboardType.decimalPad
         temperatureInput.returnKeyType = UIReturnKeyType.done
+        temperatureInput.addDoneCancelToolbar()
+        temperatureInput.delegate = self
         view.addSubview(temperatureInput)
 		
         //Specifies where the temperature input field should be placed on the screen.
@@ -105,11 +106,4 @@ extension InputTemp{
         
         return button
     }
-    
-    //func addDoneButton() -> UIButton {
-       // let button = UIButton()
-       // button.setTitle("Done", for: .normal)
-      //  button.setTitleColor(.systemBlue, for: .normal)
-      //  button.addTarget(self, action: #selector(pressed))
-    //}
 }

@@ -28,6 +28,7 @@ class InputTemp: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         presentingController = presentingViewController
         view.backgroundColor = .white
+        
 
         
         //Sets background color of the main temperature input view.

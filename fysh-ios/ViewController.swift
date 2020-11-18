@@ -10,7 +10,7 @@ import UIKit
 import Mapbox
 
 //Manages the view heirarchy of the application.
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -32,6 +32,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var uploadResult:DispatchTimeoutResult! = .success
     
     lazy var slideInTransitioningDelegate = SlideInPresentationManager()
+    
+    //To add done button to decimal keyboard
+    @IBOutlet weak var myNumericTextField: UITextField! {
+        didSet { myNumericTextField?.addDoneCancelToolbar() }
+    }
 	
     //Adds buttons and menu to the main home view. Also adds location permission pop up box.
     override func viewDidLoad() {
@@ -42,6 +47,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         menubutton = addUIMenu()
         locationbutton = addUILocation()
         inputbutton = addUIInput()
+
+        
+        
     }
 	
     //Notifies the view controller that its view is about to be added to view hierarchy.
@@ -192,5 +200,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
 	}
+
     
 }
