@@ -37,11 +37,13 @@
 		3E11754BA26D4FAF8597EA19 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D7A046D41D4BD2A9112CEB /* amplifyconfiguration.json */; };
 		3F1A55F4255F44CC000B24B3 /* ContactUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A55F3255F43C0000B24B3 /* ContactUsPage.swift */; };
 		3F1A55F8255F4569000B24B3 /* ContactUsUIExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A55F7255F4569000B24B3 /* ContactUsUIExt.swift */; };
+		3F1F291E2565F9CD00A5812A /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F291A2565F90400A5812A /* SettingsPage.swift */; };
+		3F1F29212565F9F400A5812A /* SettingsUIExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F291B2565F92B00A5812A /* SettingsUIExt.swift */; };
 		3F5EBC50255E15AF00C65F16 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */; };
 		3F5EBC5A255E2D1200C65F16 /* MenuUIExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EBC59255E2D1200C65F16 /* MenuUIExt.swift */; };
+		3F72F3732566ED8A00E821A5 /* map.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 3F72F3722566ED8A00E821A5 /* map.geojson */; };
 		3F8E6B982562D040007DDB57 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E6B972562D040007DDB57 /* TextFieldExtension.swift */; };
 		3F8E6BA12562D09E007DDB57 /* MapboxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E6BA02562D09E007DDB57 /* MapboxExtension.swift */; };
-		3F94C5E22562DCD10036000F /* ReachGeoJSONs in Resources */ = {isa = PBXBuildFile; fileRef = 3F94C5E12562DCD10036000F /* ReachGeoJSONs */; };
 		576B1770253D526C00F1B02E /* HowToPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B176F253D526C00F1B02E /* HowToPage.swift */; };
 		576B17A72547651700F1B02E /* AboutUsUIExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B17A62547651700F1B02E /* AboutUsUIExt.swift */; };
 		576B17AB25476EE600F1B02E /* HowToUIExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B17AA25476EE600F1B02E /* HowToUIExt.swift */; };
@@ -93,11 +95,13 @@
 		1FF392D3252A62BD00AA306B /* InputConfirmationUIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationUIExt.swift; sourceTree = "<group>"; };
 		3F1A55F3255F43C0000B24B3 /* ContactUsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsPage.swift; sourceTree = "<group>"; };
 		3F1A55F7255F4569000B24B3 /* ContactUsUIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsUIExt.swift; sourceTree = "<group>"; };
+		3F1F291A2565F90400A5812A /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		3F1F291B2565F92B00A5812A /* SettingsUIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUIExt.swift; sourceTree = "<group>"; };
 		3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3F5EBC59255E2D1200C65F16 /* MenuUIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIExt.swift; sourceTree = "<group>"; };
+		3F72F3722566ED8A00E821A5 /* map.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.geojson; sourceTree = "<group>"; };
 		3F8E6B972562D040007DDB57 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		3F8E6BA02562D09E007DDB57 /* MapboxExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapboxExtension.swift; sourceTree = "<group>"; };
-		3F94C5E12562DCD10036000F /* ReachGeoJSONs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ReachGeoJSONs; sourceTree = "<group>"; };
 		576B176F253D526C00F1B02E /* HowToPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPage.swift; sourceTree = "<group>"; };
 		576B17A62547651700F1B02E /* AboutUsUIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsUIExt.swift; sourceTree = "<group>"; };
 		576B17AA25476EE600F1B02E /* HowToUIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUIExt.swift; sourceTree = "<group>"; };
@@ -188,7 +192,6 @@
 				3F8E6B9D2562D060007DDB57 /* Extensions */,
 				3F8E6BCC2562D3A8007DDB57 /* RecordDataType */,
 				1FDBF033252C1E0A0063CA1B /* Others */,
-				3F94C5E12562DCD10036000F /* ReachGeoJSONs */,
 			);
 			path = "fysh-ios";
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				067025A52538F9E400476256 /* AboutUsPage.swift */,
 				576B176F253D526C00F1B02E /* HowToPage.swift */,
 				3F1A55F3255F43C0000B24B3 /* ContactUsPage.swift */,
+				3F1F291A2565F90400A5812A /* SettingsPage.swift */,
 				3F5EBC4F255E15AF00C65F16 /* WebViewController.swift */,
 			);
 			path = MenuViewControllers;
@@ -224,6 +228,7 @@
 				576B17A62547651700F1B02E /* AboutUsUIExt.swift */,
 				576B17AA25476EE600F1B02E /* HowToUIExt.swift */,
 				3F1A55F7255F4569000B24B3 /* ContactUsUIExt.swift */,
+				3F1F291B2565F92B00A5812A /* SettingsUIExt.swift */,
 				3F5EBC59255E2D1200C65F16 /* MenuUIExt.swift */,
 			);
 			path = UIExtensions;
@@ -235,6 +240,7 @@
 				1F05539825155CEA009A6A6F /* Assets.xcassets */,
 				1F05539525155CEA009A6A6F /* Main.storyboard */,
 				1F05539A25155CEA009A6A6F /* LaunchScreen.storyboard */,
+				3F72F3722566ED8A00E821A5 /* map.geojson */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -387,9 +393,9 @@
 			files = (
 				1F05539C25155CEA009A6A6F /* LaunchScreen.storyboard in Resources */,
 				1F05539925155CEA009A6A6F /* Assets.xcassets in Resources */,
+				3F72F3732566ED8A00E821A5 /* map.geojson in Resources */,
 				1F05539725155CEA009A6A6F /* Main.storyboard in Resources */,
 				3E11754BA26D4FAF8597EA19 /* amplifyconfiguration.json in Resources */,
-				3F94C5E22562DCD10036000F /* ReachGeoJSONs in Resources */,
 				D5D0A61C825C43F2AA84EFF5 /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +505,7 @@
 				1F05539025155CEA009A6A6F /* AppDelegate.swift in Sources */,
 				1F1EC95E25339BB700112563 /* UIButtonExtension.swift in Sources */,
 				1FF392D4252A63F600AA306B /* InputConfirmationUIExt.swift in Sources */,
+				3F1F291E2565F9CD00A5812A /* SettingsPage.swift in Sources */,
 				576B17AB25476EE600F1B02E /* HowToUIExt.swift in Sources */,
 				576B1770253D526C00F1B02E /* HowToPage.swift in Sources */,
 				0608F40B2533E1610066FD0F /* SlideInPresentationAnimator.swift in Sources */,
@@ -517,6 +524,7 @@
 				1F59F56E251E9EEB00400A94 /* API.swift in Sources */,
 				3F1A55F8255F4569000B24B3 /* ContactUsUIExt.swift in Sources */,
 				3F1A55F4255F44CC000B24B3 /* ContactUsPage.swift in Sources */,
+				3F1F29212565F9F400A5812A /* SettingsUIExt.swift in Sources */,
 				0608F4092533DDAB0066FD0F /* SlideInPresentationController.swift in Sources */,
 				C0D1B2433BDF43668E3E74D1 /* Record+Schema.swift in Sources */,
 			);

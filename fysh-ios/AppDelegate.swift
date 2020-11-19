@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Attempt to initialize Amplify and client and AppSync configuration, and check for success or failure.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        //Register UserDefaults to persist settings etc.
+        UserDefaults.standard.register(defaults: ["overlaytoggle" : true])
+        
         //Override point for customization after application launch.
 		let dataStorePlugin = AWSDataStorePlugin(modelRegistration: AmplifyModels())
 		do {

@@ -19,6 +19,7 @@ class Menu: UIViewController, WKUIDelegate {
     var aboutUs = UIButton()
     var howTo = UIButton()
     var contactUs = UIButton()
+    var settings = UIButton()
     var external = UIButton()
     
     //Called when the controller's view is loaded into memory.
@@ -32,6 +33,7 @@ class Menu: UIViewController, WKUIDelegate {
         aboutUs = addUIAboutUs()
         howTo = addUIHowTo()
         contactUs = addUIContactUs()
+        settings = addUISettings()
         external = addUIExternal()
     }
     
@@ -98,6 +100,25 @@ class Menu: UIViewController, WKUIDelegate {
             
             self.view.window!.layer.add(transition, forKey: nil)
             self.present(contactUsPage, animated: false)
+        }
+    }
+    
+    @objc func goToSettings(){
+        expandMenuConstraints()
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut]) {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.window!.frame.size.width, height: self.view.window!.frame.size.height)
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            let settingsPage = SettingsPage()
+            settingsPage.modalPresentationStyle = .fullScreen
+            let transition: CATransition = CATransition()
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.fade
+            
+            self.view.window!.layer.add(transition, forKey: nil)
+            self.present(settingsPage, animated: false)
         }
     }
     

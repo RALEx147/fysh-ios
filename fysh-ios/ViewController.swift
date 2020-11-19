@@ -29,6 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     let locationManager = CLLocationManager()
 	var Data_Model = DataModel()
 	var annotations = [(id: String, annotation: MGLPointAnnotation)]()
+    var overlay: MGLFillStyleLayer!
     var uploadResult:DispatchTimeoutResult! = .success
     
     lazy var slideInTransitioningDelegate = SlideInPresentationManager()
@@ -42,16 +43,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+        onboarding()
+        
 		locationPermission()
         mapview = addUIMapbox()
         menubutton = addUIMenu()
         locationbutton = addUILocation()
         inputbutton = addUIInput()
-
-        
-        
     }
-	
+    
+    func removeOverlay(){
+        overlay.isVisible = false
+    }
+    func addOverlay(){
+        overlay.isVisible = true
+    }
+    
+    func onboarding() {
+//        if firsttime{
+//
+///            show help stuff
+//        }
+    }
+    
     //Notifies the view controller that its view is about to be added to view hierarchy.
 	override func viewWillAppear(_ animated: Bool) {
         if uploadResult == .success {
@@ -128,9 +142,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     //If a user presses the location button,
     @objc func pressedLocation() {
-        let urls = Bundle.main.urls(forResourcesWithExtension: "geojson", subdirectory: "ReachGeoJSONs")
-        print(urls)
-        
+        print(mapview.overlays)
         if let userlocation = mapview.userLocation?.coordinate{
             mapview.setCenter(userlocation, animated: true)
         }

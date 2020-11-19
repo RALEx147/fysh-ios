@@ -128,6 +128,27 @@ extension Menu{
         return aboutUs
     }
     
+    func addUISettings() -> UIButton {
+        let settings = UIButton(type: .system)
+        settings.setTitle("Settings", for: .normal)
+        settings.titleLabel?.font = .systemFont(ofSize: 20)
+        settings.titleLabel?.adjustsFontSizeToFitWidth = true
+        settings.setTitleColor(UIColor(named: "off-white"), for: .normal)
+        settings.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
+        settings.contentHorizontalAlignment = .left
+        settings.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
+        settings.sizeToFit()
+        menu.addArrangedSubview(settings)
+        
+        settings.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            settings.leadingAnchor.constraint(equalTo: menu.leadingAnchor, constant: 0),
+            settings.trailingAnchor.constraint(equalTo: menu.trailingAnchor, constant: 0)
+        ])
+        
+        return aboutUs
+    }
+    
     //Adds a button to the menu that can bring the user to a website that is currently just a placeholder, but could be replaced by a link to our web application in the future.
     func addUIExternal() -> UIButton {
         let externalButton = UIButton()

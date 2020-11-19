@@ -148,7 +148,6 @@ extension ContactUsPage {
         button.clipsToBounds = true
         if str == "Report a Bug" {
             button.addTarget(self, action: #selector(pressedReportBug), for: .touchUpInside)
-
         } else {
             button.addTarget(self, action: #selector(pressedMessageReseach), for: .touchUpInside)
         }
