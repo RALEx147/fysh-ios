@@ -20,16 +20,11 @@ class AboutUsPage: UIViewController, UITextViewDelegate {
     var aboutUsTitle = UITextView()
     var backButton = UIButton()
     
-    //UIViewController manages a view heirarchy for the about us page.
-    var presentingController: UIViewController?
     
     //Called when the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "menu-color")
-        
-        //Sets the view controller that is presented
-        presentingController = presentingViewController
         
         //Render the title of the page, all of the paragraphs, and the back button.
         aboutUsTitle = addAboutUsTitle()

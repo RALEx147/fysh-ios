@@ -21,15 +21,11 @@ class HowToPage: UIViewController, UITextViewDelegate {
     var textBody5 = UITextView()
     var backButton = UIButton()
     
-    //UIViewController manages a view heirarchy for the how to page.
-    var presentingController: UIViewController?
     
     //Called when the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "menu-color")
-        
-        presentingController = presentingViewController
         
         //Render the title of the page, all of the bullet points, and the back button.
         howToTitle = addHowToTitle()

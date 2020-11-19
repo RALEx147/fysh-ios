@@ -9,10 +9,8 @@
 import Foundation
 import UIKit
 
-//Extension of the Menu class to add specifications to the layout of the menu.
 extension Menu{
     
-    //Customizes the view of the menu, specifying the background color of the menu and margins.
     func addViewCustomizations() {
         view.clipsToBounds = true
         view.layer.cornerRadius = 10
@@ -24,7 +22,6 @@ extension Menu{
         view.addGestureRecognizer(tap)
     }
     
-    //Adds the stack view that is the base of the menu layout. Specifies spacing, alignment, background color, and more attributes of the menu appearance.
     func addUIStackView() -> UIStackView{
         let menu = UIStackView()
         menu.backgroundColor = UIColor(named: "menu-color")
@@ -46,7 +43,6 @@ extension Menu{
         return menu
     }
     
-    //Adds the home button to the menu as text that reads "Home". Sets the action of the home button when clicked to return back to the main map view on the home page.
     func addUIHome() -> UIButton {
         let home = UIButton(type: .system)
         home.setTitle("Home", for: .normal)
@@ -68,7 +64,6 @@ extension Menu{
         return home
     }
     
-    //Adds the about us button on the menu below the home button. It is a simple button that reads "About Us", and brings the user to the about us page.
     func addUIAboutUs() -> UIButton {
         let aboutUs = UIButton(type: .system)
         aboutUs.setTitle("About Us", for: .normal)
@@ -90,7 +85,6 @@ extension Menu{
         return aboutUs
     }
     
-    //Adds how to button to the menu, simply indicated by text that reads "How To Use". Specifies that when this button is tapped, the user should be brought to the How To page.
     func addUIHowTo() -> UIButton {
         let howTo = UIButton(type: .system)
         howTo.setTitle("How to Use", for: .normal)
@@ -112,7 +106,29 @@ extension Menu{
         return howTo
     }
     
-    //Adds a button to the menu that can bring the user to a website that is currently just a placeholder, but could be replaced by a link to our web application in the future. 
+   
+    func addUIContactUs() -> UIButton {
+        let contactUs = UIButton(type: .system)
+        contactUs.setTitle("Contact Us", for: .normal)
+        contactUs.titleLabel?.font = .systemFont(ofSize: 20)
+        contactUs.titleLabel?.adjustsFontSizeToFitWidth = true
+        contactUs.setTitleColor(UIColor(named: "off-white"), for: .normal)
+        contactUs.addTarget(self, action: #selector(goToContactUs), for: .touchUpInside)
+        contactUs.contentHorizontalAlignment = .left
+        contactUs.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
+        contactUs.sizeToFit()
+        menu.addArrangedSubview(contactUs)
+        
+        contactUs.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contactUs.leadingAnchor.constraint(equalTo: menu.leadingAnchor, constant: 0),
+            contactUs.trailingAnchor.constraint(equalTo: menu.trailingAnchor, constant: 0)
+        ])
+        
+        return aboutUs
+    }
+    
+    //Adds a button to the menu that can bring the user to a website that is currently just a placeholder, but could be replaced by a link to our web application in the future.
     func addUIExternal() -> UIButton {
         let externalButton = UIButton()
         externalButton.setImage(UIImage(named: "external"), for: .normal)

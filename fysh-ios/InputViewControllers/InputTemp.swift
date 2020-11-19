@@ -14,11 +14,13 @@ class InputTemp: UIViewController, UITextFieldDelegate {
 	
     //Construct initial objects for location, temperature input, and buttons
     var location = CLLocationCoordinate2D()
+    var temp: Measurement<UnitTemperature>!
+    
     var tempInput = UITextField()
     var nextButton = UIButton()
-	var temp: Measurement<UnitTemperature>!
 	var tempType = UIButton()
     var backButton = UIButton()
+    var banner = UIButton()
     
     //UIViewController manages a view heirarchy for the temperature input page.
     var presentingController: UIViewController?
@@ -27,14 +29,10 @@ class InputTemp: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         presentingController = presentingViewController
-        view.backgroundColor = .white
-        
-
-        
-        //Sets background color of the main temperature input view.
-        view.backgroundColor = .white
         
         //Renders interfaces for temperature input, next button, selection of celcius or fahrenheit, and a back button.
+        view.backgroundColor = UIColor(named: "off-white")
+        banner = addUIbanner()
         tempInput = addTextInput()
         nextButton = addNextButton()
 		tempType = addTempTypeButton()

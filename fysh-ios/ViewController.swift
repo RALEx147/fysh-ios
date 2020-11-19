@@ -128,6 +128,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     //If a user presses the location button,
     @objc func pressedLocation() {
+        let urls = Bundle.main.urls(forResourcesWithExtension: "geojson", subdirectory: "ReachGeoJSONs")
+        print(urls)
+        
         if let userlocation = mapview.userLocation?.coordinate{
             mapview.setCenter(userlocation, animated: true)
         }

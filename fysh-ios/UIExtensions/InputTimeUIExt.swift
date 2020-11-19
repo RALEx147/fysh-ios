@@ -39,7 +39,7 @@ extension InputTime{
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
+            button.topAnchor.constraint(equalTo: banner.bottomAnchor, constant: 16)
         ])
         
         return button
@@ -68,4 +68,44 @@ extension InputTime{
         return button
     }
     
+    func addUIbanner() -> UIButton {
+        let label = UIButton()
+        label.setBackground(UIColor(named: "blue")!, for: .normal)
+        label.setTitleColor(UIColor(named: "off-white")!, for: .normal)
+        label.titleLabel?.textAlignment = .center
+        if #available(iOS 13.0, *) {
+            label.titleLabel?.font = UIFont(descriptor: UIFont.systemFont(ofSize: 20, weight: .bold).fontDescriptor.withDesign(.rounded)!, size: 20)
+        } else {
+            label.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        }
+        label.titleLabel?.adjustsFontSizeToFitWidth = true
+        label.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        label.setTitle("Input Time of Temperature Record", for: .normal)
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            label.heightAnchor.constraint(equalToConstant: 60)
+        ])
+        
+        
+        let menubarview = UIView()
+        menubarview.backgroundColor = UIColor(named: "blue")
+        view.addSubview(menubarview)
+        menubarview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            menubarview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            menubarview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            menubarview.topAnchor.constraint(equalTo: view.topAnchor),
+            menubarview.bottomAnchor.constraint(equalTo: label.topAnchor)
+        ])
+        
+        return label
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

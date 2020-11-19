@@ -15,11 +15,14 @@ class InputTime: UIViewController {
     //Construct initial objects for location, time suggestion, and next and back buttons.
 	var location = CLLocationCoordinate2D()
 	var temp: Measurement<UnitTemperature>!
+    
 	var timePicker = UIDatePicker()
 	var nextButton = UIButton()
     var backButton = UIButton()
 	
     //UIViewController manages a view heirarchy for the time input page.
+    var banner = UIButton()
+    
 	var presentingController: UIViewController?
 	
     //Called when the controller's view is loaded into memory.
@@ -28,7 +31,8 @@ class InputTime: UIViewController {
 		presentingController = presentingViewController
         
         //Sets temp input background color to white and renders the time picker, next button, and back button.
-		view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "off-white")
+        banner = addUIbanner()
 		timePicker = addTimePicker()
 		nextButton = addNextButton()
         backButton = addUIBack()
