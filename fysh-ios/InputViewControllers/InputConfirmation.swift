@@ -29,11 +29,13 @@ class InputConfirmation: UIViewController {
 	var doneButton = UIButton()
     var backButton = UIButton()
     var banner = UIButton()
-	var textTemp = UILabel()
-	var textTime = UILabel()
-	var textLocation = UILabel()
-	var textReach = UILabel()
-	
+	var tempView = UIView()
+	var timeView = UIView()
+	var locationView = UIView()
+	var reachLabel = UILabel()
+    var timeLabel = UILabel()
+    var tempLabel = UILabel()
+	var reachText = String()
 	//UIViewController manages a view heirarchy for the confirmation page.
 	var presentingController: UIViewController?
 	
@@ -41,25 +43,29 @@ class InputConfirmation: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentingController = presentingViewController
-
 		
         //Set confirmation page background color to white and render done button, back button, and labels for time, temp, location, and reach.
         view.backgroundColor = UIColor(named: "off-white")
+        reachText = calculateReach()
         banner = addUIbanner()
 		doneButton = addDoneButton()
         backButton = addUIBack()
-		textTemp = addUITempText()
-		textTime = addUITimeText()
-		textLocation = addUILocationText()
-		textReach = addUIReachText()
+        let t = addUITemp()
+        tempView = t.view
+        tempLabel = t.label
+        let k = addUITime()
+        timeView = k.view
+        timeLabel = k.label
+		locationView = addUILocation()
+		reachLabel = addUIReach()
 		
         //Call calculate reach function to decide what reach ID should be included on the confirmation page.
-		textReach.text = calculateReach()
+        reachLabel.text = reachText
 	}
 	
     //Use latitude and longitde of location pin to decide using GeoJSON data which reach the pin belongs to. If the latitude and longitude are not within a reach, return "Reach: none".
     func calculateReach() -> String {
-        let datas = try! geojsonData(from: "ReachGeoJSONs/map")!
+        let datas = try! geojsonData(from: "ReachGeoJSONs")!
         for data in datas {
             let geojson = try! GeoJSON.parse(FeatureCollection.self, from: data)
             
@@ -76,12 +82,12 @@ class InputConfirmation: UIViewController {
                 }
             }
         }
-        return "Reach: none"
+        return ""
     }
     
     //Get GeoJSON data representing the different reach locations.
 	func geojsonData(from name: String) throws -> [Data]? {
-        let urls = Bundle.main.urls(forResourcesWithExtension: "geojson", subdirectory: "ReachGeoJSONs")
+        let urls = Bundle.main.urls(forResourcesWithExtension: "geojson", subdirectory: name)
         var datas = [Data]()
         for filePath in urls! {
             try datas.append(Data(contentsOf: filePath))
@@ -194,6 +200,40 @@ class InputConfirmation: UIViewController {
         
         view.window!.layer.add(transition, forKey: nil)
         view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+    }
+    
+    @objc func pressedEditTime(){
+        let alert = UIAlertController(title: "Edit Time", message: "Format (hh:mm:ss)", preferredStyle: .alert)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        alert.addTextField { (textField) in
+            textField.text = self.timeLabel.text
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            if let date = dateFormatter.date(from: textField?.text ?? "") {
+                self.timeLabel.text = dateFormatter.string(from: date)
+                self.time = date
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func pressedEditTemp(){
+        let alert = UIAlertController(title: "Edit Temperature", message: "Format (°F)", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            let t = self.tempLabel.text!
+            let index = t.index(t.endIndex, offsetBy: -4)
+            textField.text = String(t[...index])
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            if let t = Double(textField?.text ?? "") {
+                self.tempLabel.text = "\(t) °F"
+                self.temp = Measurement(value: t, unit: UnitTemperature.fahrenheit)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

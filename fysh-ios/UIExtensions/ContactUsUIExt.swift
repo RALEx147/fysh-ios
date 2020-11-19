@@ -134,7 +134,6 @@ extension ContactUsPage {
     
     func addButton(_ str: String) -> UIButton {
         let button = UIButton()
-//        button.setImage(UIImage(named: "location"), for: .normal)
         button.setBackground(UIColor(named: "orange")!, for: .normal)
         button.setBackground(UIColor(named: "orange-h")!, for: .highlighted)
         button.setTitle(str, for: .normal)

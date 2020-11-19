@@ -50,63 +50,179 @@ extension InputConfirmation{
         return button
     }
 	
-	func addUITempText() -> UILabel {
-		let label = UILabel()
-		let t = (temp.converted(to: .fahrenheit).value * 10).rounded() / 10
-		label.text = "\(t) °F"
-		view.addSubview(label)
-		
-        label.translatesAutoresizingMaskIntoConstraints = false
+	func addUITemp() -> (view: UIView, label: UILabel) {
+        let output = UIView()
+        output.backgroundColor = UIColor(named: "orange")
+        output.alpha = 0.7
+        output.layer.cornerRadius = 5
+        output.layer.shadowRadius = 3
+        output.layer.shadowColor = UIColor.black.cgColor
+        output.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        output.layer.shadowOpacity = 0.3
+        output.layer.shadowPath = UIBezierPath(rect: output.bounds).cgPath
+        output.layer.masksToBounds = false
+        view.addSubview(output)
+        output.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            label.topAnchor.constraint(equalTo: banner.bottomAnchor, constant: 50)
+            output.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            output.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            output.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            output.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 30),
+            output.heightAnchor.constraint(equalToConstant: 100)
         ])
         
-        return label
+        let title = UILabel()
+        title.textColor = UIColor(named: "off-white")
+        title.text = "Temperature"
+        output.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            title.leadingAnchor.constraint(equalTo: output.leadingAnchor, constant: 15),
+            title.topAnchor.constraint(equalTo: output.topAnchor, constant: 11)
+        ])
+
+
+		let label = UILabel()
+		let t = (temp.converted(to: .fahrenheit).value * 10).rounded() / 10
+        label.textColor = UIColor(named: "off-white")
+		label.text = "\(t) °F"
+        title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+		output.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: output.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: output.centerYAnchor)
+        ])
+        
+        let button = UIButton()
+        button.setImage(UIImage(named: "edit"), for: .normal)
+        button.addTarget(self, action: #selector(pressedEditTemp), for: .touchUpInside)
+        output.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+            button.trailingAnchor.constraint(equalTo: output.trailingAnchor, constant: -15)
+        ])
+        
+        return (output, label)
 	}
 	
-	func addUITimeText() -> UILabel {
+	func addUITime() -> (view: UIView, label: UILabel) {
+        let output = UIView()
+        output.backgroundColor = UIColor(named: "orange")
+        output.alpha = 0.7
+        output.layer.cornerRadius = 5
+        output.layer.shadowRadius = 3
+        output.layer.shadowColor = UIColor.black.cgColor
+        output.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        output.layer.shadowOpacity = 0.3
+        output.layer.shadowPath = UIBezierPath(rect: output.bounds).cgPath
+        output.layer.masksToBounds = false
+        view.addSubview(output)
+        output.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            output.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            output.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            output.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            output.topAnchor.constraint(equalTo: tempView.bottomAnchor, constant: 20),
+            output.heightAnchor.constraint(equalToConstant: 100)
+        ])
+
+        let title = UILabel()
+        title.textColor = UIColor(named: "off-white")
+        title.text = "Time"
+        title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        output.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            title.leadingAnchor.constraint(equalTo: output.leadingAnchor, constant: 15),
+            title.topAnchor.constraint(equalTo: output.topAnchor, constant: 11)
+        ])
+
 		let label = UILabel()
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm:ss"
-		let date24 = dateFormatter.string(from: time)
-		label.text = "Time: \(date24)"
-		view.addSubview(label)
+        label.textColor = UIColor(named: "off-white")
+		label.text = dateFormatter.string(from: time)
+		output.addSubview(label)
 
 		label.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-			label.topAnchor.constraint(equalTo: self.textTemp.bottomAnchor, constant: 50)
+            label.centerXAnchor.constraint(equalTo: output.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: output.centerYAnchor)
 		])
         
-        return label
+        let button = UIButton()
+        button.setImage(UIImage(named: "edit"), for: .normal)
+        button.addTarget(self, action: #selector(pressedEditTime), for: .touchUpInside)
+        output.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+            button.trailingAnchor.constraint(equalTo: output.trailingAnchor, constant: -15)
+        ])
+        
+        return (output, label)
 	}
 	
-	func addUILocationText() -> UILabel {
+	func addUILocation() -> UIView {
+        let output = UIView()
+        output.backgroundColor = UIColor(named: "orange")
+        output.alpha = 0.7
+        output.layer.cornerRadius = 5
+        output.layer.shadowRadius = 3
+        output.layer.shadowColor = UIColor.black.cgColor
+        output.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        output.layer.shadowOpacity = 0.3
+        output.layer.shadowPath = UIBezierPath(rect: output.bounds).cgPath
+        output.layer.masksToBounds = false
+        view.addSubview(output)
+        let height: CGFloat = reachText == "" ? 100 : 150
+        output.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            output.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            output.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            output.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            output.topAnchor.constraint(equalTo: timeView.bottomAnchor, constant: 20),
+            output.heightAnchor.constraint(equalToConstant: height)
+        ])
+
+        let title = UILabel()
+        title.textColor = UIColor(named: "off-white")
+        title.text = "Location"
+        title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        output.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            title.leadingAnchor.constraint(equalTo: output.leadingAnchor, constant: 15),
+            title.topAnchor.constraint(equalTo: output.topAnchor, constant: 11)
+        ])
+
 		let label = UILabel()
+        label.textColor = UIColor(named: "off-white")
 		label.text = "(lat: \((location.latitude * 100000).rounded() / 100000) long: \((location.longitude * 100000).rounded() / 100000))"
 		label.adjustsFontSizeToFitWidth = true
-		view.addSubview(label)
-
+		output.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-			label.topAnchor.constraint(equalTo: self.textTime.bottomAnchor, constant: 50),
-			label.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.95)
+            label.centerXAnchor.constraint(equalTo: output.centerXAnchor),
+            label.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10)
 		])
         
-        return label
+        return output
 	}
 	
-	func addUIReachText() -> UILabel {
-		let label = UILabel()
+	func addUIReach() -> UILabel {
+        let label = UILabel()
+        label.textColor = UIColor(named: "off-white")
 		label.text = "reach"
-		view.addSubview(label)
+		locationView.addSubview(label)
 
         label.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-			label.topAnchor.constraint(equalTo: self.textLocation.bottomAnchor, constant: 50)
+			label.centerXAnchor.constraint(equalTo: locationView.centerXAnchor),
+            label.bottomAnchor.constraint(equalTo: locationView.bottomAnchor, constant: -20)
 		])
         
         return label
