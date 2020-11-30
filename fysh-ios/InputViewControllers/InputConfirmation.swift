@@ -23,7 +23,6 @@ class InputConfirmation: UIViewController {
 	var temp: Measurement<UnitTemperature>!
 	var time = Date()
 	var stream = String()
-	var reach = String()
 	
     //Construct done button, back button, and labels for temperature, time, location, and reach for confirmation page. 
 	var doneButton = UIButton()
@@ -65,7 +64,7 @@ class InputConfirmation: UIViewController {
 	
     //Use latitude and longitde of location pin to decide using GeoJSON data which reach the pin belongs to. If the latitude and longitude are not within a reach, return "Reach: none".
     func calculateReach() -> String {
-        let datas = try! geojsonData(from: "ReachGeoJSONs")!
+        let datas = try! geojsonData(from: "map")!
         for data in datas {
             let geojson = try! GeoJSON.parse(FeatureCollection.self, from: data)
             
@@ -73,10 +72,9 @@ class InputConfirmation: UIViewController {
                 let p = i.geometry.value as! Polygon
                 if p.contains(location) {
                     if let p = i.properties {
-                        if let stream = p["stream"], let reach = p["reach"] {
+                        if let stream = p["Name"]{
                             self.stream = stream as! String
-                            self.reach = reach as! String
-                            return "Reach: \(self.stream)\(self.reach)"
+                            return "Reach: \(self.stream)"
                         }
                     }
                 }
@@ -122,7 +120,7 @@ class InputConfirmation: UIViewController {
         
         showLoading()
 		DispatchQueue.global(qos: .default).async {
-			let result = self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, reach: self.reach, date: date)
+			let result = self.uploadData(temp: String(t), lat: String(self.location.latitude), long: String(self.location.longitude), stream: self.stream, date: date)
             
 			DispatchQueue.main.async {
 				let transition: CATransition = CATransition()
@@ -143,7 +141,7 @@ class InputConfirmation: UIViewController {
 	}
     
     //Upload data from the DispatchQueue, sending the data through the backend to the web application.
-    func uploadData(temp: String, lat: String, long: String, stream: String, reach: String, date: String) -> DispatchTimeoutResult {
+    func uploadData(temp: String, lat: String, long: String, stream: String, date: String) -> DispatchTimeoutResult {
 		var appSyncClient: AWSAppSyncClient?
 		appSyncClient = appDelegate.appSyncClient
 		
@@ -151,11 +149,11 @@ class InputConfirmation: UIViewController {
 		
 		let query = ListRecordsQuery()
 		let UUID = NSUUID().uuidString
-		let mutationInput = CreateRecordInput(temp: temp, latitude: lat, longitude: long, time: "", stream: stream, reach: reach, date: date)
+		let mutationInput = CreateRecordInput(temp: temp, latitude: lat, longitude: long, time: "", stream: stream, reach: "", date: date)
 		appSyncClient?.perform(mutation: CreateRecordMutation(input: mutationInput), optimisticUpdate: { record in
 			do{
 				try record?.update(query: query){ (data: inout ListRecordsQuery.Data) in
-					data.listRecords?.items?.append(ListRecordsQuery.Data.ListRecord.Item.init(id: UUID, temp: temp, latitude: lat, longitude: long, time: "", stream: stream, reach: reach, date: date, createdAt: "now", updatedAt: "now"))
+					data.listRecords?.items?.append(ListRecordsQuery.Data.ListRecord.Item.init(id: UUID, temp: temp, latitude: lat, longitude: long, time: "", stream: stream, reach: "", date: date, createdAt: "now", updatedAt: "now"))
 				}
 			}catch{
 				print("Error updating cache with optimistic response for")
