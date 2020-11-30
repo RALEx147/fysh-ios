@@ -83,7 +83,7 @@ extension InputConfirmation{
 
 
 		let label = UILabel()
-		let t = (temp.converted(to: .fahrenheit).value * 10).rounded() / 10
+		let t = (temp.converted(to: .fahrenheit).value * 100).rounded() / 100
         label.textColor = UIColor(named: "off-white")
 		label.text = "\(t) °F"
         title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
