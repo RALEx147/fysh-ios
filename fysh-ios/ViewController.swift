@@ -121,7 +121,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
 						let date24 = dateFormatter.string(from: i.date!.foundationDate)
 						m.coordinate = coord
 						m.title = i.temp + " °F"
-						m.subtitle = "\(date24), stream: \(i.stream ?? "None")"
+                        m.subtitle = "\(date24) \(i.stream == "" ? "" : "Reach: \(i.stream!)")"
 						output.append((i.id, m))
 					}
 				}
