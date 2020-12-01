@@ -16,7 +16,7 @@ class WebViewController: UIViewController, WKUIDelegate {
     //Constructs an object that displays interactive web content.
     var webView: WKWebView!
     var safariButton: UIButton!
-    let url: URL = URL(string: "https://www.apple.com")!
+    let url: URL = URL(string: "http://localhost:3000")!
     
     //Creates the view that the controller manages.
     override func loadView() {
