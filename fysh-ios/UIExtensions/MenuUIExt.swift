@@ -9,19 +9,23 @@
 import Foundation
 import UIKit
 
+//Extends the Menu class to add functionality to its interfaces.
 extension Menu{
     
+    //Specifies the menu view further, setting the background colors and bounds.
     func addViewCustomizations() {
         view.clipsToBounds = true
         view.layer.cornerRadius = 10
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         view.backgroundColor = UIColor(named: "menu-color")
         
+        //Adds the functionality for the applciation to return to the home page when a user taps outside of the menu page.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(goHome))
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(tap)
     }
     
+    //Adds the UIStack view layout to the menu extension to ensure consistent spacing.
     func addUIStackView() -> UIStackView{
         let menu = UIStackView()
         menu.backgroundColor = UIColor(named: "menu-color")
@@ -43,6 +47,7 @@ extension Menu{
         return menu
     }
     
+    //Adds the home button to the menu to allow the user to navigate back to the homescreen without using their intuition to click outside of the menu.
     func addUIHome() -> UIButton {
         let home = UIButton(type: .system)
         home.setTitle("Home", for: .normal)
@@ -64,6 +69,7 @@ extension Menu{
         return home
     }
     
+    //Adds the about us button to the menu that allows the user to read more about the project.
     func addUIAboutUs() -> UIButton {
         let aboutUs = UIButton(type: .system)
         aboutUs.setTitle("About Us", for: .normal)
@@ -85,6 +91,7 @@ extension Menu{
         return aboutUs
     }
     
+    //Adds the how to button to the menu to allow the user to read more about how to correctly use the application.
     func addUIHowTo() -> UIButton {
         let howTo = UIButton(type: .system)
         howTo.setTitle("How to Use", for: .normal)
@@ -106,7 +113,7 @@ extension Menu{
         return howTo
     }
     
-   
+    //Adds the contact us button to the menu to allow the user to navigate to the page that provides contact information and buttons to help report a bug.
     func addUIContactUs() -> UIButton {
         let contactUs = UIButton(type: .system)
         contactUs.setTitle("Contact Us", for: .normal)
@@ -128,6 +135,7 @@ extension Menu{
         return aboutUs
     }
     
+    //Adds the settings button to the menu that allows the user to view their settings on stream overlays and application versions.
     func addUISettings() -> UIButton {
         let settings = UIButton(type: .system)
         settings.setTitle("Settings", for: .normal)

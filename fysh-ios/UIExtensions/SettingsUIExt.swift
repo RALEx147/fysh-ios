@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+//Extends the settings page on the menu, offering users the options to turn overlays of stream reaches on and off.
 extension SettingsPage {
     
+    //Adds a back button that takes the user back to the menu when they are finished on the settings page.
     func addUIBack() -> UIButton {
         let button = UIButton()
         let image = UIImage(named: "back")
@@ -28,7 +30,7 @@ extension SettingsPage {
         return button
     }
     
-    
+    //Adds a toggle button that allows the user to turn stream reach overlays on and off on the settings page.
     func addUIOverlayToggle() -> (view: UIView, switch: UISwitch) {
         let output = UIView()
         output.backgroundColor = UIColor(named: "off-white")
@@ -43,6 +45,7 @@ extension SettingsPage {
             output.heightAnchor.constraint(equalToConstant: 45)
         ])
         
+        //Sets the label of the toggle button to "Stream Reach Overlay"
         let label = UILabel()
         label.text = "Stream Reach Overlay"
         output.addSubview(label)
@@ -52,6 +55,7 @@ extension SettingsPage {
             label.centerYAnchor.constraint(equalTo: output.centerYAnchor)
         ])
         
+        //Sets the button type to UISwitch, since there is only an option to have the reach overlays either off or on.
         let button = UISwitch()
         button.isOn = showReachOverlays
         button.addTarget(self, action: #selector(pressedOverlayToggle), for: .valueChanged)
@@ -65,6 +69,7 @@ extension SettingsPage {
         return (output, button)
     }
     
+    //Adds the app version to the settings page. 
     func addUIVersion() -> UILabel {
         let label = UILabel()
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {

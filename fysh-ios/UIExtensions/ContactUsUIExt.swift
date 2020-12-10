@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+//Extends the contact us page to add additional functionality to its interfaces.
 extension ContactUsPage {
         
+    //Adds a back button that the user can select when they are ready to return to the menu from the contact us page.
     func addUIBack() -> UIButton {
         let button = UIButton()
         let image = UIImage(named: "back")
@@ -29,7 +31,7 @@ extension ContactUsPage {
     }
     
 
-    
+    //Adds a section that gives the option for a user to contact the research team.
     func addUIMessageResearch() -> UIView{
         let output = UIView()
         output.backgroundColor = UIColor(named: "off-white")
@@ -44,6 +46,7 @@ extension ContactUsPage {
             output.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
         
+        //Creates the button to press if the user would like to contact the team with the message "Message the Research Team"
         let button = addButton("Messge the Research Team")
         output.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +58,7 @@ extension ContactUsPage {
             button.heightAnchor.constraint(equalToConstant: 40)
         ])
         
+        //Sets the title of the section to "Message the team"
         let title = UILabel()
         title.text = "Message the team"
         title.font = title.font.withSize(24)
@@ -65,6 +69,7 @@ extension ContactUsPage {
             title.topAnchor.constraint(equalTo: output.topAnchor, constant: 15)
         ])
         
+        //Creates a description for the options a user has to contact the research team.
         let description = UILabel()
         description.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         description.numberOfLines = 0
@@ -81,6 +86,7 @@ extension ContactUsPage {
         return output
     }
     
+    //Adds a section that allows a user to report a bug if they encounter an issue.
     func addUIReportBug() -> UIView{
         let output = UIView()
         output.backgroundColor = UIColor(named: "off-white")
@@ -95,6 +101,7 @@ extension ContactUsPage {
             output.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
         
+        //Adds a button to report the bug titled "Report a Bug"
         let button = addButton("Report a Bug")
         output.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -106,6 +113,7 @@ extension ContactUsPage {
             button.heightAnchor.constraint(equalToConstant: 40)
         ])
         
+        //Sets the title of the section to "Report bug"
         let title = UILabel()
         title.text = "Report bug"
         title.font = title.font.withSize(24)
@@ -116,6 +124,7 @@ extension ContactUsPage {
             title.topAnchor.constraint(equalTo: output.topAnchor, constant: 15)
         ])
         
+        //Sets the description inside the report a bug section to information about how to do so.
         let description = UILabel()
         description.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         description.numberOfLines = 0
@@ -132,6 +141,7 @@ extension ContactUsPage {
         return output
     }
     
+    //Adds functionality to the report bug button and the message the team buttons. 
     func addButton(_ str: String) -> UIButton {
         let button = UIButton()
         button.setBackground(UIColor(named: "orange")!, for: .normal)

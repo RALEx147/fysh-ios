@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+//Extends input confirmation page to allow users to review their inputted data to ensure accuracy.
 extension InputConfirmation{
     
+    //Adds a done button that confirms the user's can select to complete the temperature input process
     func addDoneButton() -> UIButton {
         let button = UIButton()
         button.setBackground(UIColor(named: "blue")!, for: .normal)
@@ -33,6 +35,7 @@ extension InputConfirmation{
         return button
     }
     
+    //Adds a back button that the user can select if any of their information is incorrect.
     func addUIBack() -> UIButton {
         let button = UIButton()
         let image = UIImage(named: "cancel")
@@ -50,6 +53,7 @@ extension InputConfirmation{
         return button
     }
 	
+    //Adds the temperature view to the confirmation page to indicate the data that the user inputed.
 	func addUITemp() -> (view: UIView, label: UILabel) {
         let output = UIView()
         output.backgroundColor = UIColor(named: "orange")
@@ -71,6 +75,7 @@ extension InputConfirmation{
             output.heightAnchor.constraint(equalToConstant: 100)
         ])
         
+        //Gives the temperature information a title.
         let title = UILabel()
         title.textColor = UIColor(named: "off-white")
         title.text = "Temperature"
@@ -81,7 +86,7 @@ extension InputConfirmation{
             title.topAnchor.constraint(equalTo: output.topAnchor, constant: 11)
         ])
 
-
+        //Gives the temperature information a label indicating whether it is in celcius or fahrenheit.
 		let label = UILabel()
 		let t = (temp.converted(to: .fahrenheit).value * 100).rounded() / 100
         label.textColor = UIColor(named: "off-white")
@@ -95,6 +100,7 @@ extension InputConfirmation{
             label.centerYAnchor.constraint(equalTo: output.centerYAnchor)
         ])
         
+        //Creates a button that allows the user to edit the tempertaure if it is incorrect.
         let button = UIButton()
         button.setImage(UIImage(named: "edit"), for: .normal)
         button.addTarget(self, action: #selector(pressedEditTemp), for: .touchUpInside)
@@ -108,6 +114,7 @@ extension InputConfirmation{
         return (output, label)
 	}
 	
+    //Adds information about the time the user inputed their temperature to the confirmation page.
 	func addUITime() -> (view: UIView, label: UILabel) {
         let output = UIView()
         output.backgroundColor = UIColor(named: "orange")
@@ -129,6 +136,7 @@ extension InputConfirmation{
             output.heightAnchor.constraint(equalToConstant: 100)
         ])
 
+        //Adds an apropriate label for the time on the confirmation page.
         let title = UILabel()
         title.textColor = UIColor(named: "off-white")
         title.text = "Time"
@@ -140,6 +148,7 @@ extension InputConfirmation{
             title.topAnchor.constraint(equalTo: output.topAnchor, constant: 11)
         ])
 
+        //Adds data formatting to the time on the confirmation page.
 		let label = UILabel()
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm:ss"
@@ -153,6 +162,7 @@ extension InputConfirmation{
             label.centerYAnchor.constraint(equalTo: output.centerYAnchor)
 		])
         
+        //Adds a button that allows the user to edit the time if it appears incorrect on the confirmation page.
         let button = UIButton()
         button.setImage(UIImage(named: "edit"), for: .normal)
         button.addTarget(self, action: #selector(pressedEditTime), for: .touchUpInside)
@@ -166,6 +176,7 @@ extension InputConfirmation{
         return (output, label)
 	}
 	
+    //Adds the temperature input location to the confirmation page.
 	func addUILocation() -> UIView {
         let output = UIView()
         output.backgroundColor = UIColor(named: "orange")
@@ -188,6 +199,7 @@ extension InputConfirmation{
             output.heightAnchor.constraint(equalToConstant: height)
         ])
 
+        //Adds a label to the location infomration.
         let title = UILabel()
         title.textColor = UIColor(named: "off-white")
         title.text = "Location"
@@ -199,6 +211,7 @@ extension InputConfirmation{
             title.topAnchor.constraint(equalTo: output.topAnchor, constant: 11)
         ])
 
+        //Adds label information that indicates which numnber is latitude and which is longitude.
 		let label = UILabel()
         label.textColor = UIColor(named: "off-white")
 		label.text = "(lat: \((location.latitude * 100000).rounded() / 100000) long: \((location.longitude * 100000).rounded() / 100000))"
@@ -213,6 +226,7 @@ extension InputConfirmation{
         return output
 	}
 	
+    //Adds reach information to the confirmation page.
 	func addUIReach() -> UILabel {
         let label = UILabel()
         label.textColor = UIColor(named: "off-white")
@@ -228,6 +242,7 @@ extension InputConfirmation{
         return label
 	}
     
+    //Adds a view of the app icon that appears when the confirmation page has been reviewed and the user confirms that they are finished inputing information.
     func addUILoadingView() -> UIImageView {
         let image = UIImage(named: "AppIcon")
         let imageView = UIImageView(image: image)
@@ -243,6 +258,7 @@ extension InputConfirmation{
         return imageView
     }
     
+    //Adds an informative banner to the confirmation page that says "Confirm Accurate Input"
     func addUIbanner() -> UIButton {
         let label = UIButton()
         label.setBackground(UIColor(named: "blue")!, for: .normal)
